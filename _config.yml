@@ -4,11 +4,12 @@
 
 # Site
 title: Airghc
-subtitle:  
-description: 
-author: Airghc
+subtitle:
+description:
+author:  "关鸿超"
 language: zh-Hans
 timezone:
+avatar: '/uploads/avator.jpg'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -34,7 +35,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -43,9 +44,15 @@ highlight:
   auto_detect: false
   tab_replace:
 
+# duoshuo
+duoshuo_shortname: airghc
+
 # Category & Tag
 default_category: uncategorized
 category_map:
+    前端: front-end
+    生活: life
+    随笔: diary
 tag_map:
 
 # Date / Time format
@@ -61,6 +68,12 @@ per_page: 10
 pagination_dir: page
 
 # Extensions
+plugins:
+- hexo-generator-sitemap
+- hexo-generator-baidu-sitemap
+
+baidusitemap:
+  path: baidusitemap.xml
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next
@@ -68,6 +81,6 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git 
+  type: git
   repo: ssh://git@github.com/hexo/hexo.github.io
   branch: master
