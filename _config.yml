@@ -5,7 +5,7 @@
 # Site
 title: Airghc
 subtitle:
-description:
+description: 执者失之.我想当一个诗人的时候,我就失去了诗,我想当一个人的时候,我就失去了我自己...顾城
 author:  "关鸿超"
 language: zh-Hans
 timezone:
@@ -13,7 +13,8 @@ avatar: '/uploads/avator.jpg'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+#url: http://yoursite.com
+url: https://hexo.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -35,7 +36,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: true
+post_asset_folder: false
 relative_link: false
 future: true
 highlight:
@@ -51,9 +52,16 @@ duoshuo_shortname: airghc
 default_category: uncategorized
 category_map:
     前端: front-end
+    node.js: nodejs
+    python: python
+    机器学习: machine-learning
     生活: life
     随笔: diary
+    转载: useful
 tag_map:
+    北邮人: byr
+    单元测试: unit-test
+    摘抄: book
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
@@ -68,12 +76,12 @@ per_page: 10
 pagination_dir: page
 
 # Extensions
-plugins:
-- hexo-generator-sitemap
-- hexo-generator-baidu-sitemap
+#plugins:
+#- hexo-generator-sitemap
+#- hexo-generator-baidu-sitemap
 
-baidusitemap:
-  path: baidusitemap.xml
+#baidusitemap:
+#  path: baidusitemap.xml
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next
@@ -82,5 +90,28 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: ssh://git@github.com/hexo/hexo.github.io
+  repo: ssh://git@github.com/limly/limly.github.io
   branch: master
+
+sitemap:
+  path: sitemap.xml
+
+index_generator:
+  per_page: 3
+archive_generator:
+  per_page: 20
+  yearly: true
+  monthly: true
+tag_generator:
+  per_page: 10
+
+# title
+links_title: 链接
+
+#links
+links:
+  github : https://www.github.com/guanhc
+  博主微博 : http://weibo.com/guanhongchao
+  xiaoysec : https://xiaoysec.github.io
+  友链2 : http://mapan.win
+  友链3 : http://ccmapan.cn
