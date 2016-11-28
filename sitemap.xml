@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hexo.github.io/2016/11/28/tensorflow1/</loc>
+    
+    <lastmod>2016-11-28T07:25:00.817Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hexo.github.io/2016/11/10/Dectection-DDos/</loc>
     
     <lastmod>2016-11-16T02:52:24.420Z</lastmod>

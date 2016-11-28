@@ -85,29 +85,28 @@
 
 
 
-<meta name="description" content="注: 本文是来源为转载,出处是科研诚信课程参考资料,觉得很全面,转载下来等到有需要的时候看~
-一般认为，高新技术包括六大技术领域，12项标志技术和9个高技术产业。
-它们之间的关系是：六大高技术领域是信息技术、生物技术、新材料技术、新能源技术、空间技术和海洋技术，它们将在本世纪获得迅速发展，并通过广泛的实用化和商品化，成为日益强大的高技术产业。以基因工程、蛋白质工程为标志的生物技术将成为21世纪技术">
+<meta name="description" content="Cuda installation由于Tensorflow依赖GPU的运算，所以要提前安装好CUDA环镜
+https://developer.nvidia.com/cuda-downloads
+打开链接，选择相应的版本，博主的环境是64位ubuntu环境，我们使用的CUDA版本是8.0，因为最新的tensorflow对CUDA的版本也是有很高的要求的
+点击下载后等待就好1.9G的文件下载还是蛮快的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="高新技术六大领域">
-<meta property="og:url" content="https://hexo.github.io/2016/10/30/tech-6/index.html">
+<meta property="og:title" content="tensorflow安装教程Ubuntu14.04LTS">
+<meta property="og:url" content="https://hexo.github.io/2016/11/28/tensorflow1/index.html">
 <meta property="og:site_name" content="Airghc">
-<meta property="og:description" content="注: 本文是来源为转载,出处是科研诚信课程参考资料,觉得很全面,转载下来等到有需要的时候看~
-一般认为，高新技术包括六大技术领域，12项标志技术和9个高技术产业。
-它们之间的关系是：六大高技术领域是信息技术、生物技术、新材料技术、新能源技术、空间技术和海洋技术，它们将在本世纪获得迅速发展，并通过广泛的实用化和商品化，成为日益强大的高技术产业。以基因工程、蛋白质工程为标志的生物技术将成为21世纪技术">
-<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/tec_1.jpg">
-<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/tec_2.jpg">
-<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/tec_3.jpg">
-<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/tec_4.jpg">
-<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/tec_5.jpg">
-<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/tec_6.jpg">
-<meta property="og:updated_time" content="2016-10-30T07:26:33.485Z">
+<meta property="og:description" content="Cuda installation由于Tensorflow依赖GPU的运算，所以要提前安装好CUDA环镜
+https://developer.nvidia.com/cuda-downloads
+打开链接，选择相应的版本，博主的环境是64位ubuntu环境，我们使用的CUDA版本是8.0，因为最新的tensorflow对CUDA的版本也是有很高的要求的
+点击下载后等待就好1.9G的文件下载还是蛮快的">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/installcuda.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/successten.png">
+<meta property="og:updated_time" content="2016-11-28T07:25:00.817Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="高新技术六大领域">
-<meta name="twitter:description" content="注: 本文是来源为转载,出处是科研诚信课程参考资料,觉得很全面,转载下来等到有需要的时候看~
-一般认为，高新技术包括六大技术领域，12项标志技术和9个高技术产业。
-它们之间的关系是：六大高技术领域是信息技术、生物技术、新材料技术、新能源技术、空间技术和海洋技术，它们将在本世纪获得迅速发展，并通过广泛的实用化和商品化，成为日益强大的高技术产业。以基因工程、蛋白质工程为标志的生物技术将成为21世纪技术">
-<meta name="twitter:image" content="http://oelvsay9f.bkt.clouddn.com/tec_1.jpg">
+<meta name="twitter:title" content="tensorflow安装教程Ubuntu14.04LTS">
+<meta name="twitter:description" content="Cuda installation由于Tensorflow依赖GPU的运算，所以要提前安装好CUDA环镜
+https://developer.nvidia.com/cuda-downloads
+打开链接，选择相应的版本，博主的环境是64位ubuntu环境，我们使用的CUDA版本是8.0，因为最新的tensorflow对CUDA的版本也是有很高的要求的
+点击下载后等待就好1.9G的文件下载还是蛮快的">
+<meta name="twitter:image" content="http://oelvsay9f.bkt.clouddn.com/installcuda.png">
 
 
 
@@ -128,10 +127,10 @@
 
 
 
-  <link rel="canonical" href="https://hexo.github.io/2016/10/30/tech-6/"/>
+  <link rel="canonical" href="https://hexo.github.io/2016/11/28/tensorflow1/"/>
 
 
-  <title> 高新技术六大领域 | Airghc </title>
+  <title> tensorflow安装教程Ubuntu14.04LTS | Airghc </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -281,7 +280,7 @@
             
             
               
-                高新技术六大领域
+                tensorflow安装教程Ubuntu14.04LTS
               
             
           </h1>
@@ -293,8 +292,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-30T15:05:02+08:00" content="2016-10-30">
-              2016-10-30
+            <time itemprop="dateCreated" datetime="2016-11-28T13:58:36+08:00" content="2016-11-28">
+              2016-11-28
             </time>
           </span>
 
@@ -307,8 +306,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/useful/" itemprop="url" rel="index">
-                    <span itemprop="name">转载</span>
+                  <a href="/categories/machine-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -323,8 +322,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/30/tech-6/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/30/tech-6/" itemprop="commentsCount"></span>
+                <a href="/2016/11/28/tensorflow1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/28/tensorflow1/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -353,32 +352,17 @@
       
 
       
-        <p>注: 本文是来源为转载,出处是科研诚信课程参考资料,觉得很全面,转载下来等到有需要的时候看~</p>
-<p>一般认为，高新技术包括六大技术领域，12项标志技术和9个高技术产业。</p>
-<p>它们之间的关系是：六大高技术领域是信息技术、生物技术、新材料技术、新能源技术、空间技术和海洋技术，它们将在本世纪获得迅速发展，并通过广泛的实用化和商品化，成为日益强大的高技术产业。以基因工程、蛋白质工程为标志的生物技术将成为21世纪技术的核心；以光电子技术、人工智能为标志的信息技术，将成为21世纪技术的前导；以超导材料、人工定向设计的新材料为标志的新材料技术将成为21世纪技术的支柱；以核能技术与太阳能技术为标志的新能源技术也将成为21世纪技术的支柱；以航天飞机、永久太空站为标志的空间技术将成为21世纪技术的外向延伸；以深海采掘、海水利用为标志的海洋技术将成为21世纪技术的内向拓展。</p>
-<p>六项高技术领域中的12项标志技术，是已经萌发但还远未成熟的前沿技术。本世纪的传统产业在国民经济中所占比重将缩小，但由于高技术对传统产业的强制性渗透改造了这些传统产业部门，因此这些产业的绝对产量和产值不会萎缩。</p>
-<p>（一）信息技术领域<br><img src="http://oelvsay9f.bkt.clouddn.com/tec_1.jpg" alt="tec_1"><br>信息技术是六大高技术的前导。主要指信息的获取、传递、处理等技术。信息技术以电子技术为基础，包括通信技术、自动化技术、微电子技术、光电子技术、光导技术、计算机技术和人工智能技术等。</p>
-<p>当前信息技术主要表现在：</p>
-<p>（1）集成电路。目前世界上1兆位和4兆位的动态随机存储器芯片已得到广泛应用，16兆位的芯片也已产生。此外，光子集成电路和生物集成电路的研制开发也已获得重大进展。</p>
-<p>（2）电子计算机。目前世界上计算机的装机台数超过一亿，超巨型计算机速度已超过100亿次。现在的计算机，类似人的左脑进行逻辑思维方面的工作。而形象思维方面的工作则要通过人的右脑完成。为解决形象思维问题，人们正在研制神经计算机和模糊计算机。神经计算机从微观上以自底到顶的方式接近人脑，而模糊计算机则是从宏观上，以从顶到底的方式接近人脑。</p>
-<p>（3）软件技术。信息技术主要由两部分技术组成，即计算机硬件技术和计算机软件技术。知识和信息的收集、存储、整理、创新、传播和应用等环节的运行，将以计算机软件技术的开发与利用为前提。</p>
-<p>软件技术是各类计算机应用程序设计或编辑技术的总称。目前软件技术主要有四大类：</p>
-<p>①根据计算和自身的结构和功能，为计算机设计成编辑指令性语言程序的软件技术；</p>
-<p>②为计算机操作、管理人员或编辑操作、编辑、检索、调试、诊断、维护等程序的软件技术；</p>
-<p>③为满足用户的特殊需求而设计或编辑计算机应用、专项程控、系统管理等程序的软件技术；</p>
-<p>④为各类用户计划或编辑知识信息资料，网上操作和电子读物程序的软件技术。</p>
-<p>（4）通信技术。20世纪70年代以来，相继出现了光纤通信、卫星通信、程控数字交换机和综合业务数字网技术。</p>
-<p>（5）激光技术。激光器是20世纪与原子能、半导体、计算机齐名的四项重大发明之一。以激光器为基础的激光技术得到了迅速发展，现在已广泛应用于工农业生产、能源动力、通信及信息处理、医疗卫生、军事、文化艺术以及科学技术研究等各个领域，激光技术是正在走向实用化的高技术。</p>
-<p>（二）生物技术领域<br><img src="http://oelvsay9f.bkt.clouddn.com/tec_2.jpg" alt="tec_2"><br>生物技术是以生命科学为基础，利用生物体和工程原理等生产制品的综合性技术，包括基因工程、细胞工程、酶工程、微生物工程四个领域。生物技术是21世纪技术的核心。它有两个标志性技术，基因工程和蛋白质工程。</p>
-<p>生物技术不仅在农业和医学领域得到广泛的应用，而且对环保、能源技术等都有很强的渗透力。</p>
-<p>（三）新材料技术领域<br><img src="http://oelvsay9f.bkt.clouddn.com/tec_3.jpg" alt="tec_3"><br>新材料主要是指最近发展或正在发展之中的具有比传统材料更优异性能的一类材料。</p>
-<p>新材料技术是高新技术的物质基础，包括对超导材料、高温材料、人工合成材料、陶瓷材料、非晶态材料、单晶材料等的开发和利用。它有两个标志：一个是材料设计或分子设计，即根据需要来设计新材料；另一个是超导技术。</p>
-<p>20世纪90年代新材料技术研究的主要方向是：高功能化，超高性能化，复合化和智能化。</p>
-<p>（四）新能源技术领域<br><img src="http://oelvsay9f.bkt.clouddn.com/tec_4.jpg" alt="tec_4"><br>能源是人类生存和发展的基本保障。现代的新能源技术按照其创新性和是否能够再生或连续使用的性质可划分为新能源技术和可再生能源技术。新能源与可再生能源技术主要包括核能、太阳能、水能、地热能等。</p>
-<p>核能技术与太阳能技术是新能源技术的主要标志，通过对核能、太阳能的开发利用，打破了以石油、煤炭为主体的传统能源观念，开创了能源的新时代。</p>
-<p>（五）空间技术领域<br><img src="http://oelvsay9f.bkt.clouddn.com/tec_5.jpg" alt="tec_5"><br>空间技术即新型高科技航天技术，是探索、开发和利用太空以及地球以外的天体的综合性工程技术，包括对大型运载火箭、巨型卫星、宇宙飞船等空间军事技术的研究与开发。空间技术是21世纪技术的外向延伸，其两个标志是航天飞机和永久太空站。它不仅把高技术用于地球上，还把人类整体生存机构引向了外层空间。</p>
-<p>（六）海洋技术<br><img src="http://oelvsay9f.bkt.clouddn.com/tec_6.jpg" alt="tec_6"><br>世界海洋总面积为36亿平方公里，占地球总面积的70%以上，海洋的平均深度为3800米，蕴藏着极为丰富的资源和能量。海洋技术是21世纪技术的内向拓展，其标志技术是深海挖掘和海水淡化。</p>
-<p>除这六大高技术领域外，另外介绍一下环保技术和农业新技术。环保技术，主要是对人类赖以生存与发展的自然环境进行监制、控制、治理和保护的各类技术的统称。农业新技术包括：①农业工厂化。农业工厂化是综合运用现代高科技、新设备和管理方法而发展起来的一种全面机械化、自动化的技术（资金）高度密集型生产。它能够在人工创造的环境中进行全过程的连续作业，从而摆脱自然界的制约。②绿色革命。“绿色革命”是20世纪60年代中期在发展中国家兴起的，以采用农作物高产良种为中心的一场新技术革命。其主要内容是大规模地推广矮杆、半矮杆、抗倒伏、产量高、适应性广的小麦和水稻等作物优良品种，并配合灌溉、施肥等技术的改进。这一农业技术革新取得了惊人的成绩，因而被誉为“绿色革命”。国际玉米和小麦改良中心和国际水稻研究所在这一革命中作出了突出贡献。③持续农业。持续农业是20世纪80年代酝酿提出的农业发展新方向。持续农业是一种“不造成环境退化、技术上适当、经济上可行、社会上能接受的”农业。概括地说，它是经济、社会、技术与环境协调发展的农业。中国的持续农业尚处于探索和初步实验阶段。工作主要集中在三个方面：一是加强研究，二是建立实验区，三是扩大国际交流与合作。</p>
+        <h3 id="Cuda-installation"><a href="#Cuda-installation" class="headerlink" title="Cuda installation"></a>Cuda installation</h3><p>由于Tensorflow依赖GPU的运算，所以要提前安装好CUDA环镜</p>
+<p><a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="external">https://developer.nvidia.com/cuda-downloads</a></p>
+<p>打开链接，选择相应的版本，博主的环境是64位ubuntu环境，我们使用的CUDA版本是8.0，因为最新的tensorflow对CUDA的版本也是有很高的要求的</p>
+<p>点击下载后等待就好1.9G的文件下载还是蛮快的，下载成功后进入文件的目录后，执行下面的三条命令，就可以成功安装了CUDA<br>安装后的文件存存储在/usr/local/cuda目录下<br><img src="http://oelvsay9f.bkt.clouddn.com/installcuda.png" alt="选择cuda版本"></p>
+<p>安装成功后还需要安装cuDNN这个liabrary，主要作用是对CUDA进行加速，当使用CUDA进行CNN等算法的计算时，会消耗大量的计算时间，cuDNN的作用就体现出来了<br>！<a href="https://developer.nvidia.com/cudnn" target="_blank" rel="external">安装cuDNN</a></p>
+<p>下载cuDNN v5.1 Library for Linux<br>完成后进入文件所在目录，执行以下操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ tar xvzf cudnn-8.0-linux-x64-v5.1-ga.tgz</div><div class="line">$ sudo cp cuda/include/cudnn.h /usr/local/cuda/include</div><div class="line">$ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64</div><div class="line">$ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*</div></pre></td></tr></table></figure></p>
+<p>把相关的文件复制到CUDA的目录中去<br>然后链接cuDNN的库文件 ，这步很重要，博主第一次配环境的时候就是忘记了这步，因为官网上也没有给出，遇到了个小小的坑<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo ln -sf /usr/local/lib/libcudnn.so.5.1.5 /usr/local/lib/libcudnn.so.5</div><div class="line">$ sudo ln -sf /usr/local/lib/libcudnn.so.5 /usr/local/lib/libcudnn.so</div><div class="line">$ sudo ldconfig -v</div></pre></td></tr></table></figure></p>
+<h3 id="Install-TensorFlow"><a href="#Install-TensorFlow" class="headerlink" title="Install TensorFlow"></a>Install TensorFlow</h3><p>有很多种方法可以安装TensorFlow，博主选择使用pip工具，这样简单又方便，官网给出了很多种方法，可以参考一下<br><a href="https://www.tensorflow.org/versions/r0.11/get_started/os_setup.html#download-and-setup" target="_blank" rel="external">https://www.tensorflow.org/versions/r0.11/get_started/os_setup.html#download-and-setup</a><br>首先安装pip,已经安装过得小伙伴可以跳过了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install python-pip python-dev</div></pre></td></tr></table></figure></p>
+<p>选择需要的版本，根据博主的系统，输入下面命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.11.0-cp27-none-linux_x86_64.whl</div><div class="line">$ sudo pip install --upgrade $TF_BINARY_URL</div></pre></td></tr></table></figure></p>
+<p>安装成功后，执行下面的步骤，打开用户配置文件～/.bash_profile ,关于几种配置文件的区别，博主刚刚好在以前的文章中也写到过<br>增加下面的设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export LD_LIBRARY_PATH=&quot;$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64&quot;</div><div class="line">export CUDA_HOME=/usr/local/cuda</div></pre></td></tr></table></figure></p>
+<h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><p>检测TensorFlow是否安装成功，在命令行输入Python，引入TensorFlow，出现下面的结果说明安装成功，我们学习深度学习的第一步已经成功迈出了，哈哈<br><img src="http://oelvsay9f.bkt.clouddn.com/successten.png" alt="tensorflow安装成功"></p>
 
       
     </div>
@@ -404,17 +388,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/30/lml/" rel="next" title="有效沟通技巧">
-                <i class="fa fa-chevron-left"></i> 有效沟通技巧
+              <a href="/2016/11/11/anycode/" rel="next" title="爬虫代码分析">
+                <i class="fa fa-chevron-left"></i> 爬虫代码分析
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/09/poem1/" rel="prev" title="你那么远，又那么近">
-                你那么远，又那么近 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -440,8 +420,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/30/tech-6/"
-           data-title="高新技术六大领域" data-url="https://hexo.github.io/2016/10/30/tech-6/">
+      <div class="ds-thread" data-thread-key="2016/11/28/tensorflow1/"
+           data-title="tensorflow安装教程Ubuntu14.04LTS" data-url="https://hexo.github.io/2016/11/28/tensorflow1/">
       </div>
     
   </div>
@@ -562,7 +542,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cuda-installation"><span class="nav-number">1.</span> <span class="nav-text">Cuda installation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-TensorFlow"><span class="nav-number">2.</span> <span class="nav-text">Install TensorFlow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test"><span class="nav-number">3.</span> <span class="nav-text">Test</span></a></li></ol></div>
             
           </div>
         </section>
