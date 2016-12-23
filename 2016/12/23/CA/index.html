@@ -93,14 +93,11 @@
 <meta property="og:site_name" content="Airghc">
 <meta property="og:description" content="最近由于项目需要，学习了一下关于数据传输的加密解密的相关知识，以及证书服务器的搭建过程，参考了一些文章的教程，讲的基本上算是很全面了，但是还是有些问题不是很明白，这里做一下连续的更新记录，记载关于这个知识点的学习过程。。
 什么是openssl？讲openssl之前我们先了解一下什么是ssl?ssl是secure socket layer的简称，其使用对称加密，非对称加密（公钥加密解密），单向加密解">
-<meta property="og:image" content="http://www.178linux.com/10705">
-<meta property="og:image" content="http://blog.csdn.net/deansrk/article/details/6680299">
-<meta property="og:updated_time" content="2016-12-23T14:31:21.703Z">
+<meta property="og:updated_time" content="2016-12-23T14:32:39.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OPENSSL和证书服务器搭建">
 <meta name="twitter:description" content="最近由于项目需要，学习了一下关于数据传输的加密解密的相关知识，以及证书服务器的搭建过程，参考了一些文章的教程，讲的基本上算是很全面了，但是还是有些问题不是很明白，这里做一下连续的更新记录，记载关于这个知识点的学习过程。。
 什么是openssl？讲openssl之前我们先了解一下什么是ssl?ssl是secure socket layer的简称，其使用对称加密，非对称加密（公钥加密解密），单向加密解">
-<meta name="twitter:image" content="http://www.178linux.com/10705">
 
 
 
@@ -404,7 +401,7 @@
 <p>如果一个用户想鉴别另一个证书的真伪，他就用 CA 的公钥对那个证书上的签字进行验证，一旦验证通过，该证书就被认为是有效的。</p>
 <p>使用数字证书能做什么? 　</p>
 <p>数字证书在用户公钥后附加了用户信息及CA的签名。公钥是密钥对的一部分，另一部分是私钥。公钥公之于众，谁都可以使用。私钥只有自己知道。由公钥加密的信息只能由与之相对应的私钥解密。为确保只有某个人才能阅读自己的信件，发送者要用收件人的公钥加密信件；收件人便可用自己的私钥解密信件。同样，为证实发件人的身份，发送者要用自己的私钥对信件进行签名；收件人可使用发送者的公钥对签名进行验证，以确认发送者的身份。如此我们便可以安全的在网上进行各种交易，接下来我们实践操作一下此过程的实现。</p>
-<h3 id="搭建CA证书服务器"><a href="#搭建CA证书服务器" class="headerlink" title="搭建CA证书服务器"></a>搭建CA证书服务器</h3><p>具体流程可以参考以下链接，实测有效，为提高效率不造轮子了。。<br><img src="http://www.178linux.com/10705" alt="搭建证书服务器"><br><img src="http://blog.csdn.net/deansrk/article/details/6680299" alt="openssl"></p>
+<h3 id="搭建CA证书服务器"><a href="#搭建CA证书服务器" class="headerlink" title="搭建CA证书服务器"></a>搭建CA证书服务器</h3><p>具体流程可以参考以下链接，实测有效，为提高效率不造轮子了。。<br><a href="http://www.178linux.com/10705" target="_blank" rel="external">搭建证书服务器</a><br><a href="http://blog.csdn.net/deansrk/article/details/6680299" target="_blank" rel="external">openssl</a></p>
 
       
     </div>
