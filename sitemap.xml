@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hexo.github.io/2016/12/23/CA/</loc>
+    
+    <lastmod>2016-12-23T14:22:54.615Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hexo.github.io/2016/12/04/docker-install/</loc>
     
     <lastmod>2016-12-04T14:51:12.496Z</lastmod>
