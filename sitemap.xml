@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hexo.github.io/2016/12/27/poem2/</loc>
+    
+    <lastmod>2016-12-27T05:44:39.172Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hexo.github.io/2016/12/23/svm-text-classification/</loc>
     
     <lastmod>2016-12-23T15:28:19.719Z</lastmod>
