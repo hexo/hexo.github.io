@@ -186,17 +186,17 @@
 
     
   <url>
-    <loc>https://hexo.github.io/2016/10/30/lml/</loc>
+    <loc>https://hexo.github.io/2016/10/11/linux%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</loc>
     <lastmod>2016-12-28T12:41:23.599Z</lastmod>
     <data>
         <display>
-        <title>有效沟通技巧</title>
-        <pubTime>2016-10-30T06:24:17.000Z</pubTime>
+        <title>linux配置文件</title>
+        <pubTime>2016-10-11T03:30:23.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="生活" url="https://hexo.github.io/categories/life/"/>
+              <breadCrumb title="Linux" url="https://hexo.github.io/categories/Linux/"/>
           
         </display>
     </data>
@@ -262,17 +262,35 @@
 
     
   <url>
-    <loc>https://hexo.github.io/2016/10/11/linux%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</loc>
+    <loc>https://hexo.github.io/2016/10/30/lml/</loc>
     <lastmod>2016-12-28T12:41:23.599Z</lastmod>
     <data>
         <display>
-        <title>linux配置文件</title>
-        <pubTime>2016-10-11T03:30:23.000Z</pubTime>
+        <title>有效沟通技巧</title>
+        <pubTime>2016-10-30T06:24:17.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="Linux" url="https://hexo.github.io/categories/Linux/"/>
+              <breadCrumb title="生活" url="https://hexo.github.io/categories/life/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/11/09/poem1/</loc>
+    <lastmod>2016-12-28T12:41:23.599Z</lastmod>
+    <data>
+        <display>
+        <title>你那么远，又那么近</title>
+        <pubTime>2016-11-09T00:44:20.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="生活" url="https://hexo.github.io/categories/life/"/>
           
         </display>
     </data>
@@ -293,24 +311,6 @@
            
              
               <breadCrumb title="游记" url="https://hexo.github.io/categories/%E6%B8%B8%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2016/11/09/poem1/</loc>
-    <lastmod>2016-12-28T12:41:23.599Z</lastmod>
-    <data>
-        <display>
-        <title>你那么远，又那么近</title>
-        <pubTime>2016-11-09T00:44:20.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="生活" url="https://hexo.github.io/categories/life/"/>
           
         </display>
     </data>
