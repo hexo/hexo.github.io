@@ -1,0 +1,797 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="针对上面的代码结构，进行以下几个模块的分析
+python库
+re 是关于正则匹配的库，可以完成字段的正则匹配和遍历满足条件的字符串
+urlparse 是进行url拼接，编码，解码相关的库
+urllib2 是我们进行数据抓取的核心模块
+robotparser 是解析域名的robot.txt文件时使用的，robot.txt文件定义了网站对于爬虫访问的权限
+builtwith 是一个检查网站构建技术类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="爬虫代码分析">
+<meta property="og:url" content="https://hexo.github.io/2016/11/11/spider2/index.html">
+<meta property="og:site_name" content="Airghc">
+<meta property="og:description" content="针对上面的代码结构，进行以下几个模块的分析
+python库
+re 是关于正则匹配的库，可以完成字段的正则匹配和遍历满足条件的字符串
+urlparse 是进行url拼接，编码，解码相关的库
+urllib2 是我们进行数据抓取的核心模块
+robotparser 是解析域名的robot.txt文件时使用的，robot.txt文件定义了网站对于爬虫访问的权限
+builtwith 是一个检查网站构建技术类型">
+<meta property="og:updated_time" content="2016-12-28T13:32:59.219Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="爬虫代码分析">
+<meta name="twitter:description" content="针对上面的代码结构，进行以下几个模块的分析
+python库
+re 是关于正则匹配的库，可以完成字段的正则匹配和遍历满足条件的字符串
+urlparse 是进行url拼接，编码，解码相关的库
+urllib2 是我们进行数据抓取的核心模块
+robotparser 是解析域名的robot.txt文件时使用的，robot.txt文件定义了网站对于爬虫访问的权限
+builtwith 是一个检查网站构建技术类型">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hexo.github.io/2016/11/11/spider2/"/>
+
+
+
+
+
+  <title> 爬虫代码分析 | Airghc </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Airghc</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2016/11/11/spider2/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="关鸿超">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avator.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Airghc">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Airghc" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                爬虫代码分析
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-11T21:22:10+08:00">
+                2016-11-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/11/spider2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/11/spider2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>针对上面的代码结构，进行以下几个模块的分析</p>
+<h3 id="python库"><a href="#python库" class="headerlink" title="python库"></a>python库</h3><ul>
+<li>re 是关于正则匹配的库，可以完成字段的正则匹配和遍历满足条件的字符串</li>
+<li>urlparse 是进行url拼接，编码，解码相关的库</li>
+<li>urllib2 是我们进行数据抓取的核心模块</li>
+<li>robotparser 是解析域名的robot.txt文件时使用的，robot.txt文件定义了网站对于爬虫访问的权限</li>
+<li>builtwith 是一个检查网站构建技术类型的模块，比如某个网站使用了python的flask框架</li>
+<li>whois 检查网站的所有者，即该域名归属于谁</li>
+</ul>
+<h3 id="link-crawler函数分析"><a href="#link-crawler函数分析" class="headerlink" title="link_crawler函数分析"></a>link_crawler函数分析</h3><p>首先是传入参数，</p>
+<ul>
+<li>seed_url 定义了传入的域名</li>
+<li>link_regex 为需要在该页面中进行正则匹配的子域名</li>
+<li>delay 设置了两次下载之间存在的时延，主要是为了防止爬取速度过快被服务器封禁或者过载的风险</li>
+<li>max_depth 设置了最大的访问深度，防止进入无穷链接的陷阱，造成死循环，目前为-1代表该项不启用</li>
+<li>max_urls 设置了最大可访问的url数目，同样也是为了防止数目太多，服务器过载现象的发生</li>
+<li>headers 设置请求头</li>
+<li>user_agent 设置用户代理</li>
+<li>proxy 设置代理</li>
+<li>num_retries: 如果访问失败是否重新尝试，尝试几次</li>
+</ul>
+<h3 id="顺序分析"><a href="#顺序分析" class="headerlink" title="顺序分析"></a>顺序分析</h3><ul>
+<li>把seed_url即我们初始设置的url放在待访问的双端队列中</li>
+<li>设置当前看过的url dict为空</li>
+<li>设置当前访问的url数目为空</li>
+<li>获取 robot文件信息，时延信息，请求头信息，用户代理信息</li>
+<li>当待访问的url队列信息不为空时，依次提取队列中每一个url进行访问，检测相关访问权限之后，下载页面内容，并从内页面信息中检测出匹配到的新的url链接，放入到队列中，当然这其中也进行了是否超过最大深度的判断，用户访问权限的判断，用户代理的设置等等</li>
+</ul>
+<h3 id="子函数分析"><a href="#子函数分析" class="headerlink" title="子函数分析"></a>子函数分析</h3><ul>
+<li>get_links函数 这个函数把与目标要求满足正则匹配的链接提取出来</li>
+<li>get_robots 这个函数提取robots.txt文件并进行分析，检测当前用户是否有权限进行对目标网站的数据抓取</li>
+<li>download 这个是用于下载的函数 首先根据url，请求头，等信息向目标网站发起请求，然后对请求结果进行分析，根据返回的状态码对结果进行分类，当状态码500~600之间时会发起重新请求的指令，防止是由于服务器临时原因造成的数据抓取失败</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这样，通过这样几个基础的python库，我们已经能够实现抓取与某个链接相关联的全部内容，但是这样的数据是在是太多了，其中包含很多我们不需要的内容，接下来我们需要通过一些分析手段取抓取的数据进行分析，提取有价值的部分，这部分会在以后的文章中给出</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/11/spider1/" rel="next" title="使用Python爬取数据学习">
+                <i class="fa fa-chevron-left"></i> 使用Python爬取数据学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/28/tensorflow1/" rel="prev" title="Tensorflow安装教程Ubuntu14.04LTS">
+                Tensorflow安装教程Ubuntu14.04LTS <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/11/spider2/"
+           data-title="爬虫代码分析" data-url="https://hexo.github.io/2016/11/11/spider2/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avator.jpg"
+               alt="关鸿超" />
+          <p class="site-author-name" itemprop="name">关鸿超</p>
+          <p class="site-description motion-element" itemprop="description">甚嚣尘上,前程为证</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.github.com/guanhc" title="Github" target="_blank">Github</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://weibo.com/guanhongchao" title="Weibo" target="_blank">Weibo</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://xiaoysec.github.io" title="xiaoysec" target="_blank">xiaoysec</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.mapan.win" title="mapan" target="_blank">mapan</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://fantasticzhang.gtensor.com/" title="fantasticzhang" target="_blank">fantasticzhang</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://rain1ove.cn/" title="rain" target="_blank">rain</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#python库"><span class="nav-number">1.</span> <span class="nav-text">python库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#link-crawler函数分析"><span class="nav-number">2.</span> <span class="nav-text">link_crawler函数分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序分析"><span class="nav-number">3.</span> <span class="nav-text">顺序分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子函数分析"><span class="nav-number">4.</span> <span class="nav-text">子函数分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">关鸿超</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"airghc"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
