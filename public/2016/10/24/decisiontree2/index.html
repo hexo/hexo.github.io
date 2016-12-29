@@ -1,0 +1,793 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="决策树学习的实际问题包括:确定决策树增长的深度,处理连续值的属性,选择一个适合的属性筛选度量标准,处理属性值不完整的训练数据,处理不同代价的属性,提高计算效率.下面将会分别介绍,事实上,为了解决多数问题,ID3算法已经被扩展成为C4.5
+避免过度拟合对于一个假设,当存在其他的假设对训练样例的拟合比它差,但事实上在实例的整体分布上却表现的更好时,我们说这个假设过度拟合训练样例
+有几种途径可以被用来避">
+<meta property="og:type" content="article">
+<meta property="og:title" content="决策树学习的常见问题">
+<meta property="og:url" content="https://hexo.github.io/2016/10/24/decisiontree2/index.html">
+<meta property="og:site_name" content="Airghc">
+<meta property="og:description" content="决策树学习的实际问题包括:确定决策树增长的深度,处理连续值的属性,选择一个适合的属性筛选度量标准,处理属性值不完整的训练数据,处理不同代价的属性,提高计算效率.下面将会分别介绍,事实上,为了解决多数问题,ID3算法已经被扩展成为C4.5
+避免过度拟合对于一个假设,当存在其他的假设对训练样例的拟合比它差,但事实上在实例的整体分布上却表现的更好时,我们说这个假设过度拟合训练样例
+有几种途径可以被用来避">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/%E8%A7%84%E5%88%99%E5%90%8E%E4%BF%AE%E5%89%AA.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/%E5%88%86%E8%A3%82%E4%BF%A1%E6%81%AF%E5%85%AC%E5%BC%8F.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/%E5%A2%9E%E7%9B%8A%E6%AF%94%E7%8E%87.png">
+<meta property="og:updated_time" content="2016-12-28T12:41:23.599Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="决策树学习的常见问题">
+<meta name="twitter:description" content="决策树学习的实际问题包括:确定决策树增长的深度,处理连续值的属性,选择一个适合的属性筛选度量标准,处理属性值不完整的训练数据,处理不同代价的属性,提高计算效率.下面将会分别介绍,事实上,为了解决多数问题,ID3算法已经被扩展成为C4.5
+避免过度拟合对于一个假设,当存在其他的假设对训练样例的拟合比它差,但事实上在实例的整体分布上却表现的更好时,我们说这个假设过度拟合训练样例
+有几种途径可以被用来避">
+<meta name="twitter:image" content="http://oelvsay9f.bkt.clouddn.com/%E8%A7%84%E5%88%99%E5%90%8E%E4%BF%AE%E5%89%AA.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hexo.github.io/2016/10/24/decisiontree2/"/>
+
+
+
+
+
+  <title> 决策树学习的常见问题 | Airghc </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Airghc</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2016/10/24/decisiontree2/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="关鸿超">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avator.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Airghc">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Airghc" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                决策树学习的常见问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-24T10:43:03+08:00">
+                2016-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/machine-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/10/24/decisiontree2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/24/decisiontree2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>决策树学习的实际问题包括:确定决策树增长的深度,处理连续值的属性,选择一个适合的属性筛选度量标准,处理属性值不完整的训练数据,处理不同代价的属性,提高计算效率.下面将会分别介绍,事实上,为了解决多数问题,ID3算法已经被扩展成为C4.5</p>
+<h3 id="避免过度拟合"><a href="#避免过度拟合" class="headerlink" title="避免过度拟合"></a>避免过度拟合</h3><p>对于一个假设,当存在其他的假设对训练样例的拟合比它差,但事实上在实例的整体分布上却表现的更好时,我们说这个假设过度拟合训练样例</p>
+<p>有几种途径可以被用来避免决策树学习中的过度拟合.他们可以被分成两类:</p>
+<ul>
+<li>及早停止增长: 在ID3算法完美分类训练数据之前就停止树增长;</li>
+<li>后修剪法: 允许树过度拟合数据,然后对这个树进行后修剪;</li>
+</ul>
+<p>尽管第一种方法看起来很厉害的样子,但我们想精确的估计何时停止增长很困难,实际中广泛采用的是第二种思想<br>不过无论使用哪种方法,一个关键的问题是使用什么样的准则来确定最终正确树的规模,解决这个问题的方法包括:</p>
+<ul>
+<li>使用与训练样例不同的一套分离的样例,来评估通过后修剪方法从树上修剪结点的效用</li>
+<li>使用所有可用数据进行训练,但进行统计测试来估计扩展一个特定的节点是否有可能改善在训练集合外的实例上的性能</li>
+<li>使用一个明确的衡量标准来衡量训练样例和决策树的复杂度,当这个编码最小的时候停止树增长,这个方法基于一种启发式规则,被称为最小描述长度</li>
+</ul>
+<p>上面的第一种方法,常被称为训练和验证集,可用的数据被分成两个样例集合,一个训练集合用来形成学习到的假设,一个分离的验证集合用来评估这个假设在后续的数据上的精度,这样即使学习器可能会被训练中高的随机误差和巧合性规律所误导,但是验证集合不太可能会出先同样的随机波动,所以以此来对过度拟合训练集中的虚假特征提供防护检验<br>那么如何使用验证集合来防止过度拟合??</p>
+<h4 id="方法1-错误率降低修剪"><a href="#方法1-错误率降低修剪" class="headerlink" title="方法1: 错误率降低修剪"></a>方法1: 错误率降低修剪</h4><p>考虑将树上每一个结点作为修剪的候选对象,修剪的步骤如下</p>
+<ul>
+<li>删除以此结点为根的子树</li>
+<li>使它成为叶子结点</li>
+<li>把和该结点相关联的训练样例的最常见分类赋给它</li>
+<li>最重要的是,修剪后的树对于验证集合的性能不比原来的树差时才可以删除</li>
+</ul>
+<h4 id="方法2-规则后修剪"><a href="#方法2-规则后修剪" class="headerlink" title="方法2:规则后修剪"></a>方法2:规则后修剪</h4><p>实践中,一种用来发现高精度假设的非常成功的方法为”规则后修剪”,这中修剪方法的一种变体应用在C4.5中,具体包括下面的步骤</p>
+<ul>
+<li>从训练集合推导出决策树,增长决策树直到尽可能好地拟合训练数据,允许过度拟合发生</li>
+<li>将决策树转化为等价的规则集合,方法是为从根结点到叶子结点的每条路径创建一条规则</li>
+<li>删除任何能导致估计精度提高的前件来修剪每一条规则</li>
+<li>按照修剪过的规则的估计精度对他们进行排序,并按照这样的顺序应用这些规则来分类后来的实例</li>
+</ul>
+<p>下面是关于前件后件的解释<br><img src="http://oelvsay9f.bkt.clouddn.com/%E8%A7%84%E5%88%99%E5%90%8E%E4%BF%AE%E5%89%AA.png" alt="规则后修剪"></p>
+<h3 id="合并连续值属性"><a href="#合并连续值属性" class="headerlink" title="合并连续值属性"></a>合并连续值属性</h3><p>之前说到的ID3算法是限制取离散值的属性,不过我们可以把连续值的属性分割为离散的区间集合,例如连续值属性A,算法可以动态创建一个阈值c,如果A&lt;c,那么A为真,否则A为假<br>那么问题就变成了如何去确定c?<br>对于某一个属性来说,我们无疑会选择信息增益最大的阈值,具体做法如下:</p>
+<ul>
+<li>首先按照连续属性A排序样例,然后确定目标分类不同的相邻实例</li>
+<li>于是我们产生了一组候选阈值,他们的值是A值之间的中间值</li>
+<li>计算每个候选阈值关联的信息增益,选择信息增益最大的候选阈值</li>
+</ul>
+<h3 id="属性选择的度量标准"><a href="#属性选择的度量标准" class="headerlink" title="属性选择的度量标准"></a>属性选择的度量标准</h3><p>上面说到信息增益的度量标准存在一个内在偏置,即偏袒具有较多值的属性,但是存在一个问题,太多的可能值必然会把训练样例分割成非常小的空间<br>为了避免这个不足,我们可以采用其他度量标准比如 增益比率(gain ratio),增益比率通过加入一个被称作分裂信息的项来惩罚属性,分裂信息用来衡量属性分裂数据的广度和均匀性<br><img src="http://oelvsay9f.bkt.clouddn.com/%E5%88%86%E8%A3%82%E4%BF%A1%E6%81%AF%E5%85%AC%E5%BC%8F.png" alt="分裂信息公式"><br>增益比率是用前面的信息度量和这里的分裂信息共同定义的<br><img src="http://oelvsay9f.bkt.clouddn.com/%E5%A2%9E%E7%9B%8A%E6%AF%94%E7%8E%87.png" alt="增益比率"></p>
+<h3 id="缺少属性值的训练样例"><a href="#缺少属性值的训练样例" class="headerlink" title="缺少属性值的训练样例"></a>缺少属性值的训练样例</h3><p>一种方法是取当前训练样例中该属性最常见的值,另一种方法是给每一个可能的值一个概率,通过概率的方法来计算信息增益</p>
+<h3 id="处理不同代价的属性"><a href="#处理不同代价的属性" class="headerlink" title="处理不同代价的属性"></a>处理不同代价的属性</h3><p>有的属性代价很高,比如医疗检查,涉及到所需的费用和患者的不适.对于这样的任务,我们优先考虑使用低代价属性的决策树<br>另外我们可以用信息增益除以属性代价,这样就能够让低代价的属性优先被选择</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/24/decisiontree/" rel="next" title="浅谈决策树学习算法">
+                <i class="fa fa-chevron-left"></i> 浅谈决策树学习算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/30/lml/" rel="prev" title="有效沟通技巧">
+                有效沟通技巧 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/24/decisiontree2/"
+           data-title="决策树学习的常见问题" data-url="https://hexo.github.io/2016/10/24/decisiontree2/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avator.jpg"
+               alt="关鸿超" />
+          <p class="site-author-name" itemprop="name">关鸿超</p>
+          <p class="site-description motion-element" itemprop="description">甚嚣尘上,前程为证</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.github.com/guanhc" title="Github" target="_blank">Github</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://weibo.com/guanhongchao" title="Weibo" target="_blank">Weibo</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://xiaoysec.github.io" title="xiaoysec" target="_blank">xiaoysec</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.mapan.win" title="mapan" target="_blank">mapan</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://fantasticzhang.gtensor.com/" title="fantasticzhang" target="_blank">fantasticzhang</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://rain1ove.cn/" title="rain" target="_blank">rain</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#避免过度拟合"><span class="nav-number">1.</span> <span class="nav-text">避免过度拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法1-错误率降低修剪"><span class="nav-number">1.1.</span> <span class="nav-text">方法1: 错误率降低修剪</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法2-规则后修剪"><span class="nav-number">1.2.</span> <span class="nav-text">方法2:规则后修剪</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并连续值属性"><span class="nav-number">2.</span> <span class="nav-text">合并连续值属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性选择的度量标准"><span class="nav-number">3.</span> <span class="nav-text">属性选择的度量标准</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺少属性值的训练样例"><span class="nav-number">4.</span> <span class="nav-text">缺少属性值的训练样例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理不同代价的属性"><span class="nav-number">5.</span> <span class="nav-text">处理不同代价的属性</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">关鸿超</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"airghc"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
