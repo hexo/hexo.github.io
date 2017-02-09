@@ -17,7 +17,7 @@ python 中有很多常见基础的模块，比如time，datetime，经常会遇�
 ### datetime
 
 datetime是一种时间类型
-```apple js
+```
 >>> print(datetime.datetime.now())
 >>> 2017-02-09 19:55:10.123111
 ```
@@ -25,7 +25,7 @@ datetime是一种时间类型
 - datetime.date.today()  #获取当天date
 
 datetime和timestamp类型的相互转化
-```apple js
+```
 #datetime -> timestamp
 dt = datetime(2015,4,19,12,20)
 timestamp = dt.timestamp()
@@ -35,14 +35,14 @@ datetime =  datetime.formatstamp(t)
 ```
 如果已经有了datetime对象，要把它格式化为字符转显示给用户，就要转化为str，
 转换方法是通过strftime()实现的，同样需要一个日期和时间的格式化字符串
-```apple js
+```
 now = datetime.datetime.now()
 print(now.strftime('%a, %b %d %h:%M'))
 ```
 datetime 加减
 对日期和时间进行加减实际上就是把datetime往后或往前计算，得到新的datetime。
 加减可以直接用+和-运算符，不过需要导入timedelta这个类：
-```apple js
+```
 >>> from datetime import datetime, timedelta
 >>> now = datetime.now()
 >>> now
