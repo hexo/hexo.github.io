@@ -84,28 +84,28 @@
 
 
 
-<meta name="description" content="Cuda installation由于Tensorflow依赖GPU的运算，所以要提前安装好CUDA环镜
-安装CUDA
-打开链接，选择相应的版本，博主的环境是64位ubuntu环境，我们使用的CUDA版本是8.0，因为最新的tensorflow对CUDA的版本也是有很高的要求的
-点击下载后等待就好1.9G的文件下载还是蛮快的，下载成功后进入文件的目录后，执行下面的三条命令，就可以成功安装了CUDA">
+<meta name="description" content="python 中有很多常见基础的模块，比如time，datetime，经常会遇到。需要总结记录一下，为以后能后提高编码效率做一些准备。
+time
+time.time()  #获取当前时间的时间戳，时间戳最适合做时期运算，范围是1970~2038年
+time.localtime(timestamp)  #输入时间戳，返回时间戳对应的时间元组
+time.mktime(tupletime)  #输入时间">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tensorflow安装教程Ubuntu14.04LTS">
-<meta property="og:url" content="https://hexo.github.io/2016/11/28/tensorflow1/index.html">
+<meta property="og:title" content="python time和datetime模块">
+<meta property="og:url" content="https://hexo.github.io/2017/02/09/python-basic/index.html">
 <meta property="og:site_name" content="Airghc">
-<meta property="og:description" content="Cuda installation由于Tensorflow依赖GPU的运算，所以要提前安装好CUDA环镜
-安装CUDA
-打开链接，选择相应的版本，博主的环境是64位ubuntu环境，我们使用的CUDA版本是8.0，因为最新的tensorflow对CUDA的版本也是有很高的要求的
-点击下载后等待就好1.9G的文件下载还是蛮快的，下载成功后进入文件的目录后，执行下面的三条命令，就可以成功安装了CUDA">
-<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/installcuda.png">
-<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/successten.png">
-<meta property="og:updated_time" content="2016-12-28T13:30:35.000Z">
+<meta property="og:description" content="python 中有很多常见基础的模块，比如time，datetime，经常会遇到。需要总结记录一下，为以后能后提高编码效率做一些准备。
+time
+time.time()  #获取当前时间的时间戳，时间戳最适合做时期运算，范围是1970~2038年
+time.localtime(timestamp)  #输入时间戳，返回时间戳对应的时间元组
+time.mktime(tupletime)  #输入时间">
+<meta property="og:updated_time" content="2017-02-09T12:03:16.908Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tensorflow安装教程Ubuntu14.04LTS">
-<meta name="twitter:description" content="Cuda installation由于Tensorflow依赖GPU的运算，所以要提前安装好CUDA环镜
-安装CUDA
-打开链接，选择相应的版本，博主的环境是64位ubuntu环境，我们使用的CUDA版本是8.0，因为最新的tensorflow对CUDA的版本也是有很高的要求的
-点击下载后等待就好1.9G的文件下载还是蛮快的，下载成功后进入文件的目录后，执行下面的三条命令，就可以成功安装了CUDA">
-<meta name="twitter:image" content="http://oelvsay9f.bkt.clouddn.com/installcuda.png">
+<meta name="twitter:title" content="python time和datetime模块">
+<meta name="twitter:description" content="python 中有很多常见基础的模块，比如time，datetime，经常会遇到。需要总结记录一下，为以后能后提高编码效率做一些准备。
+time
+time.time()  #获取当前时间的时间戳，时间戳最适合做时期运算，范围是1970~2038年
+time.localtime(timestamp)  #输入时间戳，返回时间戳对应的时间元组
+time.mktime(tupletime)  #输入时间">
 
 
 
@@ -133,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://hexo.github.io/2016/11/28/tensorflow1/"/>
+  <link rel="canonical" href="https://hexo.github.io/2017/02/09/python-basic/"/>
 
 
 
 
 
-  <title> Tensorflow安装教程Ubuntu14.04LTS | Airghc </title>
+  <title> python time和datetime模块 | Airghc </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -272,7 +272,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2016/11/28/tensorflow1/">
+  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2017/02/09/python-basic/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="关鸿超">
@@ -296,7 +296,7 @@
             
             
               
-                Tensorflow安装教程Ubuntu14.04LTS
+                python time和datetime模块
               
             
           </h1>
@@ -311,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-28T21:24:54+08:00">
-                2016-11-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-09T17:47:44+08:00">
+                2017-02-09
               </time>
             
 
@@ -334,8 +334,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/machine-learning/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -352,8 +352,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/11/28/tensorflow1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/28/tensorflow1/" itemprop="commentCount"></span>
+                <a href="/2017/02/09/python-basic/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/09/python-basic/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -379,16 +379,22 @@
       
 
       
-        <h3 id="Cuda-installation"><a href="#Cuda-installation" class="headerlink" title="Cuda installation"></a>Cuda installation</h3><p>由于Tensorflow依赖GPU的运算，所以要提前安装好CUDA环镜</p>
-<p><a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="external">安装CUDA</a></p>
-<p>打开链接，选择相应的版本，博主的环境是64位ubuntu环境，我们使用的CUDA版本是8.0，因为最新的tensorflow对CUDA的版本也是有很高的要求的</p>
-<p>点击下载后等待就好1.9G的文件下载还是蛮快的，下载成功后进入文件的目录后，执行下面的三条命令，就可以成功安装了CUDA<br>安装后的文件存存储在/usr/local/cuda目录下<br>选择cuda版本<br><img src="http://oelvsay9f.bkt.clouddn.com/installcuda.png" alt="选择cuda版本"><br>安装成功后还需要安装cuDNN这个liabrary，主要作用是对CUDA进行加速，当使用CUDA进行CNN等算法的计算时，会消耗大量的计算时间，cuDNN的作用就体现出来了<br><a href="https://developer.nvidia.com/cudnn" target="_blank" rel="external">安装cuDNN</a></p>
-<p>下载cuDNN v5.1 Library for Linux<br>完成后进入文件所在目录，执行以下操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ tar xvzf cudnn-8.0-linux-x64-v5.1-ga.tgz</div><div class="line">$ sudo cp cuda/include/cudnn.h /usr/local/cuda/include</div><div class="line">$ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64</div><div class="line">$ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*</div></pre></td></tr></table></figure></p>
-<p>把相关的文件复制到CUDA的目录中去<br>然后链接cuDNN的库文件 ，这步很重要，博主第一次配环境的时候就是忘记了这步，因为官网上也没有给出，遇到了个小小的坑<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo ln -sf /usr/local/lib/libcudnn.so.5.1.5 /usr/local/lib/libcudnn.so.5</div><div class="line">$ sudo ln -sf /usr/local/lib/libcudnn.so.5 /usr/local/lib/libcudnn.so</div><div class="line">$ sudo ldconfig -v</div></pre></td></tr></table></figure></p>
-<h3 id="Install-TensorFlow"><a href="#Install-TensorFlow" class="headerlink" title="Install TensorFlow"></a>Install TensorFlow</h3><p>有很多种方法可以安装TensorFlow，博主选择使用pip工具，这样简单又方便，官网给出了很多种方法，可以参考一下<br><a href="https://www.tensorflow.org/versions/r0.11/get_started/os_setup#download-and-setup" target="_blank" rel="external">安装TensorFlow</a><br>首先安装pip,已经安装过的小伙伴可以跳过了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install python-pip python-dev</div></pre></td></tr></table></figure></p>
-<p>选择需要的版本，博主根据自己的系统，输入了下面命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.11.0-cp27-none-linux_x86_64.whl</div><div class="line">$ sudo pip install --upgrade $TF_BINARY_URL</div></pre></td></tr></table></figure></p>
-<p>安装成功后，执行下面的步骤，打开用户配置文件～/.bash_profile ,关于几种配置文件的区别，博主刚刚好在以前的文章中也写到过<br>增加下面的设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export LD_LIBRARY_PATH=&quot;$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64&quot;</div><div class="line">export CUDA_HOME=/usr/local/cuda</div></pre></td></tr></table></figure></p>
-<h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><p>检测TensorFlow是否安装成功，在命令行输入Python，引入TensorFlow，出现下面的结果说明安装成功，我们学习深度学习的第一步已经成功迈出了，哈哈<br><img src="http://oelvsay9f.bkt.clouddn.com/successten.png" alt="tensorflow安装成功"></p>
+        <p>python 中有很多常见基础的模块，比如time，datetime，经常会遇到。<br>需要总结记录一下，为以后能后提高编码效率做一些准备。</p>
+<h3 id="time"><a href="#time" class="headerlink" title="time"></a>time</h3><ul>
+<li>time.time()  #获取当前时间的时间戳，时间戳最适合做时期运算，范围是1970~2038年</li>
+<li>time.localtime(timestamp)  #输入时间戳，返回时间戳对应的时间元组</li>
+<li>time.mktime(tupletime)  #输入时间元组，返回对应的时间戳</li>
+<li>time.asctime(tupletime)  #输入时间元组，返回对应的时间字符串</li>
+<li>time.ctime(timestamp)  #输入时间戳，返回对应的时间字符串</li>
+</ul>
+<h3 id="datetime"><a href="#datetime" class="headerlink" title="datetime"></a>datetime</h3><p>datetime是一种时间类型<br><figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; print(datetime.datetime.now())</div><div class="line">&gt;&gt;&gt; 2017-02-09 19:55:10.123111</div></pre></td></tr></table></figure></p>
+<ul>
+<li>datetime.datetime.now()  #获取当前datetime,类型是datetime</li>
+<li>datetime.date.today()  #获取当天date</li>
+</ul>
+<p>datetime和timestamp类型的相互转化<br><figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#datetime -&gt; timestamp</div><div class="line">dt = datetime(2015,4,19,12,20)</div><div class="line">timestamp = dt.timestamp()</div><div class="line">#timestamp -&gt; datetime</div><div class="line">t= 1429417200.0</div><div class="line">datetime =  datetime.formatstamp(t)</div></pre></td></tr></table></figure></p>
+<p>如果已经有了datetime对象，要把它格式化为字符转显示给用户，就要转化为str，<br>转换方法是通过strftime()实现的，同样需要一个日期和时间的格式化字符串<br><figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">now = datetime.datetime.now()</div><div class="line">print(now.strftime(&apos;%a, %b %d %h:%M&apos;))</div></pre></td></tr></table></figure></p>
+<p>datetime 加减<br>对日期和时间进行加减实际上就是把datetime往后或往前计算，得到新的datetime。<br>加减可以直接用+和-运算符，不过需要导入timedelta这个类：<br><figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; from datetime import datetime, timedelta</div><div class="line">&gt;&gt;&gt; now = datetime.now()</div><div class="line">&gt;&gt;&gt; now</div><div class="line">datetime.datetime(2015, 5, 18, 16, 57, 3, 540997)</div><div class="line">&gt;&gt;&gt; now + timedelta(hours=10)</div><div class="line">datetime.datetime(2015, 5, 19, 2, 57, 3, 540997)</div><div class="line">&gt;&gt;&gt; now - timedelta(days=1)</div><div class="line">datetime.datetime(2015, 5, 17, 16, 57, 3, 540997)</div><div class="line">&gt;&gt;&gt; now + timedelta(days=2, hours=12)</div><div class="line">datetime.datetime(2015, 5, 21, 4, 57, 3, 540997)</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -415,8 +421,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/11/spider2/" rel="next" title="爬虫代码分析">
-                <i class="fa fa-chevron-left"></i> 爬虫代码分析
+              <a href="/2017/02/09/poem0209/" rel="next" title="满江红 正月十三日雪中送文安国还朝">
+                <i class="fa fa-chevron-left"></i> 满江红 正月十三日雪中送文安国还朝
               </a>
             
           </div>
@@ -424,10 +430,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/04/docker-install/" rel="prev" title="docker简介和安装">
-                docker简介和安装 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -453,8 +455,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/28/tensorflow1/"
-           data-title="Tensorflow安装教程Ubuntu14.04LTS" data-url="https://hexo.github.io/2016/11/28/tensorflow1/">
+      <div class="ds-thread" data-thread-key="2017/02/09/python-basic/"
+           data-title="python time和datetime模块" data-url="https://hexo.github.io/2017/02/09/python-basic/">
       </div>
     
   </div>
@@ -588,7 +590,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cuda-installation"><span class="nav-number">1.</span> <span class="nav-text">Cuda installation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-TensorFlow"><span class="nav-number">2.</span> <span class="nav-text">Install TensorFlow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test"><span class="nav-number">3.</span> <span class="nav-text">Test</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#time"><span class="nav-number">1.</span> <span class="nav-text">time</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#datetime"><span class="nav-number">2.</span> <span class="nav-text">datetime</span></a></li></ol></div>
             
 
           </div>
