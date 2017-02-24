@@ -4,6 +4,24 @@
 
     
   <url>
+    <loc>https://hexo.github.io/2017/02/21/buptvpn/</loc>
+    <lastmod>2017-02-24T08:14:35.522Z</lastmod>
+    <data>
+        <display>
+        <title>北邮VPN设置方法</title>
+        <pubTime>2017-02-21T08:33:57.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="随笔" url="https://hexo.github.io/categories/diary/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://hexo.github.io/2017/02/10/pythonprocess/</loc>
     <lastmod>2017-02-10T11:32:31.659Z</lastmod>
     <data>
@@ -328,6 +346,210 @@
 
     
   <url>
+    <loc>https://hexo.github.io/2016/10/24/decisiontree/</loc>
+    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈决策树学习算法</title>
+        <pubTime>2016-10-24T01:25:40.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="机器学习" url="https://hexo.github.io/categories/machine-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/10/11/linux%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</loc>
+    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>linux配置文件</title>
+        <pubTime>2016-10-11T03:30:23.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Linux" url="https://hexo.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/08/14/my-new-Post/</loc>
+    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈单元测试</title>
+        <pubTime>2016-08-14T10:19:02.000Z</pubTime>
+        
+        <tag>单元测试</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://hexo.github.io/categories/front-end/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/10/17/javascript-object-oriented/</loc>
+    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>javascript面向对象编程</title>
+        <pubTime>2016-10-17T02:18:08.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="前端" url="https://hexo.github.io/categories/front-end/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/10/06/lake-side-greatwall/</loc>
+    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>黄花城水长城十一游记</title>
+        <pubTime>2016-10-06T03:26:48.000Z</pubTime>
+        
+        <tag>水长城 自由行</tag>
+         
+         
+           
+             
+              <breadCrumb title="游记" url="https://hexo.github.io/categories/%E6%B8%B8%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/10/11/mongodb%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>mongodb安装教程</title>
+        <pubTime>2016-10-11T03:20:49.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="数据库" url="https://hexo.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/10/11/mongodb%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</loc>
+    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>mongodb 3.2.6 权限管理</title>
+        <pubTime>2016-10-11T02:00:29.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="数据库" url="https://hexo.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/10/30/lml/</loc>
+    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>有效沟通技巧</title>
+        <pubTime>2016-10-30T06:24:17.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="生活" url="https://hexo.github.io/categories/life/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/09/03/new-bupt-life/</loc>
+    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>北邮2016级研究生开学典礼</title>
+        <pubTime>2016-09-03T08:35:24.000Z</pubTime>
+        
+        <tag>北邮人</tag>
+         
+         
+           
+             
+              <breadCrumb title="生活" url="https://hexo.github.io/categories/life/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/10/30/tech-6/</loc>
+    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>高新技术六大领域</title>
+        <pubTime>2016-10-30T07:05:02.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="转载" url="https://hexo.github.io/categories/useful/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/10/17/webpack/</loc>
+    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>webpack学习笔记</title>
+        <pubTime>2016-10-17T03:00:54.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="前端" url="https://hexo.github.io/categories/front-end/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://hexo.github.io/2016/07/30/hello-world/</loc>
     <lastmod>2016-12-28T12:41:23.000Z</lastmod>
     <data>
@@ -366,80 +588,6 @@
 
     
   <url>
-    <loc>https://hexo.github.io/2016/10/11/mongodb%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
-    <data>
-        <display>
-        <title>mongodb安装教程</title>
-        <pubTime>2016-10-11T03:20:49.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="数据库" url="https://hexo.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2016/10/06/lake-side-greatwall/</loc>
-    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
-    <data>
-        <display>
-        <title>黄花城水长城十一游记</title>
-        <pubTime>2016-10-06T03:26:48.000Z</pubTime>
-        
-        <tag>水长城 自由行</tag>
-         
-         
-           
-             
-              <breadCrumb title="游记" url="https://hexo.github.io/categories/%E6%B8%B8%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2016/10/11/mongodb%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
-    <data>
-        <display>
-        <title>mongodb 3.2.6 权限管理</title>
-        <pubTime>2016-10-11T02:00:29.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="数据库" url="https://hexo.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2016/10/11/linux%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</loc>
-    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
-    <data>
-        <display>
-        <title>linux配置文件</title>
-        <pubTime>2016-10-11T03:30:23.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Linux" url="https://hexo.github.io/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://hexo.github.io/2016/10/24/decisiontree2/</loc>
     <lastmod>2016-12-28T12:41:23.000Z</lastmod>
     <data>
@@ -451,136 +599,6 @@
            
              
               <breadCrumb title="机器学习" url="https://hexo.github.io/categories/machine-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2016/10/24/decisiontree/</loc>
-    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
-    <data>
-        <display>
-        <title>浅谈决策树学习算法</title>
-        <pubTime>2016-10-24T01:25:40.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="机器学习" url="https://hexo.github.io/categories/machine-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2016/08/14/my-new-Post/</loc>
-    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
-    <data>
-        <display>
-        <title>浅谈单元测试</title>
-        <pubTime>2016-08-14T10:19:02.000Z</pubTime>
-        
-        <tag>单元测试</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://hexo.github.io/categories/front-end/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2016/09/03/new-bupt-life/</loc>
-    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
-    <data>
-        <display>
-        <title>北邮2016级研究生开学典礼</title>
-        <pubTime>2016-09-03T08:35:24.000Z</pubTime>
-        
-        <tag>北邮人</tag>
-         
-         
-           
-             
-              <breadCrumb title="生活" url="https://hexo.github.io/categories/life/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2016/10/17/javascript-object-oriented/</loc>
-    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
-    <data>
-        <display>
-        <title>javascript面向对象编程</title>
-        <pubTime>2016-10-17T02:18:08.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="前端" url="https://hexo.github.io/categories/front-end/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2016/10/30/tech-6/</loc>
-    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
-    <data>
-        <display>
-        <title>高新技术六大领域</title>
-        <pubTime>2016-10-30T07:05:02.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="转载" url="https://hexo.github.io/categories/useful/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2016/10/30/lml/</loc>
-    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
-    <data>
-        <display>
-        <title>有效沟通技巧</title>
-        <pubTime>2016-10-30T06:24:17.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="生活" url="https://hexo.github.io/categories/life/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2016/10/17/webpack/</loc>
-    <lastmod>2016-12-28T12:41:23.000Z</lastmod>
-    <data>
-        <display>
-        <title>webpack学习笔记</title>
-        <pubTime>2016-10-17T03:00:54.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="前端" url="https://hexo.github.io/categories/front-end/"/>
           
         </display>
     </data>
