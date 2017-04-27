@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="python," />
 
 
 
@@ -84,34 +84,22 @@
 
 
 
-<meta name="description" content="关于Linux的配置文件，可以分为两种，一种是系统的，一种是用户的，博主以前也分不清这里面有什么区别，经过查资料理解后整理下来下面几条，应该算是挺全的，仅供参考
-
-/etc/profile:文件为系统的每一个用户设置环境信息，当用户第一次登录时，该文件被执行
-
-/etc/bashrc:为每一个运行bash shell的用户执行此文件，当bash shell被打开时，该文件被读取
-
-~/.bas">
+<meta name="description" content="最近终于开始做一些研究性的工作，学习使用python进行数据分析。首先接触到的就是pandas，现在把关于pandas相关的一些理解记录下来。
+Seriesseries类似一维数组，他由一组数据及数据对应的标签组成。说是类似数组，但其实和数组是有区别的，主要是由于Series的索引的存在。
+js12from pandas import Series, DataFrameimport panda">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux配置文件">
-<meta property="og:url" content="https://hexo.github.io/2016/10/11/linux配置文件/index.html">
+<meta property="og:title" content="python数据分析之pandas">
+<meta property="og:url" content="https://hexo.github.io/2017/04/27/python/index.html">
 <meta property="og:site_name" content="Airghc">
-<meta property="og:description" content="关于Linux的配置文件，可以分为两种，一种是系统的，一种是用户的，博主以前也分不清这里面有什么区别，经过查资料理解后整理下来下面几条，应该算是挺全的，仅供参考
-
-/etc/profile:文件为系统的每一个用户设置环境信息，当用户第一次登录时，该文件被执行
-
-/etc/bashrc:为每一个运行bash shell的用户执行此文件，当bash shell被打开时，该文件被读取
-
-~/.bas">
-<meta property="og:updated_time" content="2016-12-28T12:41:23.000Z">
+<meta property="og:description" content="最近终于开始做一些研究性的工作，学习使用python进行数据分析。首先接触到的就是pandas，现在把关于pandas相关的一些理解记录下来。
+Seriesseries类似一维数组，他由一组数据及数据对应的标签组成。说是类似数组，但其实和数组是有区别的，主要是由于Series的索引的存在。
+js12from pandas import Series, DataFrameimport panda">
+<meta property="og:updated_time" content="2017-04-27T13:32:40.815Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux配置文件">
-<meta name="twitter:description" content="关于Linux的配置文件，可以分为两种，一种是系统的，一种是用户的，博主以前也分不清这里面有什么区别，经过查资料理解后整理下来下面几条，应该算是挺全的，仅供参考
-
-/etc/profile:文件为系统的每一个用户设置环境信息，当用户第一次登录时，该文件被执行
-
-/etc/bashrc:为每一个运行bash shell的用户执行此文件，当bash shell被打开时，该文件被读取
-
-~/.bas">
+<meta name="twitter:title" content="python数据分析之pandas">
+<meta name="twitter:description" content="最近终于开始做一些研究性的工作，学习使用python进行数据分析。首先接触到的就是pandas，现在把关于pandas相关的一些理解记录下来。
+Seriesseries类似一维数组，他由一组数据及数据对应的标签组成。说是类似数组，但其实和数组是有区别的，主要是由于Series的索引的存在。
+js12from pandas import Series, DataFrameimport panda">
 
 
 
@@ -139,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://hexo.github.io/2016/10/11/linux配置文件/"/>
+  <link rel="canonical" href="https://hexo.github.io/2017/04/27/python/"/>
 
 
 
 
 
-  <title> linux配置文件 | Airghc </title>
+  <title> python数据分析之pandas | Airghc </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -278,7 +266,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2016/10/11/linux配置文件/">
+  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2017/04/27/python/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="关鸿超">
@@ -302,7 +290,7 @@
             
             
               
-                linux配置文件
+                python数据分析之pandas
               
             
           </h1>
@@ -317,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-11T11:30:23+08:00">
-                2016-10-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-27T19:22:11+08:00">
+                2017-04-27
               </time>
             
 
@@ -340,8 +328,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -358,8 +346,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/11/linux配置文件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/11/linux配置文件/" itemprop="commentCount"></span>
+                <a href="/2017/04/27/python/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/27/python/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -385,21 +373,27 @@
       
 
       
-        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>关于Linux的配置文件，可以分为两种，一种是系统的，一种是用户的，博主以前也分不清这里面有什么区别，经过查资料理解后整理下来下面几条，应该算是挺全的，仅供参考</p>
-<ul>
-<li><p>/etc/profile:文件为系统的每一个用户设置环境信息，当用户第一次登录时，该文件被执行</p>
-</li>
-<li><p>/etc/bashrc:为每一个运行bash shell的用户执行此文件，当bash shell被打开时，该文件被读取</p>
-</li>
-<li><p>~/.bash_profile:每个用户都可以使用该文件输入专用于自己使用的shell信息，当用户登录时执行一次，默认情况下会设置一些环境变量，执行用户的.bashrc文件,类似于/etc/profile，需要重启才会生效</p>
-</li>
-<li><p>~/.bashrc:包含专用于你的bash shell 的bash信息，每次打开新的shell时，该文件被读取,类似于/etc/bashrc</p>
-</li>
-<li><p>~/.bash_logout:当每次退出bash shell时，执行该文件</p>
-</li>
-<li><p>~/.bash_profile是login方式进入bash运行的，~/.bashrc是non-login方式进入bash运行的，通常前者会调用后者</p>
-</li>
-</ul>
+        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>最近终于开始做一些研究性的工作，学习使用python进行数据分析。首先接触到的就是pandas，现在把关于pandas相关的一些理解记录下来。</p>
+<h3 id="Series"><a href="#Series" class="headerlink" title="Series"></a>Series</h3><p>series类似一维数组，他由一组数据及数据对应的标签组成。说是类似数组，但其实和数组是有区别的，主要是由于Series的索引的存在。</p>
+<figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">from pandas import Series, DataFrame</div><div class="line">import pandas as pd</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">obj = Series([1,2,3,4])# 创建一个Series对象，如果不声明索引，则默认的索引是0到N-1(N是数据的长度)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">obj.index 代表Series对象的索引，我们可以手动声明索引</div><div class="line">obj.values 代表Series对象的值，此时才相当于数组，即为python中的list</div></pre></td></tr></table></figure>
+<p>我们可以手动声明series的索引<br><figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">obj2= Series([1,2,3,4], index=[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;])</div><div class="line">obj2[&apos;c&apos;]#通过索引获取元素的值</div></pre></td></tr></table></figure></p>
+<p>判断是否缺失数据<br><figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">obj2.isnull() #使用series对象的方法，返回series，值为True或False</div><div class="line">pd.isnull(obj2) # 使用pandas的方法</div><div class="line">pd.notnull(obj2)</div></pre></td></tr></table></figure></p>
+<p>series对象本身及其索引都有一个name属性。<br><figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sdata = &#123;&apos;ohino&apos;: 3500, &apos;texas&apos;: 7100, &apos;utah&apos;: 500&#125;</div><div class="line">obj = Series(sdata)</div><div class="line">obj.name = &apos;population&apos;</div><div class="line">obj.index.name = &apos;state&apos;</div></pre></td></tr></table></figure></p>
+<h3 id="Series总结"><a href="#Series总结" class="headerlink" title="Series总结"></a>Series总结</h3><p>Series可以看成是一个定长的有序字典，可以认为字典的key值即为对应的Series的值的索引。</p>
+<h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3><p>Dataframe是一种表格型的数据结构，可以看成Series组成的字典，最常用的构建方法是传入一个由登场列表或者numpy数组组成的字典。DataFrame会自动加上索引。</p>
+<figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">data = &#123;‘state’: [&apos;ohio&apos;,&apos;ohio&apos;,&apos;ohio&apos;], &apos;year&apos;: [2001, 2002, 2003], &apos;pop&apos;: [1.5, 1.6, 1.7]&#125;</div><div class="line">frame = DataFrame(data, columns=[&apos;year&apos;, &apos;state&apos;,&apos;pop&apos;])</div></pre></td></tr></table></figure>
+<p>获取元素<br><figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">frame[&apos;state&apos;]#获取Series，返回的Series与原来的DataFrame有相同的索引。而且其name属性已经被设置为该columns的值，即为state</div><div class="line">frame.state # 也可以使用属性的方式获取series</div></pre></td></tr></table></figure></p>
+<p>当需要获取一行元素时，使用位置或者名称的方式进行获取。<br><figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">frame.ix[2] #获取第三行数据，此时仍为series，只是columns的值变成了索引</div></pre></td></tr></table></figure></p>
+<p>另一种常见的数据形式是嵌套字典，外层的字典的键作为列，内层字典的键作为行索引，内层字典的键会被合并，排序，形成最终的索引，也可以指定索引<br><figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">frame.values #以二维数组的方式返回DataFrame中的数据</div><div class="line">frame.index.name #设置索引的名字</div><div class="line">frame.columns.name #设置columns的名字</div></pre></td></tr></table></figure></p>
+<h3 id="DataFrame切片"><a href="#DataFrame切片" class="headerlink" title="DataFrame切片"></a>DataFrame切片</h3><figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">obj[val]# 选取DataFrame的单个列或者一组列</div><div class="line">obj.ix[val] # 选取DataFrame的单个行或者一组行</div><div class="line">obj.ix[:,val] #选取单个列或者列子集</div><div class="line">obj.ix[val1, val2] #同时选取行和列</div></pre></td></tr></table></figure>
+<h3 id="DataFrame和Series之间的运算"><a href="#DataFrame和Series之间的运算" class="headerlink" title="DataFrame和Series之间的运算"></a>DataFrame和Series之间的运算</h3><p>默认情况下，DataFrame和Series之间的算术运算会将Series的索引匹配到DataFrame的列，然后沿着行一直向下传播</p>
+<figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">frame = DataFrame(np.arange(12.).reshape((4,3)), columns=list(&apos;bde&apos;), index=[&apos;Utah&apos;, &apos;Ohio&apos;, &apos;Texas&apos;, &apos;Oregon&apos;])</div><div class="line">series = frame.ix[0]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">frame - series = DataFrame(&#123;&apos;b&apos;:[0,3,6,9],&apos;d&apos;:[0,3,6,9],&apos;e&apos;:[0,3,6,9]&#125;, index=[&apos;Utah&apos;, &apos;Ohio&apos;, &apos;Texas&apos;, &apos;Oregon&apos;])</div></pre></td></tr></table></figure>
+<p>是因为逐行传播的原因，frame每一行的元素都会减去series的对应值。</p>
+<p>如果某个索引值在DataFrame的列或者Series的索引中找不到，则参与运算的两个对象就会被重新索引形成并集</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本篇内容总结了DataFrame和Series的关系和核心概念。更多的详细内容需要参考《利用python进行数据分析》<br>本篇文章只是作为学习笔记使用。</p>
 
       
     </div>
@@ -421,13 +415,19 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/11/mongodb安装教程/" rel="next" title="mongodb安装教程">
-                <i class="fa fa-chevron-left"></i> mongodb安装教程
+              <a href="/2017/04/18/speech/" rel="next" title="如何克服紧张情绪">
+                <i class="fa fa-chevron-left"></i> 如何克服紧张情绪
               </a>
             
           </div>
@@ -435,10 +435,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/17/javascript-object-oriented/" rel="prev" title="javascript面向对象编程">
-                javascript面向对象编程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -464,8 +460,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/11/linux配置文件/"
-           data-title="linux配置文件" data-url="https://hexo.github.io/2016/10/11/linux配置文件/">
+      <div class="ds-thread" data-thread-key="2017/04/27/python/"
+           data-title="python数据分析之pandas" data-url="https://hexo.github.io/2017/04/27/python/">
       </div>
     
   </div>
@@ -489,8 +485,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avator.jpg"
@@ -580,6 +585,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Series"><span class="nav-number">1.</span> <span class="nav-text">Series</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Series总结"><span class="nav-number">2.</span> <span class="nav-text">Series总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DataFrame"><span class="nav-number">3.</span> <span class="nav-text">DataFrame</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DataFrame切片"><span class="nav-number">4.</span> <span class="nav-text">DataFrame切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DataFrame和Series之间的运算"><span class="nav-number">5.</span> <span class="nav-text">DataFrame和Series之间的运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
