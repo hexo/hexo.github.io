@@ -8,3 +8,7 @@ categories: 随笔
 
 [移动版本](http://oelvsay9f.bkt.clouddn.com/%E5%8C%97%E9%82%AEvpn%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%28%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E7%89%88%29.pdf)
 [PC版本](http://oelvsay9f.bkt.clouddn.com/%E5%8C%97%E9%82%AEvpn%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97%28PC%E7%89%88%29%E9%80%9A%E7%9F%A5.pdf)
+
+
+{% aplayer "成都" "赵雷" "http://oelvsay9f.bkt.clouddn.com/%E8%B5%B5%E9%9B%B7%20-%20%E6%88%90%E9%83%BD.mp3"  %}
+

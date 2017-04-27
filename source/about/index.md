@@ -7,3 +7,4 @@ Email： airghc@163.com
 QQ： 530847274
 
 #### 一个不止于写代码的前端or后端工程狮，目前读研，欢迎交流讨论，期待Machine Learning 大牛指点，么么哒
+{% aplayer "Flower Dance" "OKAWARI" "http://oelvsay9f.bkt.clouddn.com/DJ%20OKAWARI%20-%20Flower%20Dance.mp3"  %}
