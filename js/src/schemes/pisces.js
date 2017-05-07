@@ -1,4 +1,5 @@
 $(document).ready(function () {
+<<<<<<< HEAD
   var $headerInner = $('.header-inner');
   var $sidebar = $('#sidebar');
   var getSidebarTop = function(){
@@ -14,4 +15,9 @@ $(document).ready(function () {
       setSidebarMarginTop(getSidebarTop());
     }
   });
+=======
+  var sidebarTop = $('.header-inner').height() + 10;
+
+  $('#sidebar').css({ 'margin-top': sidebarTop }).show();
+>>>>>>> fe0102f7a83bff3870fc375d5d9ad12cd9591f86
 });
