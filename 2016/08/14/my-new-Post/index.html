@@ -1,0 +1,796 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="单元测试," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="单元测试总结单元测试简介单元测试（又称为模块测试，Unit Testing）是针对程序模块来进行正确性验证的测试工作。程序单元是应用的最小可测试部件。在面向过程编程中，一个单元就是单个程序，函数，过程等；对于面向对象编程，一个单元就是方法，包括基类，抽象类，派生类中的方法  （from 维基百科） 为什么要进行单元测试？javascript是面向对象编程的，很多时候我们都需要将一个功能抽象成一">
+<meta name="keywords" content="单元测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈单元测试">
+<meta property="og:url" content="https://hexo.github.io/2016/08/14/my-new-Post/index.html">
+<meta property="og:site_name" content="Airghc">
+<meta property="og:description" content="单元测试总结单元测试简介单元测试（又称为模块测试，Unit Testing）是针对程序模块来进行正确性验证的测试工作。程序单元是应用的最小可测试部件。在面向过程编程中，一个单元就是单个程序，函数，过程等；对于面向对象编程，一个单元就是方法，包括基类，抽象类，派生类中的方法  （from 维基百科） 为什么要进行单元测试？javascript是面向对象编程的，很多时候我们都需要将一个功能抽象成一">
+<meta property="og:updated_time" content="2017-04-29T02:06:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈单元测试">
+<meta name="twitter:description" content="单元测试总结单元测试简介单元测试（又称为模块测试，Unit Testing）是针对程序模块来进行正确性验证的测试工作。程序单元是应用的最小可测试部件。在面向过程编程中，一个单元就是单个程序，函数，过程等；对于面向对象编程，一个单元就是方法，包括基类，抽象类，派生类中的方法  （from 维基百科） 为什么要进行单元测试？javascript是面向对象编程的，很多时候我们都需要将一个功能抽象成一">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hexo.github.io/2016/08/14/my-new-Post/"/>
+
+
+
+
+
+  <title> 浅谈单元测试 | Airghc </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Airghc</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2016/08/14/my-new-Post/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="关鸿超">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avator.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Airghc">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Airghc" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                浅谈单元测试
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-14T18:19:02+08:00">
+                2016-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/front-end/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/08/14/my-new-Post/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/14/my-new-Post/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h1 id="单元测试总结"><a href="#单元测试总结" class="headerlink" title="单元测试总结"></a>单元测试总结</h1><h3 id="单元测试简介"><a href="#单元测试简介" class="headerlink" title="单元测试简介"></a>单元测试简介</h3><p>单元测试（又称为模块测试，Unit Testing）是针对程序模块来进行正确性验证的测试工作。程序单元是应用的最小可测试部件。在面向过程编程中，一个单元就是单个程序，函数，过程等；对于面向对象编程，一个单元就是方法，包括基类，抽象类，派生类中的方法  （from 维基百科）</p>
+<h3 id="为什么要进行单元测试？"><a href="#为什么要进行单元测试？" class="headerlink" title="为什么要进行单元测试？"></a>为什么要进行单元测试？</h3><p>javascript是面向对象编程的，很多时候我们都需要将一个功能抽象成一个组件，方便团队其他开发者调用，那么我们就要保证我们给出的组件是正确可用的。对于前端这种GUI编程来说，单元测试确实很麻烦，很多前端开发者都会忽略了单元测试。但是随着Node的发展迅猛，出现了越来越多的javascript单元测试框架，现在很多优秀的开源项目都会有单元测试</p>
+<h3 id="重要性"><a href="#重要性" class="headerlink" title="重要性"></a>重要性</h3><p>如果我写好了一个接口，没有经过测试就直接交给了别人，那么出错之后就要接着调试。作为node端开发者，经常会写一些接口，举个简单的例子。我在开发一个get /user的API给前端调用，我写完了之后自己就要开一个前端页面，刷浏览器进行调试，同时还要辅助以一系列的console.log()，而且当需求有一些改动之后我还要重复进行调试，这是很耗时间的。而对于单元测试框架来说我只需要在命令行输入mocha(以mocha框架为例)，就可以完成单元测试。所以说单元测试的意义在于提高开发效率</p>
+<h3 id="单元测试的分类"><a href="#单元测试的分类" class="headerlink" title="单元测试的分类"></a>单元测试的分类</h3><p>单元测试根据主流的分类可以分成两类，BDD（行为驱动开发），TDD（测试驱动开发），我们主要采用BDD，这种更加符合编程习惯</p>
+<ul>
+<li>TDD: 开发人员先写了一些测试代码，然后实现测试用例里面提到的方法。最后把所有的测试用例都通过， 关注所有功能是否被正确实现</li>
+<li>BDD: BDD的测试用例更像是一份说明书，这两者的区别主要也是在于语言的风格不同，关注的是系统的实现是否与期望一致</li>
+</ul>
+<h3 id="mocha框架"><a href="#mocha框架" class="headerlink" title="mocha框架"></a>mocha框架</h3><blockquote>
+<p>Mocha 是TJ Holowaychunk开发的基于node.js和浏览器的集合各种特性的javascript测试框架，而且可以让异步测试也变得很简单，当捕获到错误时，会给出灵活且准确的报告</p>
+</blockquote>
+<h4 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g mocha</div></pre></td></tr></table></figure>
+<h4 id="如何向mocha传参数"><a href="#如何向mocha传参数" class="headerlink" title="如何向mocha传参数"></a>如何向mocha传参数</h4><p>当我们运行test目录下的测试文件时，我们只需要在项目的根目录下执行mocha，不过mocha还可以接受一些参数<br>很重要的有一下有几个</p>
+<ul>
+<li><p>默认情况下mocha只会执行一个测试用例2s，若超时则会停止执行并报错，这个时间对于一些接口测试来说是不够的,通过 -t 20000 即可设置为允许单个测试用例最长执行20s</p>
+</li>
+<li><p>默认情况下mocha只会执行test目录下的js文件，如果有二级目录是不会执行的，所以要通过 –recursive 就会执行test目录下的全部js文件</p>
+</li>
+<li><p>mocha和istanbul配合使用时，要先由istanbul开一个进程，然后在该进程下执行mocha，要在mocha前加 _</p>
+</li>
+</ul>
+<h3 id="辅助工具"><a href="#辅助工具" class="headerlink" title="辅助工具"></a>辅助工具</h3><h4 id="assert"><a href="#assert" class="headerlink" title="assert"></a>assert</h4><p>是node.js自带模块，直接通过require（’assert’）引入<br>是一个断言库，可完成简单的测试需求<br>了解更多请参考node.js官方文档：<a href="https://nodejs.org/api/assert.html" target="_blank" rel="external">https://nodejs.org/api/assert.html</a></p>
+<h4 id="should-js"><a href="#should-js" class="headerlink" title="should.js"></a>should.js</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install should</div></pre></td></tr></table></figure>
+<blockquote>
+<p>should.js是由TJ开发的断言库，提供了表达性，可读性都很强的断言风格<br>全部断言请参考：<a href="https://github.com/tj/should.js" target="_blank" rel="external">https://github.com/tj/should.js</a></p>
+</blockquote>
+<h4 id="supertest"><a href="#supertest" class="headerlink" title="supertest"></a>supertest</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install supertest</div></pre></td></tr></table></figure>
+<blockquote>
+<p>supertest是一个http断言库，使用它可以测试http服务，如使用express，koa搭建的服务等，全部语法规则请参考：<a href="https://github.com/visionmedia/supertest" target="_blank" rel="external">https://github.com/visionmedia/supertest</a><br>（请注意官方给出的示例是在express环境下的，koa环境下同样支持，语法相似）</p>
+</blockquote>
+<h4 id="全局安装-istanbul"><a href="#全局安装-istanbul" class="headerlink" title="全局安装 istanbul"></a>全局安装 istanbul</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g istanbul</div></pre></td></tr></table></figure>
+<p>测试的时候，我们常常关心，是否所有的代码都测试到了，这个指标就叫做代码覆盖率</p>
+<p>Istanbul是javascript程序的代码覆盖率检测工具<br>它有四个测量维度</p>
+<ul>
+<li>行覆盖率（line coverage）：是否每一行都执行了？</li>
+<li>函数覆盖率（function coverage）：是否每一个函数都调用了？</li>
+<li>分支覆盖率（branch coverage）：是否每一个if分支都被执行了？</li>
+<li>语句覆盖率（statement coverage）： 是否每条语句都被执行了？</li>
+</ul>
+<h5 id="与测试框架mocha结合"><a href="#与测试框架mocha结合" class="headerlink" title="与测试框架mocha结合"></a>与测试框架mocha结合</h5><p>istanbul cover _mocha :首先由istanbul开一个进程，在这个进程下执行mocha测试，instanbul就会捕获到覆盖率数据，如果想向mocha 传参数，通过下面这样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">istanbul cover _mocha -- test/test.js</div></pre></td></tr></table></figure>
+<p>关于istanbul的更多信息可以参考ruanyifeng的入门教程：<a href="http://www.ruanyifeng.com/blog/2015/06/istanbul.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/06/istanbul.html</a></p>
+<h3 id="co-mocha"><a href="#co-mocha" class="headerlink" title="co-mocha"></a>co-mocha</h3><p>co-mocha是mocha经过co库包装后支持生成器函数的一个库，使用方法和mocha类似</p>
+<h3 id="co-supertest"><a href="#co-supertest" class="headerlink" title="co-supertest"></a>co-supertest</h3><p>co-supertest是supertest经过co库包装后支持生成器函数的一个库，使用方法也和supertest类似</p>
+<h3 id="ES6测试"><a href="#ES6测试" class="headerlink" title="ES6测试"></a>ES6测试</h3><p>如果测试脚本是用ES6写的，那么运行测试之前，需要先用babel转码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install babel-core babel-preset-es2015 --save-dev</div></pre></td></tr></table></figure></p>
+<p>然后在项目目录下，新建一个.babelrc配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;presets&quot;:[&quot;es2015&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>最后，使用–compilers 参数后面紧跟一个用冒号分隔的字符串，冒号左边是文件名，冒号右边是用来处理这一类文件的模块名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./node_modules/mocha/bin/mocha --compilers js:babel-core/register</div></pre></td></tr></table></figure></p>
+<p>###关于前端测试<br>本教程根目录下的testfront文件夹下为简单的通过mocha进行前端测试的例子，chai.js为前端测试使用的断言库，类似should.js，这个是不唯一的，根据喜好可自行选择，mocha.js是我们测试依赖的框架，mocha.css是浏览器使用的css，这些都不用管，我们把需要被测试的代码放在index.html中，把测试代码放在tests.js中，并在index.html中引入，这样在浏览器打开index.html时，我们就可以看到测试的结果了</p>
+<blockquote>
+<p>在根目录下输入 mocha init front 会有惊喜发生</p>
+</blockquote>
+<p>本教程根目录下的phantomjs为前端测试工具phantomjs的使用方法，phantomjs说白了就是一个浏览器内核，但是没有浏览器界面，我们在命令行可以进行浏览器端的测试</p>
+<p>####全局安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install phantomjs -g</div></pre></td></tr></table></figure></p>
+<p>进入phantomjs目录下，输入phantomjs，进入浏览器环境<br>然后输入phantomjs XXX.js,即可执行</p>
+<p>istanbul会生成coverage文件夹，是测试报告，浏览器打开lcov-report文件夹下的index.html</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/unit-test/" rel="tag"># 单元测试</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/30/hello-world/" rel="next" title="我的第一篇博客">
+                <i class="fa fa-chevron-left"></i> 我的第一篇博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/03/new-bupt-life/" rel="prev" title="北邮2016级研究生开学典礼">
+                北邮2016级研究生开学典礼 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/14/my-new-Post/"
+           data-title="浅谈单元测试" data-url="https://hexo.github.io/2016/08/14/my-new-Post/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avator.jpg"
+               alt="关鸿超" />
+          <p class="site-author-name" itemprop="name">关鸿超</p>
+          <p class="site-description motion-element" itemprop="description">甚嚣尘上,前程为证</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.github.com/guanhc" title="Github" target="_blank">Github</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://weibo.com/guanhongchao" title="Weibo" target="_blank">Weibo</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://xiaoysec.github.io" title="xiaoysec" target="_blank">xiaoysec</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.mapan.win" title="mapan" target="_blank">mapan</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://fantasticzhang.gtensor.com/" title="fantasticzhang" target="_blank">fantasticzhang</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://rain1ove.cn/" title="rain" target="_blank">rain</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单元测试总结"><span class="nav-number">1.</span> <span class="nav-text">单元测试总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单元测试简介"><span class="nav-number">1.0.1.</span> <span class="nav-text">单元测试简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要进行单元测试？"><span class="nav-number">1.0.2.</span> <span class="nav-text">为什么要进行单元测试？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重要性"><span class="nav-number">1.0.3.</span> <span class="nav-text">重要性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单元测试的分类"><span class="nav-number">1.0.4.</span> <span class="nav-text">单元测试的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mocha框架"><span class="nav-number">1.0.5.</span> <span class="nav-text">mocha框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局安装"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">全局安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何向mocha传参数"><span class="nav-number">1.0.5.2.</span> <span class="nav-text">如何向mocha传参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#辅助工具"><span class="nav-number">1.0.6.</span> <span class="nav-text">辅助工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#assert"><span class="nav-number">1.0.6.1.</span> <span class="nav-text">assert</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#should-js"><span class="nav-number">1.0.6.2.</span> <span class="nav-text">should.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#supertest"><span class="nav-number">1.0.6.3.</span> <span class="nav-text">supertest</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局安装-istanbul"><span class="nav-number">1.0.6.4.</span> <span class="nav-text">全局安装 istanbul</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#与测试框架mocha结合"><span class="nav-number">1.0.6.4.1.</span> <span class="nav-text">与测试框架mocha结合</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#co-mocha"><span class="nav-number">1.0.7.</span> <span class="nav-text">co-mocha</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#co-supertest"><span class="nav-number">1.0.8.</span> <span class="nav-text">co-supertest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6测试"><span class="nav-number">1.0.9.</span> <span class="nav-text">ES6测试</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">关鸿超</span>
+</div>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"airghc"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

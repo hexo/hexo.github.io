@@ -1,0 +1,827 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="写在前面mongodb作为一款优秀的非关系型数据库，得到的广泛的应用，发展也是很迅猛，随着版本迭代的速度越来越快，尤其是2.0～3.0 的版本迭代，改变了大量的内容，甚至shell操作命令都进行了修改，所以网上一些老的教程很容易给刚刚接触mongodb的童鞋带来困扰。本教程就把自己踩过的坑交代一下，虽然主要内容是关于mongodb的权限管理，但不止于权限管理，希望对大家有所帮助 安装方法一 打">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongodb 3.2.6 权限管理">
+<meta property="og:url" content="https://hexo.github.io/2016/10/11/mongodb权限管理/index.html">
+<meta property="og:site_name" content="Airghc">
+<meta property="og:description" content="写在前面mongodb作为一款优秀的非关系型数据库，得到的广泛的应用，发展也是很迅猛，随着版本迭代的速度越来越快，尤其是2.0～3.0 的版本迭代，改变了大量的内容，甚至shell操作命令都进行了修改，所以网上一些老的教程很容易给刚刚接触mongodb的童鞋带来困扰。本教程就把自己踩过的坑交代一下，虽然主要内容是关于mongodb的权限管理，但不止于权限管理，希望对大家有所帮助 安装方法一 打">
+<meta property="og:updated_time" content="2017-04-29T02:06:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mongodb 3.2.6 权限管理">
+<meta name="twitter:description" content="写在前面mongodb作为一款优秀的非关系型数据库，得到的广泛的应用，发展也是很迅猛，随着版本迭代的速度越来越快，尤其是2.0～3.0 的版本迭代，改变了大量的内容，甚至shell操作命令都进行了修改，所以网上一些老的教程很容易给刚刚接触mongodb的童鞋带来困扰。本教程就把自己踩过的坑交代一下，虽然主要内容是关于mongodb的权限管理，但不止于权限管理，希望对大家有所帮助 安装方法一 打">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hexo.github.io/2016/10/11/mongodb权限管理/"/>
+
+
+
+
+
+  <title> mongodb 3.2.6 权限管理 | Airghc </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Airghc</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2016/10/11/mongodb权限管理/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="关鸿超">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avator.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Airghc">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Airghc" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                mongodb 3.2.6 权限管理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-11T10:00:29+08:00">
+                2016-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/10/11/mongodb权限管理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/11/mongodb权限管理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>mongodb作为一款优秀的非关系型数据库，得到的广泛的应用，发展也是很迅猛，随着版本迭代的速度越来越快，尤其是2.0～3.0 的版本迭代，改变了大量的内容，甚至shell操作命令都进行了修改，所以网上一些老的教程很容易给刚刚接触mongodb的童鞋带来困扰。本教程就把自己踩过的坑交代一下，虽然主要内容是关于mongodb的权限管理，但不止于权限管理，希望对大家有所帮助</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><ul>
+<li><p>打开官网download页面，查看相应版本的 url ，然后shell中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-amazon-3.2.6.tgz</div></pre></td></tr></table></figure>
+</li>
+<li><p>解压</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar zxvf mongodb-linux-x86_64-amazon-3.2.6.tgz</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改文件名为mongodb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv mongodb-linux-x86_64-amazon-3.2.6.tgz mongodb</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>至此，mongodb安装完毕</p>
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><p>打开官网，以博主的系统Ubuntu 14.04LTS为例，其他系统也均可找到相应的安装方式，推荐此种方法<br><a href="https://docs.mongodb.com/master/tutorial/install-mongodb-on-ubuntu/?_ga=1.257365259.1896541923.1467683775" target="_blank" rel="external">https://docs.mongodb.com/master/tutorial/install-mongodb-on-ubuntu/?_ga=1.257365259.1896541923.1467683775</a><br>按照步骤一步步完成即可</p>
+<h3 id="运行mongodb"><a href="#运行mongodb" class="headerlink" title="运行mongodb"></a>运行mongodb</h3><p>需要注意的是，上面这两种安装方式是有很大不同的，博主两种方法都试过，本文后面的流程都是采用第二种方法，以此为前提，至于第一种方法，后面会有新的博文单独讲解</p>
+<ul>
+<li>启动mongodb ： sudo service mongod started</li>
+<li>停止mongodb ： sudo service mongod stop</li>
+<li>重启mongodb ： sudo service mongod restart</li>
+<li>进入shell ： 启动mongodb后在命令行输入 mongo</li>
+</ul>
+<h3 id="Shell-操作"><a href="#Shell-操作" class="headerlink" title="Shell 操作"></a>Shell 操作</h3><ul>
+<li>show dbs： 显示当前数据库</li>
+<li>use yourdb： 选择某个数据库</li>
+<li>db.dropDatabase() : 删除当前使用的数据库</li>
+</ul>
+<h3 id="权限管理"><a href="#权限管理" class="headerlink" title="权限管理"></a>权限管理</h3><p>mongodb默认不开启安全授权机制，需要在启动mongod时指定 -auth或者在配置文件里设置auth来启用这个特性<br>在配置文件里 /etc/mongod.conf 设置security： authorization: enabled<br>开启后在登录时url规范是 ‘mongodb://username:password@ipaddress:port/databaseName’<br>mongodb权限管理部分有一个很大的坑，就是我们在安装好mongodb时，一定要先创建一个admin数据库，作为管理数据库成员的数据库，然后开启权限，否则就会产生开启权限后，shell连接失败的结果</p>
+<h4 id="创建admin数据库"><a href="#创建admin数据库" class="headerlink" title="创建admin数据库"></a>创建admin数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">use admin #创建admin数据库（use 后面的数据库如果不存在就会自动创建）</div><div class="line">db.system.users.find() #查看数据库中所有用户的信息</div></pre></td></tr></table></figure>
+<h4 id="数据库角色"><a href="#数据库角色" class="headerlink" title="数据库角色"></a>数据库角色</h4><p>既然需要权限管理，那么问题来了，数据库有哪些角色？</p>
+<ul>
+<li>数据库用户角色</li>
+<li>数据库管理角色</li>
+<li>admin数据库中有额外角色</li>
+</ul>
+<h5 id="数据库用户角色"><a href="#数据库用户角色" class="headerlink" title="数据库用户角色"></a>数据库用户角色</h5><p>针对每一个数据库进行控制</p>
+<ul>
+<li>read：可以读取所有非系统集合，以及系统集合中的system.indexes, system.js, system.namespaces</li>
+<li>readWrite: 包含了所有read权限，以及修改所有非系统集合，以及系统集合system.js的权限</li>
+</ul>
+<h5 id="数据库管理角色"><a href="#数据库管理角色" class="headerlink" title="数据库管理角色"></a>数据库管理角色</h5><p>每一个数据库包含了下面的数据库管理角色</p>
+<ul>
+<li>dbAdmin： 对数据库对象的管理操作，没有数据库的读写权限</li>
+<li>dbOwner： 该数据库的拥有者，具有该数据库的全部权限</li>
+<li>userAdmin： 为当前用户创建，修改用户和角色，拥有userAdmin的用户可以将该数据库的任意权限赋予任意的用户</li>
+</ul>
+<h5 id="admin数据库角色"><a href="#admin数据库角色" class="headerlink" title="admin数据库角色"></a>admin数据库角色</h5><p>集群管理角色:用户管理整个系统，而非单个数据库</p>
+<ul>
+<li>clusterAdmin：最大的集群管理功能，相当于下面三个的集合</li>
+<li>clusterManager：提供了集群和复制集管理和监控操作，拥有该权限的用户可以操作config和local数据库（即分片和复制功能）</li>
+<li>clusterMonitor： 仅仅监控集群和复制集</li>
+<li>hostManager：提供了监控和管理服务器的权限，包括shutdown节点，logrotate，repairDatabase</li>
+</ul>
+<p>备份和恢复角色</p>
+<ul>
+<li>backup： 备份</li>
+<li>restore： 恢复</li>
+</ul>
+<p>所有数据库角色</p>
+<ul>
+<li>readAnyDatabase：具有read每一个数据库的权限，但是不包括应用到集群中的数据库</li>
+<li>readWriteAnyDatabse：具有readWrite每一个数据库的权限，但是不包括应用到集群中的数据库</li>
+<li>userAdminAnyDatabase： 具有userAdmin每一个数据库的权限，但是不包括应用到集群中的数据库</li>
+<li>dbAdminAnyDatabase：具有dbAdmin每一个数据库的权限，但是不包括应用到集群中的数据库</li>
+</ul>
+<p>超级管理员角色</p>
+<ul>
+<li>root ：具有dbadmin到admin数据库，useadmin到admin数据库以及UserAdminAnyDatabase，但是不具有备份恢复，直接操作system.</li>
+</ul>
+<h4 id="创建用户并赋予角色权限"><a href="#创建用户并赋予角色权限" class="headerlink" title="创建用户并赋予角色权限"></a>创建用户并赋予角色权限</h4><p>db.creatUser(user,pwd,customData,roles)</p>
+<ul>
+<li>user:用户的名字</li>
+<li>pwd: 用户的密码</li>
+<li>customData: 为任意内容，例如可以为用户全名介绍</li>
+<li>roles: 指定用户的角色，数组的形式</li>
+</ul>
+<p>举个栗子：在admin数据库下创建一个管理员用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">db.createUser(&#123;</div><div class="line">user:&quot;test&quot;,</div><div class="line">pwd:&quot;123&quot;,</div><div class="line">roles:</div><div class="line">[</div><div class="line">&#123;</div><div class="line">role:&quot;userAdminAnyDatabase&quot;,</div><div class="line">db:&quot;admin&quot;</div><div class="line">&#125;,</div><div class="line">&#123;</div><div class="line">role:&quot;readWriteAnyDatabase&quot;,</div><div class="line">db:&quot;admin&quot;</div><div class="line">&#125;,</div><div class="line">&#123;</div><div class="line">role:&quot;dbAdminAnyDatabase&quot;,</div><div class="line">db:&quot;admin&quot;</div><div class="line">&#125;</div><div class="line">]&#125;)</div></pre></td></tr></table></figure></p>
+<p>创建某个数据库的权限，首先要使用use dbname到对应的数据库目录下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">db.createUser(&#123;</div><div class="line">user:&quot;test2&quot;,</div><div class="line">pwd:&quot;123&quot;,</div><div class="line">roles:[&#123;role:&quot;read&quot;,</div><div class="line">db:&quot;test&quot;</div><div class="line">&#125;</div><div class="line">]&#125;)</div></pre></td></tr></table></figure></p>
+<h4 id="如何验证权限"><a href="#如何验证权限" class="headerlink" title="如何验证权限"></a>如何验证权限</h4><p>注意：用户是对应到某个数据库的，在指定的库中授权，就要在指定的库中验证,哪里创建，哪里认证！<br>我们已经创建了用户下面就要用验证的方式，进入某一个数据库，通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.auth(&quot;username&quot;,&quot;password&quot;)</div></pre></td></tr></table></figure></p>
+<p>方式进行验证，验证结果为1为验证成功<br>同时也可以在某个数据库下进行如下操作</p>
+<ul>
+<li>db.getUsers() :获得数据库的所有用户权限信息</li>
+<li>db.getUser():获取数据库的某个用户的权限信息</li>
+<li>db.dropUser():删除某个用户</li>
+<li>db.dropAllUsers():删除所有用户</li>
+<li>db.changeUserPassword():修改密码</li>
+</ul>
+<h4 id="必需的角色"><a href="#必需的角色" class="headerlink" title="必需的角色"></a>必需的角色</h4><p>上面讲了mongodb的很多不同的角色，对应不同的权限，感觉很复杂，那我们在实际的开发过程中都需要设置哪些角色呢？<br>首先我们需要创建一个admin数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">use admin</div></pre></td></tr></table></figure></p>
+<p>命令会自动创建一个admin数据库<br>然后我们在该数据库下创建一个用户并赋予userAdminAnyDatabase的权限， 这个用户可以用来管理所有的用户，创建，删除用户等功能，作为管理其他用户的管理员<br>如下所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">use admin</div><div class="line">switched to db admin</div><div class="line">db.createUser(</div><div class="line">&#123;</div><div class="line">user: &quot;useradmin&quot;,</div><div class="line">pwd: &quot;useradmin&quot;,</div><div class="line">roles: [ &#123; role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot; &#125; ]</div><div class="line">&#125;</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>这样我们就可以使用useradmin用户来创建和管理其他数据库中的所有用户了<br>现在我们想针对某一个数据库进行数据的增删改查了，首先我们要切换到对应的数据库中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">use dbname</div></pre></td></tr></table></figure></p>
+<p>然后，我们输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.abc.insert(&#123;&quot;a&quot;:1,&quot;b&quot;:2&#125;)</div></pre></td></tr></table></figure></p>
+<p>插入失败，为什么呢？<br>因为我们没有权限，我们当前的用户权限只是针对用户管理的，并没有操作数据库增删改查的能力<br>所以要进行授权切换到该数据库的用户，这个用户是我们之前创建好的，具有读写权限，这样就可以成功插入了<br>那么，有没有一个用户不仅可以管理其他用户，而且也可以对集合进行任意操作？答案是肯定的，那就是role角色设置为root<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">show users</div></pre></td></tr></table></figure></p>
+<p>查看当前库下的用户<br>创建了这么多用户，如何查看所有的用户？我们切换到admin数据库并进行认证<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">db.system.users.find().pretty()</div><div class="line">db.system.users.find().count()</div></pre></td></tr></table></figure></p>
+<p>这样我们基本上就实现了mongodb的权限管理了</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/06/lake-side-greatwall/" rel="next" title="黄花城水长城十一游记">
+                <i class="fa fa-chevron-left"></i> 黄花城水长城十一游记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/11/mongodb安装教程/" rel="prev" title="mongodb安装教程">
+                mongodb安装教程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/11/mongodb权限管理/"
+           data-title="mongodb 3.2.6 权限管理" data-url="https://hexo.github.io/2016/10/11/mongodb权限管理/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avator.jpg"
+               alt="关鸿超" />
+          <p class="site-author-name" itemprop="name">关鸿超</p>
+          <p class="site-description motion-element" itemprop="description">甚嚣尘上,前程为证</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.github.com/guanhc" title="Github" target="_blank">Github</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://weibo.com/guanhongchao" title="Weibo" target="_blank">Weibo</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://xiaoysec.github.io" title="xiaoysec" target="_blank">xiaoysec</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.mapan.win" title="mapan" target="_blank">mapan</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://fantasticzhang.gtensor.com/" title="fantasticzhang" target="_blank">fantasticzhang</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://rain1ove.cn/" title="rain" target="_blank">rain</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法一"><span class="nav-number">2.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法二"><span class="nav-number">2.2.</span> <span class="nav-text">方法二</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行mongodb"><span class="nav-number">3.</span> <span class="nav-text">运行mongodb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shell-操作"><span class="nav-number">4.</span> <span class="nav-text">Shell 操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限管理"><span class="nav-number">5.</span> <span class="nav-text">权限管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建admin数据库"><span class="nav-number">5.1.</span> <span class="nav-text">创建admin数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库角色"><span class="nav-number">5.2.</span> <span class="nav-text">数据库角色</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据库用户角色"><span class="nav-number">5.2.1.</span> <span class="nav-text">数据库用户角色</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据库管理角色"><span class="nav-number">5.2.2.</span> <span class="nav-text">数据库管理角色</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#admin数据库角色"><span class="nav-number">5.2.3.</span> <span class="nav-text">admin数据库角色</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建用户并赋予角色权限"><span class="nav-number">5.3.</span> <span class="nav-text">创建用户并赋予角色权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何验证权限"><span class="nav-number">5.4.</span> <span class="nav-text">如何验证权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#必需的角色"><span class="nav-number">5.5.</span> <span class="nav-text">必需的角色</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">关鸿超</span>
+</div>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"airghc"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
