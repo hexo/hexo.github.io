@@ -90,7 +90,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: ssh://git@github.com/hexo/hexo.github.io
+  repo: https://github.com/hexo/hexo.github.io.git
   branch: master
 
 sitemap:
