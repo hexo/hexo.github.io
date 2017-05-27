@@ -1,0 +1,745 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Coding the forward propagation algorithmIn this exercise, you’ll write code to do forward propagation (prediction) for your first neural network: Each data point is a customer. The first input is ho">
+<meta property="og:type" content="article">
+<meta property="og:title" content="deep learning 学习笔记（一）">
+<meta property="og:url" content="https://hexo.github.io/2017/05/27/dl-1/index.html">
+<meta property="og:site_name" content="Airghc">
+<meta property="og:description" content="Coding the forward propagation algorithmIn this exercise, you’ll write code to do forward propagation (prediction) for your first neural network: Each data point is a customer. The first input is ho">
+<meta property="og:updated_time" content="2017-05-27T09:13:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="deep learning 学习笔记（一）">
+<meta name="twitter:description" content="Coding the forward propagation algorithmIn this exercise, you’ll write code to do forward propagation (prediction) for your first neural network: Each data point is a customer. The first input is ho">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hexo.github.io/2017/05/27/dl-1/"/>
+
+
+
+
+
+  <title> deep learning 学习笔记（一） | Airghc </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Airghc</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2017/05/27/dl-1/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="关鸿超">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avator.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Airghc">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Airghc" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                deep learning 学习笔记（一）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-27T16:33:58+08:00">
+                2017-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/machine-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/27/dl-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/27/dl-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h3 id="Coding-the-forward-propagation-algorithm"><a href="#Coding-the-forward-propagation-algorithm" class="headerlink" title="Coding the forward propagation algorithm"></a>Coding the forward propagation algorithm</h3><p>In this exercise, you’ll write code to do forward propagation (prediction) for your first neural network:</p>
+<p>Each data point is a customer. The first input is how many accounts they have, and the second input is how many children they have. The model will predict how many transactions the user makes in the next year. You will use this data throughout the first 2 chapters of this course.</p>
+<p>The input data has been pre-loaded as input_data, and the weights are available in a dictionary called weights. The array of weights for the first node in the hidden layer are in weights[‘node_0’], and the array of weights for the second node in the hidden layer are in weights[‘node_1’].</p>
+<p>The weights feeding into the output node are available in weights[‘output’].</p>
+<p>NumPy will be pre-imported for you as np in all exercises.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># Calculate node 0 value: node_0_value</div><div class="line">node_0_value = (weights[&apos;node_0&apos;] * input_data).sum()</div><div class="line"></div><div class="line"># Calculate node 1 value: node_1_value</div><div class="line">node_1_value = (weights[&apos;node_1&apos;] * input_data).sum()</div><div class="line"></div><div class="line"># Put node values into array: hidden_layer_outputs</div><div class="line">hidden_layer_outputs = np.array([node_0_value, node_1_value])</div><div class="line"></div><div class="line"># Calculate output: output</div><div class="line">output = (hidden_layer_outputs * weights[&apos;output&apos;]).sum()</div><div class="line"></div><div class="line"># Print output</div><div class="line">print(output)</div></pre></td></tr></table></figure></p>
+<h3 id="The-Rectified-Linear-Activation-Function"><a href="#The-Rectified-Linear-Activation-Function" class="headerlink" title="The Rectified Linear Activation Function"></a>The Rectified Linear Activation Function</h3><p>As Dan explained to you in the video, an “activation function” is a function applied at each node. It converts the node’s input into some output.</p>
+<p>The rectified linear activation function (called ReLU) has been shown to lead to very high-performance networks. This function takes a single number as an input, returning 0 if the input is negative, and the input if the input is positive.</p>
+<p>Here are some examples:<br>relu(3) = 3<br>relu(-3) = 0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">def relu(input):</div><div class="line">    &apos;&apos;&apos;Define your relu activation function here&apos;&apos;&apos;</div><div class="line">    # Calculate the value for the output of the relu function: output</div><div class="line">    output = max(0, input)</div><div class="line">    </div><div class="line">    # Return the value just calculated</div><div class="line">    return(output)</div><div class="line"></div><div class="line"># Calculate node 0 value: node_0_output</div><div class="line">node_0_input = (input_data * weights[&apos;node_0&apos;]).sum()</div><div class="line">node_0_output = relu(node_0_input)</div><div class="line"></div><div class="line"># Calculate node 1 value: node_1_output</div><div class="line">node_1_input = (input_data * weights[&apos;node_1&apos;]).sum()</div><div class="line">node_1_output = relu(node_1_input)</div><div class="line"></div><div class="line"># Put node values into array: hidden_layer_outputs</div><div class="line">hidden_layer_outputs = np.array([node_0_output, node_1_output])</div><div class="line"></div><div class="line"># Calculate model output (do not apply relu)</div><div class="line">model_output = (hidden_layer_outputs * weights[&apos;output&apos;]).sum()</div><div class="line"></div><div class="line"># Print model output</div><div class="line">print(model_output)</div></pre></td></tr></table></figure></p>
+<h3 id="Applying-the-network-to-many-observations-rows-of-data"><a href="#Applying-the-network-to-many-observations-rows-of-data" class="headerlink" title="Applying the network to many observations/rows of data"></a>Applying the network to many observations/rows of data</h3><p>You’ll now define a function called predict_with_network() which will generate predictions for multiple data observations, which are pre-loaded as input_data. As before, weights are also pre-loaded. In addition, the relu() function you defined in the previous exercise has been pre-loaded.</p>
+<p>Instructions<br>Define a function called predict_with_network() that accepts two arguments - input_data_row and weights - and returns a prediction from the network as the output.<br>Calculate the input and output values for each node, storing them as: node_0_input, node_0_output, node_1_input, and node_1_output.<br>To calculate the input value of a node, multiply the relevant arrays together and compute their sum.<br>To calculate the output value of a node, apply the relu() function to the input value of the node.<br>Use a for loop to iterate over input_data:<br>Use your predict_with_network() to generate predictions for each row of the input_data - input_data_row. Append each prediction to results.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"># Define predict_with_network()</div><div class="line">def predict_with_network(input_data_row, weights):</div><div class="line"></div><div class="line">    # Calculate node 0 value</div><div class="line">    node_0_input = (input_data_row * weights[&apos;node_0&apos;]).sum()</div><div class="line">    node_0_output = relu(node_0_input)</div><div class="line"></div><div class="line">    # Calculate node 1 value</div><div class="line">    node_1_input = (input_data_row * weights[&apos;node_1&apos;]).sum()</div><div class="line">    node_1_output = relu(node_1_input)</div><div class="line"></div><div class="line">    # Put node values into array: hidden_layer_outputs</div><div class="line">    hidden_layer_outputs = np.array([node_0_output, node_1_output])</div><div class="line">    </div><div class="line">    # Calculate model output</div><div class="line">    input_to_final_layer = (hidden_layer_outputs * weights[&apos;output&apos;]).sum()</div><div class="line">    model_output = relu(input_to_final_layer)</div><div class="line">    </div><div class="line">    # Return model output</div><div class="line">    return(model_output)</div><div class="line"></div><div class="line"></div><div class="line"># Create empty list to store prediction results</div><div class="line">results = []</div><div class="line">for input_data_row in input_data:</div><div class="line">    # Append prediction to results</div><div class="line">    results.append(predict_with_network(input_data_row))</div><div class="line"></div><div class="line"># Print results</div><div class="line">print(results)</div></pre></td></tr></table></figure>
+<h3 id="Multi-layer-neural-networks"><a href="#Multi-layer-neural-networks" class="headerlink" title="Multi-layer neural networks"></a>Multi-layer neural networks</h3><p>In this exercise, you’ll write code to do forward propagation for a neural network with 2 hidden layers. Each hidden layer has two nodes. The input data has been preloaded as input_data. The nodes in the first hidden layer are called node_0_0 and node_0_1. Their weights are pre-loaded as weights[‘node_0_0’] and weights[‘node_0_1’] respectively.</p>
+<p>The nodes in the second hidden layer are called node_1_0 and node_1_1. Their weights are pre-loaded as weights[‘node_1_0’] and weights[‘node_1_1’] respectively.</p>
+<p>We then create a model output from the hidden nodes using weights pre-loaded as weights[‘output’].</p>
+<p>Instructions<br>Calculate node_0_0_input using its weights weights[‘node_0_0’] and the given input_data. Then apply the relu() function to get node_0_0_output.<br>Do the same as above for node_0_1_input to get node_0_1_output.<br>Calculate node_1_0_input using its weights weights[‘node_1_0’] and the outputs from the first hidden layer - hidden_0_outputs. Then apply the relu() function to get node_1_0_output.<br>Do the same as above for node_1_1_input to get node_1_1_output.<br>Calculate model_output using its weights weights[‘output’] and the outputs from the second hidden layer hidden_1_outputs array. Do not apply the relu() function to this output.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">def predict_with_network(input_data):</div><div class="line">    # Calculate node 0 in the first hidden layer</div><div class="line">    node_0_0_input = (input_data * weights[&apos;node_0_0&apos;]).sum()</div><div class="line">    node_0_0_output = relu(node_0_0_input)</div><div class="line"></div><div class="line">    # Calculate node 1 in the first hidden layer</div><div class="line">    node_0_1_input = (input_data * weights[&apos;node_0_1&apos;]).sum()</div><div class="line">    node_0_1_output = relu(node_0_1_input)</div><div class="line"></div><div class="line">    # Put node values into array: hidden_0_outputs</div><div class="line">    hidden_0_outputs = np.array([node_0_0_output, node_0_1_output])</div><div class="line">    </div><div class="line">    # Calculate node 0 in the second hidden layer</div><div class="line">    node_1_0_input = (hidden_0_outputs * weights[&apos;node_1_0&apos;]).sum()</div><div class="line">    node_1_0_output = relu(node_1_0_input)</div><div class="line"></div><div class="line">    # Calculate node 1 in the second hidden layer</div><div class="line">    node_1_1_input = (hidden_0_outputs * weights[&apos;node_1_1&apos;]).sum()</div><div class="line">    node_1_1_output = relu(node_1_1_input)</div><div class="line"></div><div class="line">    # Put node values into array: hidden_1_outputs</div><div class="line">    hidden_1_outputs = np.array([node_1_0_output, node_1_1_output])</div><div class="line"></div><div class="line">    # Calculate model output: model_output</div><div class="line">    model_output = (hidden_1_outputs * weights[&apos;output&apos;]).sum()</div><div class="line">    </div><div class="line">    # Return model_output</div><div class="line">    return(model_output)</div><div class="line"></div><div class="line">output = predict_with_network(input_data)</div><div class="line">print(output)</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/11/swdlq/" rel="next" title="思维的乐趣">
+                <i class="fa fa-chevron-left"></i> 思维的乐趣
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/05/27/dl-1/"
+           data-title="deep learning 学习笔记（一）" data-url="https://hexo.github.io/2017/05/27/dl-1/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avator.jpg"
+               alt="关鸿超" />
+          <p class="site-author-name" itemprop="name">关鸿超</p>
+          <p class="site-description motion-element" itemprop="description">甚嚣尘上,前程为证</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.github.com/guanhc" title="Github" target="_blank">Github</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://weibo.com/guanhongchao" title="Weibo" target="_blank">Weibo</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://xiaoysec.github.io" title="xiaoysec" target="_blank">xiaoysec</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.mapan.win" title="mapan" target="_blank">mapan</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://fantasticzhang.gtensor.com/" title="fantasticzhang" target="_blank">fantasticzhang</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://rain1ove.cn/" title="rain" target="_blank">rain</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Coding-the-forward-propagation-algorithm"><span class="nav-number">1.</span> <span class="nav-text">Coding the forward propagation algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Rectified-Linear-Activation-Function"><span class="nav-number">2.</span> <span class="nav-text">The Rectified Linear Activation Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Applying-the-network-to-many-observations-rows-of-data"><span class="nav-number">3.</span> <span class="nav-text">Applying the network to many observations/rows of data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-layer-neural-networks"><span class="nav-number">4.</span> <span class="nav-text">Multi-layer neural networks</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">关鸿超</span>
+</div>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"airghc"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
