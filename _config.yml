@@ -58,6 +58,7 @@ category_map:
     生活: life
     随笔: diary
     转载: useful
+    密码学: sec
 tag_map:
     北邮人: byr
     单元测试: unit-test
