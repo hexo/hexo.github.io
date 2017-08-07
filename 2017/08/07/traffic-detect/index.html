@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="最近看了一篇论文，关于加密的恶意流量检测，这篇文章进行一下总结ppt论文">
+<meta name="description" content="最近看了一篇论文，关于加密的恶意流量检测，这篇文章进行一下总结 识别出加密流量中潜藏的安全威胁具有很大挑战，现已存在一些检测方法利用数据流的元数据来进行检测，包括包长度和到达间隔时间等。来自思科的研究人员扩展现有的检测方法提出一种新的思路（称之为“data omnia”），不需要对加密的恶意流量进行解密，就能检测到采用TLS连接的恶意程序，本文就该检测方法进行简要描述，主要参照思科在AISec">
 <meta property="og:type" content="article">
 <meta property="og:title" content="traffic_detect">
 <meta property="og:url" content="https://hexo.github.io/2017/08/07/traffic-detect/index.html">
 <meta property="og:site_name" content="Airghc">
-<meta property="og:description" content="最近看了一篇论文，关于加密的恶意流量检测，这篇文章进行一下总结ppt论文">
-<meta property="og:updated_time" content="2017-08-07T09:53:48.000Z">
+<meta property="og:description" content="最近看了一篇论文，关于加密的恶意流量检测，这篇文章进行一下总结 识别出加密流量中潜藏的安全威胁具有很大挑战，现已存在一些检测方法利用数据流的元数据来进行检测，包括包长度和到达间隔时间等。来自思科的研究人员扩展现有的检测方法提出一种新的思路（称之为“data omnia”），不需要对加密的恶意流量进行解密，就能检测到采用TLS连接的恶意程序，本文就该检测方法进行简要描述，主要参照思科在AISec">
+<meta property="og:updated_time" content="2017-08-07T10:03:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="traffic_detect">
-<meta name="twitter:description" content="最近看了一篇论文，关于加密的恶意流量检测，这篇文章进行一下总结ppt论文">
+<meta name="twitter:description" content="最近看了一篇论文，关于加密的恶意流量检测，这篇文章进行一下总结 识别出加密流量中潜藏的安全威胁具有很大挑战，现已存在一些检测方法利用数据流的元数据来进行检测，包括包长度和到达间隔时间等。来自思科的研究人员扩展现有的检测方法提出一种新的思路（称之为“data omnia”），不需要对加密的恶意流量进行解密，就能检测到采用TLS连接的恶意程序，本文就该检测方法进行简要描述，主要参照思科在AISec">
 
 
 
@@ -345,8 +345,20 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>最近看了一篇论文，关于加密的恶意流量检测，这篇文章进行一下总结<br><a href="http://oelvsay9f.bkt.clouddn.com/malware_traffic_identification.pdf
-[讨论班讲稿](http://oelvsay9f.bkt.clouddn.com/%E8%AE%A8%E8%AE%BA%E7%89%88%E8%AE%B2%E7%A8%BF.docx" target="_blank" rel="external">ppt</a><br><a href="http://oelvsay9f.bkt.clouddn.com/p35-anderson.pdf" target="_blank" rel="external">论文</a></p>
+        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>最近看了一篇论文，关于加密的恶意流量检测，这篇文章进行一下总结</p>
+<p>识别出加密流量中潜藏的安全威胁具有很大挑战，现已存在一些检测方法利用数据流的元数据来进行检测，包括包长度和到达间隔时间等。来自思科的研究人员扩展现有的检测方法提出一种新的思路（称之为“data omnia”），不需要对加密的恶意流量进行解密，就能检测到采用TLS连接的恶意程序，本文就该检测方法进行简要描述，主要参照思科在AISec’16发表的文章《Identifying Encrypted Malware Traffic with Contextual Flow Data》<br>首先，分析百万级的正常流量和恶意流量中TLS流、DNS流和HTTP流的不同之处，具体包括未加密的TLS握手信息、TLS流中与目的IP地址相关的DNS响应信息（如图2）、相同源IP地址5min窗口内HTTP流的头部信息；然后，选取具有明显区分度的特征集作为分类器（有监督机器学习）的输入来训练检测模型，从而识别加密的恶意流量。本方法区别于已有研究方法的地方就是利用TLS流相关背景流量信息（包括DNS响应、HTTP头部等）辅助加密恶意流量检测。<br>文中对恶意/正常流量中TLS流及背景流量信息（DNS响应信息、HTTP头部信息）进行统计分析，寻找恶意流量和正常流量中具有明显区分度的数据特征以及相应特征值的规律性。<br>从概念上讲：DH 依赖的是：求解“离散对数问题”的复杂性。具体的算法如下：<br>　　通讯双方（张三、李四）需要先约定好算法参数（algorithm parameters）：一个素数 p 作为模数，一个素数 g 作为基数（g 也称为“生成元”）。这两个算法参数是可以对外公开滴。<br>　　对于张三而言，需要先想好一个秘密的自然数 a 作为私钥（不能公开），然后计算 A = ga mod p 作为自己的公钥（可以公开）。<br>　　对李四而言也类似，先想好一个秘密的自然数 b 作为私钥（不能公开），然后计算 B = gb mod p 作为自己的公钥（可以公开）。<br>　　张三和李四互相交换各自的公钥。<br>　　然后张三计算出 k = Ba mod p，李四计算出 k = Ab mod p<br>　　该算法至少确保了如下几点：</p>
+<ol>
+<li>张三和李四分别计算出来的 k 必定是一致的</li>
+<li>张三和李四都无法根据已知的数来推算出对方的私钥（张三无法推算出 b，李四无法推算出 a）</li>
+<li>对于一个旁观者（偷窥者），虽然能看到 p，g，A，B，但是无法推算出 a 和 b（就是说，旁观者无法推算出双方的私钥），自然也无法推算出 k</li>
+<li>TLS握手信息：<br>选取拥有完整TLS握手信息的TLS流作为研究对象，通过分析TLS握手信息发现，恶意流量和正常流量使用的加密套件（ciphersuites）、支持的扩展（extensions）等方面有很大不同，<br>clientHello and clientKeyExchange messages contains valuable information that can be used to make inferences about the client’s TLS library.<br>The serverHello and certificate messages can be used to gain information about the server.<br>The certificate message passes the server’s certificate chain to the client.<br>malicious traffic most often selected obsolete（过时的） ciphersuites.<br>the number of certificates in the chain for the malware and DMZ data were roughly the same. But, if we restrict our focus on the length- 1 chains, ∼70% were self-signed for malware and ∼.1% were self-signed for the DMZ traffic.<br>Most of the DMZ traffic used 256-bit elliptic curve cryptography for the public keys, but most of the malicious traffic used 2048-bit RSA public keys. </li>
+</ol>
+<p>通过选取和目的IP地址相关的包含DNS响应信息的数据流作为研究对象，提取响应的域名信息进行分析。DNS域名信息也可以从SNI(Server Name Indication)扩展和SANs（subject alternative names）中得知，但由于TLS版本信息等原因，这些字段有时候是不存在的。<br>SAN(Subject Alternative Name)主体备用名称 是 SSL 标准 x.509 中定义的一个扩展。使用了 SAN 字段的 SSL 证书，可以扩展此证书支持的域名，使得一个证书可以支持多个不同域名的解析。<br>SNI 服务器名称指示（英语：Server Name Indication，简称SNI）是一个扩展的TLS计算机联网协议，在该协议下，在握手过程开始时通过客户端告诉它正在连接的服务器的主机名称。这允许服务器在相同的IP地址和TCP端口号上呈现多个证书，并且因此允许在相同的IP地址上提供多个安全（HTTPS）网站（或其他任何基于TLS的服务），而不需要所有这些站点使用相同的证书</p>
+<p>通过分析数据发现， 恶意流量与正常流量的区别主要表现在： 域名的长度、数字字符及非数字或者字母(non-alphanumeric character) 的字符占比、DNS解析出的IP数量、TTL值以及域名是否收录在Alexa网站等。<br>域名的长度：正常流量的域名长度分布为均值为6或7的高斯分布（正态分布）；而恶意流量的域名（FQDN全称域名）长度多为6（10）。<br>数字字符及非字母数字(non-alphanumeric character) 的字符占比：正常流量的DNS响应中全称域名的数字字符的占比和非字母数字字符的占比要大。<br>DNS解析出的IP数量：大多数恶意流量和正常流量只返回一个IP地址；其它情况，大部分正常流量返回2-8个IP地址，恶意流量返回4或者11个IP地址。<br>TTL值：正常流量的TTL值一般为60、300、20、30；而恶意流量多为300，大约22%的DNS响应汇总TTL为100，而这在正常流量中很罕见。<br>域名是否收录在Alexa网站：恶意流量域名信息很少收录在Alexa top-1,000,000中，而正常流量域名多收录在其中。</p>
+<ol>
+<li>HTTP头部信息：<br>选取相同源IP地址5min窗口内的HTTP流作为研究对象，通过分析HTTP头部信息发现，恶意流量和正常流量所选用的HTTP头部字段有很大区别。此外，正常流量HTTP头部信息汇总Content-Type值多为image/<em>，而恶意流量为text/</em>、text/html、charset=UTF-8或者text/html;charset=UTF-8。<br>Figure 4 lists the prevalence of some interesting inbound HTTP fields. For instance, malicious HTTP is more likely to make use of the Server, Set-Cookie, and Location fields, while the DMZ HTTP traffic was more likely to make use of the Connec- tion, Expires, and Last-Modified fields. For outbound HTTP fields, the DMZ HTTP was more likely to make use of the User-Agent, Accept-Encoding, and Accept-Language fields.<br>Malware most often says that it is using a version-less nginx server, and the benign traffic most of- ten says that it is using either the version-less Apache or nginx server. In terms of interesting servers, AmazonS3 and nginx/1.4.7 were announced almost exclusively by the benign servers, and LiteSpeed and gws were announced almost exclusively by the malicious servers.<br>K一般大于等于2,实际操作时一般从3开始取,只有在原始数据集合数据量小的时候才会尝试取2.K-CV可以有效的避免过学习以及欠学习状态的发生,最后得到的结果也比较具有说服性.</li>
+</ol>
+<p><a href="http://oelvsay9f.bkt.clouddn.com/malware_traffic_identification.pdf" target="_blank" rel="external">ppt</a><br><a href="http://oelvsay9f.bkt.clouddn.com/p35-anderson.pdf" target="_blank" rel="external">论文</a></p>
 
       
     </div>
