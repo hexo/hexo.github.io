@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="北邮人," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,17 +84,16 @@
 
 
 
-<meta name="description" content="9月2日上午，北京邮电大学2016级研究生开学典礼在校本部运动场举行。校长乔建永以“年华正好 莫负岁月”为主题发表演讲，劝勉全体2016级研究生新生“有理想，怀正气，肯实干，懂感恩”。校党委书记王亚杰，校长乔建永，副校长任晓敏、赵纪宁、温向明，党委副书记曲昭伟、董晞，副校长郭军等出席开学典礼。   　　校长乔建永教授在演讲中对全体2016级研究生新生同学提出“有理想，怀正气，肯实干，懂感恩”的">
-<meta name="keywords" content="北邮人">
+<meta name="description" content="最近有一个需求，需要搭建本地linux的apt源，因为工作环境中为了数据保密，不允许联网，同时又是分布式的服务器环境，所以急需本地局域网内的apt源。博主亲身实践，踩了一些坑，总结了一下搭建的过程 apt源搭建过程更新源$ sudo apt-get update 安装apt-mirror$ sudo apt-get install apt-mirror 安装apache2，用于提供源的HTTP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="北邮2016级研究生开学典礼">
-<meta property="og:url" content="https://hexo.github.io/2016/09/03/new-bupt-life/index.html">
+<meta property="og:title" content="本地apt源搭建">
+<meta property="og:url" content="https://hexo.github.io/2017/09/13/localapt/index.html">
 <meta property="og:site_name" content="Airghc">
-<meta property="og:description" content="9月2日上午，北京邮电大学2016级研究生开学典礼在校本部运动场举行。校长乔建永以“年华正好 莫负岁月”为主题发表演讲，劝勉全体2016级研究生新生“有理想，怀正气，肯实干，懂感恩”。校党委书记王亚杰，校长乔建永，副校长任晓敏、赵纪宁、温向明，党委副书记曲昭伟、董晞，副校长郭军等出席开学典礼。   　　校长乔建永教授在演讲中对全体2016级研究生新生同学提出“有理想，怀正气，肯实干，懂感恩”的">
-<meta property="og:updated_time" content="2017-04-29T02:06:33.000Z">
+<meta property="og:description" content="最近有一个需求，需要搭建本地linux的apt源，因为工作环境中为了数据保密，不允许联网，同时又是分布式的服务器环境，所以急需本地局域网内的apt源。博主亲身实践，踩了一些坑，总结了一下搭建的过程 apt源搭建过程更新源$ sudo apt-get update 安装apt-mirror$ sudo apt-get install apt-mirror 安装apache2，用于提供源的HTTP">
+<meta property="og:updated_time" content="2017-09-15T08:37:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="北邮2016级研究生开学典礼">
-<meta name="twitter:description" content="9月2日上午，北京邮电大学2016级研究生开学典礼在校本部运动场举行。校长乔建永以“年华正好 莫负岁月”为主题发表演讲，劝勉全体2016级研究生新生“有理想，怀正气，肯实干，懂感恩”。校党委书记王亚杰，校长乔建永，副校长任晓敏、赵纪宁、温向明，党委副书记曲昭伟、董晞，副校长郭军等出席开学典礼。   　　校长乔建永教授在演讲中对全体2016级研究生新生同学提出“有理想，怀正气，肯实干，懂感恩”的">
+<meta name="twitter:title" content="本地apt源搭建">
+<meta name="twitter:description" content="最近有一个需求，需要搭建本地linux的apt源，因为工作环境中为了数据保密，不允许联网，同时又是分布式的服务器环境，所以急需本地局域网内的apt源。博主亲身实践，踩了一些坑，总结了一下搭建的过程 apt源搭建过程更新源$ sudo apt-get update 安装apt-mirror$ sudo apt-get install apt-mirror 安装apache2，用于提供源的HTTP">
 
 
 
@@ -122,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://hexo.github.io/2016/09/03/new-bupt-life/"/>
+  <link rel="canonical" href="https://hexo.github.io/2017/09/13/localapt/"/>
 
 
 
 
 
-  <title> 北邮2016级研究生开学典礼 | Airghc </title>
+  <title> 本地apt源搭建 | Airghc </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -261,7 +260,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2016/09/03/new-bupt-life/">
+  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2017/09/13/localapt/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="关鸿超">
@@ -285,7 +284,7 @@
             
             
               
-                北邮2016级研究生开学典礼
+                本地apt源搭建
               
             
           </h1>
@@ -300,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-03T16:35:24+08:00">
-                2016-09-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-13T16:22:44+08:00">
+                2017-09-13
               </time>
             
 
@@ -323,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -341,8 +340,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/09/03/new-bupt-life/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/03/new-bupt-life/" itemprop="commentCount"></span>
+                <a href="/2017/09/13/localapt/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/13/localapt/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -368,22 +367,32 @@
       
 
       
-        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>9月2日上午，北京邮电大学2016级研究生开学典礼在校本部运动场举行。校长乔建永以“年华正好 莫负岁月”为主题发表演讲，劝勉全体2016级研究生新生“有理想，怀正气，肯实干，懂感恩”。校党委书记王亚杰，校长乔建永，副校长任晓敏、赵纪宁、温向明，党委副书记曲昭伟、董晞，副校长郭军等出席开学典礼。</p>
- 
-<p>　　校长乔建永教授在演讲中对全体2016级研究生新生同学提出“有理想，怀正气，肯实干，懂感恩”的四点希望，叮嘱全体新生“年华正好，莫负岁月。耐住寂寞、不忘初心，要有知难而进、不屈不挠的韧劲，要敢于挑战权威，敢于坚持真理。”<br><br>　　自动化学院宋晴教授作为教师代表发表演讲。宋晴老师从自身的学习经历出发，以“为知识而来，为智慧而去”的感悟和同学们分享了体会，并对同学们提出了希望。校研究生会主席唐伟超同学代表全体在校生对新同学的到来表示热烈欢迎，并期待与新同学们共同努力学习、潜心科研、勇于创新、独立思考，攀登科学高峰。信息与通信工程学院2016级研究生庄子明同学作为研究生新生代表发言，她代表全体同学表示将珍惜时光，勤学苦练，为北邮的发展、社会的进步而不懈努力。<br><br>　　附：乔建永校长在北京邮电大学2016级研究生开学典礼上的演讲：　</p>
-<p>　　老师们、同学们：</p>
-<p>　　今天，甲子北邮又一次张开双臂，迎接研究生新同学！在此，我谨代表全校师生员工，对2016级研究生的到来表示热烈欢迎，祝贺你们开启求学生涯的崭新阶段！</p>
-<p>　　2016年，是北邮新甲子的开局之年。在过去的半个多世纪里，一代代北邮人秉承着“崇尚奉献、追求卓越”的北邮精神，他们从这里出发，怀揣着人生的理想投入到祖国建设中，在各行各业的征途上成就着人生的梦想。</p>
-<p>　　如今，你们和北京邮电大学一样，站在崭新的历史起点上。在国家实施建设“双一流”大学的发展战略中，北京邮电大学将按照打造世界一流学科的奋斗目标， 在建设“特色鲜明、优势突出、世界著名的高水平研究型大学”的征程上迈入新的发展阶段。各位同学，在北邮新甲子的历史起点上，你们开始攻读研究生学位，祖国的教育事业将对你们的培养提出新的要求，国脉所系的伟大征程也将赋予你们更加神圣的历史使命。希望你们要以自身的行动继承和发扬北邮精神，以脚踏实地的学风成就北邮人的愿景。这是时代赋予你们的责任，也是北邮对你们的期待。</p>
-<p>　　同学们，年华正好，莫负岁月。学校是一片神圣庄严的治学净土，在你们即将开启研究生阶段学习的时刻，我想借此机会提四点希望，与同学们共勉。这四点期望是——有理想，怀正气，肯实干，懂感恩。愿这四点希望能伴随你们学习生活的始终，帮助你们在研究生的学习生涯中取得进步、获得收获。</p>
-<p>　　首先，希望同学们做有理想的青年。古往今来，凡成大事者，必先立大志。青年人富有朝气，富有梦想，是未来社会的引 领者和建设者。希望同学们用逐风破浪的勇气、智慧和坚韧鼎力托起心中的梦想。身为北邮人，心中不能只有公式和代码，也不能仅有个人得失，要有“为天地立 心、为生民立命、为往圣继绝学、为万世开太平”的远大抱负，要把你们的个人梦融入到“中国梦”之中。作为北邮的研究生，大家更应当走在时代的前列，自觉承 担起历史的使命和社会的责任，做到有理想、有追求。但追求理想的道路是崎岖坎坷的，进入研究生学习阶段，希望你们“耐住寂寞、不忘初心”，要有知难而进、不屈不挠的韧劲，要敢于挑战权威，敢于坚持真理。</p>
-<p>　　第二，希望同学们做怀正气的青年。同学们要目光长远，懂得取舍。不要为了眼前一时的小利就放弃自己的理想，不要为 某种时尚就放弃自己的信念。物质世界的外表太过复杂，同学们要懂得去拒绝虚荣的诱惑。不要为了走所谓的“捷径”就放弃学术操守，不要为了贪图眼前的小便宜 而忽视了长远的发展，要勇敢地对抄袭、剽窃、造假和虚伪说“不”。在物欲横流的浮躁背景下，要有一种坚守：对专业的坚守，对学业的坚守、对科学的坚守，切不可盲目地好高骛远，迷失了方向，迷失了自我。</p>
-<p>　　此外，要时刻怀揣开放的科研精神。许多重大突破和复杂问题的解决，都凝聚着一批不同团队、不同地域甚至是不同领域科技工作者的共同智慧和心血。你们要 多交流、多学习、多分享，科技的火花不能单单靠陋室孤灯的苦思冥想，更多的是智慧的碰撞、思维的交锋。同学们不要害怕奇思妙想被别人分享，不要害怕掌握的 技能被别人借鉴，更不要因怕被别人超越就拒绝与他人交流合作。固步自封只能让自己的科研之路越走越窄，只有心胸坦荡才能领略科研的无穷魅力。只有心怀正 气、胸怀广博的人才能不被一叶障目，才能济渡沧海，引领潮流。</p>
-<p>　　第三，希望同学们做肯实干的青年。“空谈误国，实干兴邦”，这句话对一个国家如此，对一个单位如此，对一个人也是 如此。同学们，你们风华正茂，既要有远大的理想，但更要有实干的精神。在行动上，要一步一个脚印，老老实实为人、踏踏实实做事；在思想上，要不图虚名、不 骛虚声、力戒浮躁、谦虚严谨；在待人接物上，要保持谦虚、谦和，诚实守信，表里如一。要警惕眼高手低，善于从小事做起；要警惕好高骛远，善于沉下身子从具 体事情做起；要警惕急功近利，善于从当下做起。在即将开始的科研之路上，请同学们记住一句话：板凳要坐十年冷，文章不写一句空；要拿出“十年磨一剑”的心境，要有皓首穷经的志气，要做到不准确的数据不采用，拿不准的疑点不放过，不明白的地方不糊弄。只有这样，你们才能在研究生生涯中，真正有收获、真正有成 长。只有脚踏实地干事，实实在在做人，才能在实践中学到真知灼见，才能在日后独当一面。</p>
-<p>　　最后，希望同学们做懂感恩的青年。拥有一颗感恩的心，我们才能真正懂得关心社会、关爱他人；拥有一颗感恩的心，我 们才能学会包容、赢得真爱；拥有一颗感恩的心，我们就会拥有快乐、享受人生。其实在很多时候，是我们自己悄然远离了感恩之心，而不是感恩之心弃我们而去。 在这个时代，从来不缺乏成功的光鲜，我们更加呼唤的是对于他人的关怀和对于爱心的守护。同学们，进入研究生阶段，无论是在你们遇到困难和挫折之时，还是在 面对困惑与迷茫之时，抑或在理想与现实冲突之时，不要消极悲观、怨天尤人，请想想还在为你们付出的父母、朋友、老师、学校，眼下一时的荣辱得失又算得了什 么。同学们，人生之路可能顺畅，也可能崎岖，但父母的养育之恩不能忘，老师的教导之恩不能忘，朋友的陪伴之谊不能忘，同窗的共度之情不能忘，国家和社会的 培养之恩更是不能忘。</p>
-<p>　　同学们，你们即将开启研究生的学习和研究生活，请牢记以上四点期望：做有理想、怀正气、肯实干、懂感恩的研究生。北邮的历史正在由你们书写，希望你们坚定理想、开阔胸怀、锤炼能力，牢记国脉所系的事业，肩负起传邮万里的责任。用辛勤与汗水去迎接几年后的丰收果实、用智慧与勇气去迎接毕业时的骄傲与自豪。</p>
-<p>　　同学们，年华正好，莫负岁月。北邮期待并祝福你们！</p>
-<p>　　谢谢大家！</p>
+        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>最近有一个需求，需要搭建本地linux的apt源，因为工作环境中为了数据保密，不允许联网，同时又是分布式的服务器环境，所以急需本地局域网内的apt源。博主亲身实践，踩了一些坑，总结了一下搭建的过程</p>
+<h3 id="apt源搭建过程"><a href="#apt源搭建过程" class="headerlink" title="apt源搭建过程"></a>apt源搭建过程</h3><p>更新源<br>$ sudo apt-get update</p>
+<p>安装apt-mirror<br>$ sudo apt-get install apt-mirror</p>
+<p>安装apache2，用于提供源的HTTP服务<br>$ sudo apt-get install apache2</p>
+<p>编辑mirror.list，更改镜像源的位置，这里使用清华大学的源<br><a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="external">链接在此</a><br>$ sudo vim /etc/apt/mirror.list<br>选好对应的版本，要注意Ubuntu14.04的源和16.04的源是不能兼容的，一定要确认好版本号,默认选择了ubuntu 16.04的源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</div><div class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted universe multiverse</div><div class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted universe multiverse</div><div class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse</div><div class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse</div><div class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse</div><div class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse</div><div class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted universe multiverse</div><div class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted universe multiverse</div><div class="line"></div><div class="line"># 预发布软件源，不建议启用</div><div class="line"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse</div><div class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse</div></pre></td></tr></table></figure></p>
+<p>下载源文件<br>$ sudo apt-mirror<br>等待就好了，一共大约有110G</p>
+<p>下载号好文件后，我们需要找到文件下载的位置，将该文件链接到/www/html目录下，作为apache2的一个服务，提供给局域网内的用户访问</p>
+<p>将镜像目录链接到apache2的根目录下<br>$ sudo ln -s /var/spool/apt-mirror/mirror/mirror.lupaworld.com/ubuntu ubuntu</p>
+<p>创建之后，就可以在其它的服务器上修改APT源地址为该服务器的IP，如”10.6.1.100”，然后使用本地镜像服务了。</p>
+<p>$ sudo sed -i s/security.ubuntu.com/mirror.lupaworld.com/g /etc/apt/sources.list<br>$ sudo sed -i s/archive.ubuntu.com/mirror.lupaworld.com/g /etc/apt/sources.list</p>
+<p>$ sudo apt-get update</p>
+<p>会发现有问题，为什么呢，这个是踩过的一个坑，因为update的时候会自动请求i386的包，也就是32位的文件，而我们下载的是64位的，为了解决这个问题<br>编辑文件 sources.list<br>在deb后加上 [ arch=amd64 ] 就可以了</p>
+<h3 id="pypi-源搭建过程"><a href="#pypi-源搭建过程" class="headerlink" title="pypi 源搭建过程"></a>pypi 源搭建过程</h3><p>项目基于python环境，所以还需要安装python的依赖包，所以又调研了本地pip源的搭建方法，官方推荐了 bandersnatch,实际操作也按照bandersnatch的方法进行<br>安装过程也是踩了一些坑的，最重要的一点bandersnatch==1.5的版本是基于python2的，但是这个版本在后面下载源的时候会出现问题，链接官方的源会出bug，最新的版本是2.0<br>不过这个版本是基于python3的，一定要有python3的环境，不然会有一堆bug等待解决，而且要求使用的源必须是支持https服务的，像豆瓣，阿里云的源就都用不了了，清华的源是https的，但是官方拒绝访问下载全部源文件。所以最后的解决方案是，python3 + banersnatch==2.0 + 官方源 ，虽然下载比较慢，但是能够成功解决</p>
+<p>$ pip install bandersnatch</p>
+<p>$ bandersnatch mirror<br>2014-09-15 09:37:30,631 WARNING: Config file ‘/etc/bandersnatch.conf’ missing, creating default config.<br>2014-09-15 09:37:30,631 WARNING: Please review the config file, then run ‘bandersnatch’ again.</p>
+<p>手动设置配置文件，主要是设置文件存放目录和设置源的地址</p>
+<p>$ bandersnatch mirror<br>2014-01-15 09:49:26,556 INFO: bandersnatch/1.5 (CPython 2.7.6-final0, Linux 3.19.0-37-generic x86_64)<br>2014-01-15 09:49:26,558 INFO: Setting up mirror directory: /srv/pypi/<br>2014-01-15 09:49:26,559 INFO: Setting up mirror directory: /srv/pypi/web/simple<br>2014-01-15 09:49:26,560 INFO: Setting up mirror directory: /srv/pypi/web/packages<br>2014-01-15 09:49:26,560 INFO: Setting up mirror directory: /srv/pypi/web/local-stats/days<br>2014-01-15 09:49:26,561 INFO: Generation file missing. Reinitialising status files.<br>……</p>
+<p>等待即可，下载后安装nginx开启服务</p>
+<p>$ apt-get install nginx<br>在 /etc/nginx/sites-available/default 和 /etc/nginx/sites-available/default 配置如下：</p>
+<p>server {<br>    listen *:80;<br>    server_name pypi_server;<br>    root /srv/pypi/web;<br>    autoindex on;<br>    charset utf-8;<br>}<br>启动 nginx：</p>
+<p>$ /etc/init.d/nginx start</p>
+<p>客户端 pip 配置为：</p>
+<p>$ cat ~/.pip/pip.conf<br>[global]<br>index-url = http://<your_pypi>/simple</your_pypi></p>
+<p>测试</p>
+<p>$ pip install package</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>安装这两个本地源还是耗费了一些时间的，但是通过这样的方式可以很方便的离线建立本地仓库，供内网用户使用，还是很有意义的～</p>
 
       
     </div>
@@ -405,19 +414,13 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/byr/" rel="tag"># 北邮人</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/14/my-new-Post/" rel="next" title="浅谈单元测试">
-                <i class="fa fa-chevron-left"></i> 浅谈单元测试
+              <a href="/2017/09/12/littlething/" rel="next" title="不顾一切，走在路上">
+                <i class="fa fa-chevron-left"></i> 不顾一切，走在路上
               </a>
             
           </div>
@@ -425,10 +428,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/06/lake-side-greatwall/" rel="prev" title="黄花城水长城十一游记">
-                黄花城水长城十一游记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -454,8 +453,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/03/new-bupt-life/"
-           data-title="北邮2016级研究生开学典礼" data-url="https://hexo.github.io/2016/09/03/new-bupt-life/">
+      <div class="ds-thread" data-thread-key="2017/09/13/localapt/"
+           data-title="本地apt源搭建" data-url="https://hexo.github.io/2017/09/13/localapt/">
       </div>
     
   </div>
@@ -479,8 +478,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avator.jpg"
@@ -570,6 +578,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#apt源搭建过程"><span class="nav-number">1.</span> <span class="nav-text">apt源搭建过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pypi-源搭建过程"><span class="nav-number">2.</span> <span class="nav-text">pypi 源搭建过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
