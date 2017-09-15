@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="关于Linux的配置文件，可以分为两种，一种是系统的，一种是用户的，博主以前也分不清这里面有什么区别，经过查资料理解后整理下来下面几条，应该算是挺全的，仅供参考  /etc/profile:文件为系统的每一个用户设置环境信息，当用户第一次登录时，该文件被执行  /etc/bashrc:为每一个运行bash shell的用户执行此文件，当bash shell被打开时，该文件被读取  ~/.bas">
+<meta name="description" content="简介如题，磁盘文件的分区，挂载操作属于运维方面的内容了，但是最近项目需要，所以记录一下解决方案 常规解决方案之所以叫常规解决方案，是在处理较小文件系统时使用，一般是磁盘容量小于或等于2T。我们通常会使用fdisk方法，主要有以下几个步骤 第一步 分区sudo fdisk -lu #显示当前的硬盘和所属分区的情况，如果装系统时没有挂载某块硬盘，那么这里会显示出硬盘信息，但不会有分区信息 sudo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux配置文件">
-<meta property="og:url" content="https://hexo.github.io/2016/10/11/linux配置文件/index.html">
+<meta property="og:title" content="ubuntu 大容量磁盘分区&amp;挂载">
+<meta property="og:url" content="https://hexo.github.io/2017/09/15/fdisk/index.html">
 <meta property="og:site_name" content="Airghc">
-<meta property="og:description" content="关于Linux的配置文件，可以分为两种，一种是系统的，一种是用户的，博主以前也分不清这里面有什么区别，经过查资料理解后整理下来下面几条，应该算是挺全的，仅供参考  /etc/profile:文件为系统的每一个用户设置环境信息，当用户第一次登录时，该文件被执行  /etc/bashrc:为每一个运行bash shell的用户执行此文件，当bash shell被打开时，该文件被读取  ~/.bas">
-<meta property="og:updated_time" content="2017-04-29T02:06:33.000Z">
+<meta property="og:description" content="简介如题，磁盘文件的分区，挂载操作属于运维方面的内容了，但是最近项目需要，所以记录一下解决方案 常规解决方案之所以叫常规解决方案，是在处理较小文件系统时使用，一般是磁盘容量小于或等于2T。我们通常会使用fdisk方法，主要有以下几个步骤 第一步 分区sudo fdisk -lu #显示当前的硬盘和所属分区的情况，如果装系统时没有挂载某块硬盘，那么这里会显示出硬盘信息，但不会有分区信息 sudo">
+<meta property="og:updated_time" content="2017-09-15T09:07:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux配置文件">
-<meta name="twitter:description" content="关于Linux的配置文件，可以分为两种，一种是系统的，一种是用户的，博主以前也分不清这里面有什么区别，经过查资料理解后整理下来下面几条，应该算是挺全的，仅供参考  /etc/profile:文件为系统的每一个用户设置环境信息，当用户第一次登录时，该文件被执行  /etc/bashrc:为每一个运行bash shell的用户执行此文件，当bash shell被打开时，该文件被读取  ~/.bas">
+<meta name="twitter:title" content="ubuntu 大容量磁盘分区&amp;挂载">
+<meta name="twitter:description" content="简介如题，磁盘文件的分区，挂载操作属于运维方面的内容了，但是最近项目需要，所以记录一下解决方案 常规解决方案之所以叫常规解决方案，是在处理较小文件系统时使用，一般是磁盘容量小于或等于2T。我们通常会使用fdisk方法，主要有以下几个步骤 第一步 分区sudo fdisk -lu #显示当前的硬盘和所属分区的情况，如果装系统时没有挂载某块硬盘，那么这里会显示出硬盘信息，但不会有分区信息 sudo">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://hexo.github.io/2016/10/11/linux配置文件/"/>
+  <link rel="canonical" href="https://hexo.github.io/2017/09/15/fdisk/"/>
 
 
 
 
 
-  <title> linux配置文件 | Airghc </title>
+  <title> ubuntu 大容量磁盘分区&挂载 | Airghc </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +260,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2016/10/11/linux配置文件/">
+  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2017/09/15/fdisk/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="关鸿超">
@@ -284,7 +284,7 @@
             
             
               
-                linux配置文件
+                ubuntu 大容量磁盘分区&挂载
               
             
           </h1>
@@ -299,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-11T11:30:23+08:00">
-                2016-10-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-15T16:40:07+08:00">
+                2017-09-15
               </time>
             
 
@@ -322,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -340,8 +340,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/11/linux配置文件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/11/linux配置文件/" itemprop="commentCount"></span>
+                <a href="/2017/09/15/fdisk/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/15/fdisk/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -367,21 +367,25 @@
       
 
       
-        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>关于Linux的配置文件，可以分为两种，一种是系统的，一种是用户的，博主以前也分不清这里面有什么区别，经过查资料理解后整理下来下面几条，应该算是挺全的，仅供参考</p>
-<ul>
-<li><p>/etc/profile:文件为系统的每一个用户设置环境信息，当用户第一次登录时，该文件被执行</p>
-</li>
-<li><p>/etc/bashrc:为每一个运行bash shell的用户执行此文件，当bash shell被打开时，该文件被读取</p>
-</li>
-<li><p>~/.bash_profile:每个用户都可以使用该文件输入专用于自己使用的shell信息，当用户登录时执行一次，默认情况下会设置一些环境变量，执行用户的.bashrc文件,类似于/etc/profile，需要重启才会生效</p>
-</li>
-<li><p>~/.bashrc:包含专用于你的bash shell 的bash信息，每次打开新的shell时，该文件被读取,类似于/etc/bashrc</p>
-</li>
-<li><p>~/.bash_logout:当每次退出bash shell时，执行该文件</p>
-</li>
-<li><p>~/.bash_profile是login方式进入bash运行的，~/.bashrc是non-login方式进入bash运行的，通常前者会调用后者</p>
-</li>
-</ul>
+        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>如题，磁盘文件的分区，挂载操作属于运维方面的内容了，但是最近项目需要，所以记录一下解决方案</p>
+<h3 id="常规解决方案"><a href="#常规解决方案" class="headerlink" title="常规解决方案"></a>常规解决方案</h3><p>之所以叫常规解决方案，是在处理较小文件系统时使用，一般是磁盘容量小于或等于2T。我们通常会使用fdisk方法，主要有以下几个步骤</p>
+<h4 id="第一步-分区"><a href="#第一步-分区" class="headerlink" title="第一步 分区"></a>第一步 分区</h4><p>sudo fdisk -lu #显示当前的硬盘和所属分区的情况，如果装系统时没有挂载某块硬盘，那么这里会显示出硬盘信息，但不会有分区信息</p>
+<p>sudo fdisk /dev/sda #对某一块硬盘进行分区，后面的是硬盘的名字</p>
+<p>在弹出的交互式界面中<br>输入 n ，代表创建分区，<br>输入 primary， 代表主分区<br>输入分区号，输入1，代表第一个分区<br>然后回要求输入起始位置和终止位置，直接默认就好，会把硬盘的最大容量设置进分区<br>输入p，会显示分区表<br>最后输入w，保存<br>如果不小心输错了，可以先退出，然后从新设置，输入d代表删除分区，然后w保存，就可以了</p>
+<h4 id="第二步-格式化文件"><a href="#第二步-格式化文件" class="headerlink" title="第二步 格式化文件"></a>第二步 格式化文件</h4><p>将分区格式化成ext4格式，也是ubuntu的文件格式<br>sudo mkfs -t ext4 /dev/sda1</p>
+<h4 id="第三步-挂载磁盘分区"><a href="#第三步-挂载磁盘分区" class="headerlink" title="第三步 挂载磁盘分区"></a>第三步 挂载磁盘分区</h4><p>sudo df -l<br>会发现新的分区并没有挂载</p>
+<p>在终端窗口中输入如下命令：<br>sudo mount -t ext4 /dev/sda1 /sda</p>
+<p>说明：<br>指定硬盘分区文件系统类型为ext4 ，同时将 /dev/sda1 分区挂载到目录 /sda</p>
+<p>再次在终端窗口中输入如下命令：<br>sudo df -l<br>即可看到已经挂载成功</p>
+<h3 id="大文件解决方案"><a href="#大文件解决方案" class="headerlink" title="大文件解决方案"></a>大文件解决方案</h3><p>上面的操作只适用于硬盘小于2T的情况，博主实际测试过，实际环境中有14T的硬盘，用上面的方法挂载后只能显示2T的容量，所以要用新的方法，parted </p>
+<h4 id="parted的用途及说明"><a href="#parted的用途及说明" class="headerlink" title="parted的用途及说明"></a>parted的用途及说明</h4><p>概括使用说明：<br>parted用于对磁盘（或RAID磁盘）进行分区及管理，与fdisk分区工具相比，支持2TB以上的磁盘分区，并且允许调整分区的大小。<br>GNU手册说明：<br>parted是一个用于硬盘分区或调整分区大小的工具。使用它你可以创建、清除、调整、移动和复制ext2、ext3、linux-swap、FAT、FAT32和reiserfs分区；也能创建、调整和移动苹果系统的HFS分区；还能检测jfs、ntfs、ufs和xfs分区。该工具常用于为新安装的操作系统创建空间，重新分配硬盘使用情况，在将数据拷贝到新硬盘的时候也常常使用。</p>
+<p>parted命令常用选项。<br>当在命令行输入parted后，进入parted命令的交互模式。输入help会显示帮助信息。下面就简单介绍一下常用的功能<br>1、Check     简单检查文件系统。建议用其他命令检查文件系统，比如fsck<br>2、Help      显示帮助信息<br>3、mklabel   创建分区表， 即是使用msdos（MBR）还是使用gpt，或者是其他方式分区表<br>4、mkfs      创建文件系统。该命令不支持ext3 格式，因此建议不使用，最好是用parted分好区，然后退出parted交互模式，用其他命令进行分区，比如：mkfs.ext3<br>5、mkpart    创建新分区。<br>        格式：mkpart PART-TYPE  [FS-TYPE]  START  END<br>             PART-TYPE 类型主要有primary（主分区）, extended（扩展分区）, logical（逻辑区）. 扩展分区和逻辑分区只对msdos。<br>             fs-type   文件系统类型，主要有fs32，NTFS，ext2，ext3等<br>             start end 分区的起始和结束位置。<br>6、mkpartfs  建立分区及其文件系统。目前还不支持ext3文件系统，因此不建议使用该功能。最后是分好区后，退出parted，然后用其他命令建立文件系统。<br>7、print    输出分区信息。该功能有3个选项，<br>       free 显示该盘的所有信息，并显示磁盘剩余空间<br>     number 显示指定的分区的信息<br>        all 显示所有磁盘信息<br>8、resize   调整指定的分区的大小。目前对ext3格式支持不是很好，所以不建议使用该功能。<br>9、rescue   恢复不小心删除的分区。如果不小心用parted的rm命令删除了一个分区，那么可以通过rescue功能进行恢复。恢复时需要给出分区的起始和结束的位置。然后parted就会在给定的范围内去寻找，并提示恢复分区。<br>10、rm      删除分区。命令格式 rm  number 。如：rm 3 就是将编号为3的分区删除<br>11、select  选择设备。当输入parted命令后直接回车进入交互模式是，如果有多块硬盘，需要用select 选择要操作的硬盘。如：select /dev/sdb<br>12、set     设置标记。更改指定分区编号的标志。标志通常有如下几种：boot  hidden   raid   lvm 等。boot 为引导分区，hidden 为隐藏分区，raid 软raid，lvm 为逻辑分区。如：set 3  boot  on   设置分区号3 为启动分区</p>
+<h4 id="parted的使用方法及步骤"><a href="#parted的使用方法及步骤" class="headerlink" title="parted的使用方法及步骤"></a>parted的使用方法及步骤</h4><p>对磁盘进行分区<br>parted /dev/sdb mklabel gpt mkpart 1 ext4 1 14T<br>上面的命令首先分区，设置格式为gpt 创建第一个分区表 然后分区容量为全部14T的存储空间</p>
+<p>在这样分完分区后,还要使用mkfs ext4来进行格式化：</p>
+<p>sudo mkfs -t ext4 /dev/sdb1</p>
+<p>格式化后可以直接挂载使用：</p>
+<p>sudo mount -t ext4 /dev/sdb1 /sdb</p>
+<p>大功告成了！</p>
 
       
     </div>
@@ -408,8 +412,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/11/mongodb安装教程/" rel="next" title="mongodb安装教程">
-                <i class="fa fa-chevron-left"></i> mongodb安装教程
+              <a href="/2017/09/13/localapt/" rel="next" title="本地apt源搭建">
+                <i class="fa fa-chevron-left"></i> 本地apt源搭建
               </a>
             
           </div>
@@ -417,10 +421,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/17/javascript-object-oriented/" rel="prev" title="javascript面向对象编程">
-                javascript面向对象编程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -446,8 +446,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/11/linux配置文件/"
-           data-title="linux配置文件" data-url="https://hexo.github.io/2016/10/11/linux配置文件/">
+      <div class="ds-thread" data-thread-key="2017/09/15/fdisk/"
+           data-title="ubuntu 大容量磁盘分区&挂载" data-url="https://hexo.github.io/2017/09/15/fdisk/">
       </div>
     
   </div>
@@ -471,8 +471,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avator.jpg"
@@ -562,6 +571,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常规解决方案"><span class="nav-number">2.</span> <span class="nav-text">常规解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步-分区"><span class="nav-number">2.1.</span> <span class="nav-text">第一步 分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二步-格式化文件"><span class="nav-number">2.2.</span> <span class="nav-text">第二步 格式化文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步-挂载磁盘分区"><span class="nav-number">2.3.</span> <span class="nav-text">第三步 挂载磁盘分区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大文件解决方案"><span class="nav-number">3.</span> <span class="nav-text">大文件解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#parted的用途及说明"><span class="nav-number">3.1.</span> <span class="nav-text">parted的用途及说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parted的使用方法及步骤"><span class="nav-number">3.2.</span> <span class="nav-text">parted的使用方法及步骤</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
