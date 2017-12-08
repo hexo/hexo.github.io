@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="人际交往中的几种陈述 应酬性陈述,首先是缓和气氛 事实性陈述,简单直接,不含有强烈的个人意见 评价性陈述,发表个人意见,冒一定的风险 内在性陈述,这个阶段是在彼此信任后向对方透露自己的内心情感 顶峰性陈述,无隐瞒地分享内心深处的感受,期待对方回应  这几种不同的陈述是随着交往的程度加深,关系的逐渐亲密而进化的.富兰克林曾说过,对所有人以诚相待,与多数人和睦相处,同少数人常来常往,和一个人亲密无">
+<meta name="description" content="最近项目用到了docker相关的一些技术，感觉还是挺方便的，有一些学习心得，记录一下 docker 常用命令 docker ps ：可以查看正在运行着的docker容器 docker ps -a : 查看系统中已经存在的docker容器 docker images : 查看docker镜像 service docker restart : 重启docker服务  加载镜像那么，第一步，我们需要">
 <meta property="og:type" content="article">
-<meta property="og:title" content="有效沟通技巧">
-<meta property="og:url" content="https://hexo.github.io/2016/10/30/lml/index.html">
+<meta property="og:title" content="docker 相关知识总结">
+<meta property="og:url" content="https://hexo.github.io/2017/12/08/docker-intro/index.html">
 <meta property="og:site_name" content="Airghc">
-<meta property="og:description" content="人际交往中的几种陈述 应酬性陈述,首先是缓和气氛 事实性陈述,简单直接,不含有强烈的个人意见 评价性陈述,发表个人意见,冒一定的风险 内在性陈述,这个阶段是在彼此信任后向对方透露自己的内心情感 顶峰性陈述,无隐瞒地分享内心深处的感受,期待对方回应  这几种不同的陈述是随着交往的程度加深,关系的逐渐亲密而进化的.富兰克林曾说过,对所有人以诚相待,与多数人和睦相处,同少数人常来常往,和一个人亲密无">
-<meta property="og:updated_time" content="2017-04-29T02:06:33.000Z">
+<meta property="og:description" content="最近项目用到了docker相关的一些技术，感觉还是挺方便的，有一些学习心得，记录一下 docker 常用命令 docker ps ：可以查看正在运行着的docker容器 docker ps -a : 查看系统中已经存在的docker容器 docker images : 查看docker镜像 service docker restart : 重启docker服务  加载镜像那么，第一步，我们需要">
+<meta property="og:updated_time" content="2017-12-08T08:55:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="有效沟通技巧">
-<meta name="twitter:description" content="人际交往中的几种陈述 应酬性陈述,首先是缓和气氛 事实性陈述,简单直接,不含有强烈的个人意见 评价性陈述,发表个人意见,冒一定的风险 内在性陈述,这个阶段是在彼此信任后向对方透露自己的内心情感 顶峰性陈述,无隐瞒地分享内心深处的感受,期待对方回应  这几种不同的陈述是随着交往的程度加深,关系的逐渐亲密而进化的.富兰克林曾说过,对所有人以诚相待,与多数人和睦相处,同少数人常来常往,和一个人亲密无">
+<meta name="twitter:title" content="docker 相关知识总结">
+<meta name="twitter:description" content="最近项目用到了docker相关的一些技术，感觉还是挺方便的，有一些学习心得，记录一下 docker 常用命令 docker ps ：可以查看正在运行着的docker容器 docker ps -a : 查看系统中已经存在的docker容器 docker images : 查看docker镜像 service docker restart : 重启docker服务  加载镜像那么，第一步，我们需要">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://hexo.github.io/2016/10/30/lml/"/>
+  <link rel="canonical" href="https://hexo.github.io/2017/12/08/docker-intro/"/>
 
 
 
 
 
-  <title> 有效沟通技巧 | Airghc </title>
+  <title> docker 相关知识总结 | Airghc </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +260,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2016/10/30/lml/">
+  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2017/12/08/docker-intro/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="关鸿超">
@@ -284,7 +284,7 @@
             
             
               
-                有效沟通技巧
+                docker 相关知识总结
               
             
           </h1>
@@ -299,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-30T14:24:17+08:00">
-                2016-10-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-08T16:02:54+08:00">
+                2017-12-08
               </time>
             
 
@@ -322,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -340,8 +340,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/30/lml/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/30/lml/" itemprop="commentCount"></span>
+                <a href="/2017/12/08/docker-intro/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/08/docker-intro/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -367,14 +367,44 @@
       
 
       
-        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h1 id="人际交往中的几种陈述"><a href="#人际交往中的几种陈述" class="headerlink" title="人际交往中的几种陈述"></a>人际交往中的几种陈述</h1><ul>
-<li>应酬性陈述,首先是缓和气氛</li>
-<li>事实性陈述,简单直接,不含有强烈的个人意见</li>
-<li>评价性陈述,发表个人意见,冒一定的风险</li>
-<li>内在性陈述,这个阶段是在彼此信任后向对方透露自己的内心情感</li>
-<li>顶峰性陈述,无隐瞒地分享内心深处的感受,期待对方回应</li>
+        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>最近项目用到了docker相关的一些技术，感觉还是挺方便的，有一些学习心得，记录一下</p>
+<h3 id="docker-常用命令"><a href="#docker-常用命令" class="headerlink" title="docker 常用命令"></a>docker 常用命令</h3><ul>
+<li>docker ps ：可以查看正在运行着的docker容器</li>
+<li>docker ps -a : 查看系统中已经存在的docker容器</li>
+<li>docker images : 查看docker镜像</li>
+<li>service docker restart : 重启docker服务</li>
 </ul>
-<p>这几种不同的陈述是随着交往的程度加深,关系的逐渐亲密而进化的.<br>富兰克林曾说过,对所有人以诚相待,与多数人和睦相处,同少数人常来常往,和一个人亲密无间.这也应做为自己人际交往的准则</p>
+<h3 id="加载镜像"><a href="#加载镜像" class="headerlink" title="加载镜像"></a>加载镜像</h3><p>那么，第一步，我们需要加载一个docker镜像到系统中，可以通过导入镜像文件的方式，也可以在dockerhub上pull下来别人上传的镜像</p>
+<h4 id="从DockerHub-pull-镜像"><a href="#从DockerHub-pull-镜像" class="headerlink" title="从DockerHub pull 镜像"></a>从DockerHub pull 镜像</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull [选项] [Docker Registry 地址[:端口号]/]仓库名[:标签]</div></pre></td></tr></table></figure>
+<p>具体的选项可以通过 docker pull –help 命令看到，这里我们说一下镜像名称的格式。</p>
+<ul>
+<li>Docker 镜像仓库地址：地址的格式一般是 &lt;域名/IP&gt;[:端口号]。默认地址是 Docker Hub。</li>
+<li>仓库名：如之前所说，这里的仓库名是两段式名称，即 &lt;用户名&gt;/&lt;软件名&gt;。对于 Docker Hub，如果不给出用户名，则默认为 library，也就是官方镜像。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ docker pull ubuntu:16.04</div><div class="line">16.04: Pulling from library/ubuntu</div><div class="line">bf5d46315322: Pull complete</div><div class="line">9f13e0ac480c: Pull complete</div><div class="line">e8988b5b3097: Pull complete</div><div class="line">40af181810e7: Pull complete</div><div class="line">e6f7c7e5c03e: Pull complete</div><div class="line">Digest: sha256:147913621d9cdea08853f6ba9116c2e27a3ceffecf3b492983ae97c3d643fbbe</div><div class="line">Status: Downloaded newer image for ubuntu:16.04</div></pre></td></tr></table></figure>
+<h4 id="从镜像文件导入"><a href="#从镜像文件导入" class="headerlink" title="从镜像文件导入"></a>从镜像文件导入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker load --input fedora.tar</div></pre></td></tr></table></figure>
+<p>即可导入镜像到系统中</p>
+<h3 id="生成容器"><a href="#生成容器" class="headerlink" title="生成容器"></a>生成容器</h3><p>到了这一步，镜像的加载已经成功了，我们可以在Terminal输入docker images 查看当前已经存在的镜像，下一步就是生成容器了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -it --name test_container images_name /bin/bash</div></pre></td></tr></table></figure>
+<p>docker run 命令可以加入参数，主要用到的如下：</p>
+<ul>
+<li>-it：这是两个参数，一个是 -i：交互式操作，一个是 -t 终端。我们这里打算进入 bash 执行一些命令并查看返回结果，因此我们需要交互式终端。</li>
+<li>–name container_name : 声明容器名字，如果不加入此项内容，每次启动容器时需要使用container_id</li>
+<li>-d ：后台启动，使用这条命令会将容器运行在后台环境</li>
+<li>-p docker_port:outer_port ：端口映射，docker内部端口映射到外部，使得服务可以被访问</li>
+</ul>
+<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><p>我们已经使用docker run 命令生成了一个容器，那么如何进入容器呢，根据生成容器的方法不通可以有两种选择<br>如果像上面操作所示，我们创建容器时，采用交互式方法并进入bash ，那么我们下次只要start容器就可以了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker start -i  container_id</div></pre></td></tr></table></figure></p>
+<p>而如果创建容器时是后台运行的服务，那么可以通过exec命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it container_id /bin/bash</div></pre></td></tr></table></figure></p>
+<h3 id="保存容器"><a href="#保存容器" class="headerlink" title="保存容器"></a>保存容器</h3><p>当我们做好了修改，希望保存容器时，需要用到如下操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker commit container_id to_image_name</div><div class="line">docker save image_name &gt; image_name.tar</div></pre></td></tr></table></figure></p>
+<p>首先提交更改，将容器内容生成为镜像，可以使用原有镜像名的不同标签做区分存储，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ docker commit \</div><div class="line">    --author &quot;airghc&quot; \</div><div class="line">    --message &quot;修改了配置&quot; \</div><div class="line">    webserver \</div><div class="line">    nginx:v2</div></pre></td></tr></table></figure></p>
+<p>然后保存镜像文件并导出即可</p>
+<h3 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h3><p>主要有以下几个命令，方便镜像和容器的删除操作</p>
+<ul>
+<li>docker kill $(docker ps -a -q) : 杀死正在运行的容器</li>
+<li>docker rm $(docker ps -a -q) : 删除所有已经停止的容器</li>
+<li>docker rmi $(docker images -q) : 删除所有镜像</li>
+</ul>
+<h3 id="创建别名"><a href="#创建别名" class="headerlink" title="创建别名"></a>创建别名</h3><p>编辑文件 ～/.bash_aliases<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias dockerkill=&apos;docker kill $(docker ps -a -q)&apos;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -401,8 +431,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/24/decisiontree2/" rel="next" title="决策树学习的常见问题">
-                <i class="fa fa-chevron-left"></i> 决策树学习的常见问题
+              <a href="/2017/12/06/end-thinking/" rel="next" title="年末随想">
+                <i class="fa fa-chevron-left"></i> 年末随想
               </a>
             
           </div>
@@ -410,10 +440,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/30/tech-6/" rel="prev" title="高新技术六大领域">
-                高新技术六大领域 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -439,8 +465,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/30/lml/"
-           data-title="有效沟通技巧" data-url="https://hexo.github.io/2016/10/30/lml/">
+      <div class="ds-thread" data-thread-key="2017/12/08/docker-intro/"
+           data-title="docker 相关知识总结" data-url="https://hexo.github.io/2017/12/08/docker-intro/">
       </div>
     
   </div>
@@ -574,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#人际交往中的几种陈述"><span class="nav-number">1.</span> <span class="nav-text">人际交往中的几种陈述</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-常用命令"><span class="nav-number">1.</span> <span class="nav-text">docker 常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载镜像"><span class="nav-number">2.</span> <span class="nav-text">加载镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#从DockerHub-pull-镜像"><span class="nav-number">2.1.</span> <span class="nav-text">从DockerHub pull 镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从镜像文件导入"><span class="nav-number">2.2.</span> <span class="nav-text">从镜像文件导入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成容器"><span class="nav-number">3.</span> <span class="nav-text">生成容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进入容器"><span class="nav-number">4.</span> <span class="nav-text">进入容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存容器"><span class="nav-number">5.</span> <span class="nav-text">保存容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除镜像"><span class="nav-number">6.</span> <span class="nav-text">删除镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建别名"><span class="nav-number">7.</span> <span class="nav-text">创建别名</span></a></li></ol></div>
             
 
           </div>
