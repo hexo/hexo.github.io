@@ -345,7 +345,7 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>linux重定向及nohup不输出的方法<br>先说一下linux重定向：<br>0、1和2分别表示标准输入、标准输出和标准错误信息输出，可以用来指定需要重定向的标准输入或输出。<br>在一般使用时，默认的是标准输出，既1.当我们需要特殊用途时，可以使用其他标号。例如，将某个程序的错误信息输出到log文件中：./program 2&gt;log。这样标准输出还是在屏幕上，但是错误信息会输出到log文件中。<br>另外，也可以实现0，1，2之间的重定向。2&gt;&amp;1：将错误信息重定向到标准输出。<br>Linux下还有一个特殊的文件/dev/null，它就像一个无底洞，所有重定向到它的信息都会消失得无影无踪。这一点非常有用，当我们不需要回显程序的所有信息时，就可以将输出重定向到/dev/null。<br>如果想要正常输出和错误信息都不显示，则要把标准输出和标准错误都重定向到/dev/null， 例如：</p>
+        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>linux重定向及nohup不输出的方法<br>先说一下linux重定向：<br>0、1和2分别表示标准输入、标准输出和标准错误信息输出，可以用来指定需要重定向的标准输入或输出。<br>在一般使用时，默认的是标准输出，既1.当我们需要特殊用途时，可以使用其他标号。例如，将某个程序的错误信息输出到log文件中：./program 2&gt;log。这样标准输出还是在屏幕上，但是错误信息会输出到log文件中。<br>另外，也可以实现0，1，2之间的重定向。2&gt;&amp;1：将错误信息重定向到标准输出。<br>Linux下还有一个特殊的文件/dev/null，它就像一个无底洞，所有重定向到它的信息都会消失得无影无踪。这一点非常有用，当我们不需要回显程序的所有信息时，就可以将输出重定向到/dev/null。<br>如果想要正常输出和错误信息都不显示，则要把标准输出和标准错误都重定向到/dev/null， 例如：</p>
 <h1 id="ls-1-gt-dev-null-2-gt-dev-null"><a href="#ls-1-gt-dev-null-2-gt-dev-null" class="headerlink" title="ls 1&gt;/dev/null 2&gt;/dev/null"></a>ls 1&gt;/dev/null 2&gt;/dev/null</h1><p>还有一种做法是将错误重定向到标准输出，然后再重定向到 /dev/null，例如：</p>
 <h1 id="ls-gt-dev-null-2-gt-amp-1"><a href="#ls-gt-dev-null-2-gt-amp-1" class="headerlink" title="ls &gt;/dev/null 2&gt;&amp;1"></a>ls &gt;/dev/null 2&gt;&amp;1</h1><p>注意：此处的顺序不能更改，否则达不到想要的效果，此时先将标准输出重定向到 /dev/null，然后将标准错误重定向到标准输出，由于标准输出已经重定向到了/dev/null，因此标准错误也会重定向到/dev/null，于是一切静悄悄:-)</p>
 <p>由于使用nohup时，会自动将输出写入nohup.out文件中，如果文件很大的话，nohup.out就会不停的增大，这是我们不希望看到的，因此，可以利用/dev/null来解决这个问题。</p>
@@ -480,7 +480,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -588,7 +588,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

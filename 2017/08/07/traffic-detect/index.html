@@ -345,7 +345,7 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>最近看了一篇论文，关于加密的恶意流量检测，这篇文章进行一下总结</p>
+        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>最近看了一篇论文，关于加密的恶意流量检测，这篇文章进行一下总结</p>
 <p>识别出加密流量中潜藏的安全威胁具有很大挑战，现已存在一些检测方法利用数据流的元数据来进行检测，包括包长度和到达间隔时间等。来自思科的研究人员扩展现有的检测方法提出一种新的思路（称之为“data omnia”），不需要对加密的恶意流量进行解密，就能检测到采用TLS连接的恶意程序，本文就该检测方法进行简要描述，主要参照思科在AISec’16发表的文章《Identifying Encrypted Malware Traffic with Contextual Flow Data》<br>首先，分析百万级的正常流量和恶意流量中TLS流、DNS流和HTTP流的不同之处，具体包括未加密的TLS握手信息、TLS流中与目的IP地址相关的DNS响应信息（如图2）、相同源IP地址5min窗口内HTTP流的头部信息；然后，选取具有明显区分度的特征集作为分类器（有监督机器学习）的输入来训练检测模型，从而识别加密的恶意流量。本方法区别于已有研究方法的地方就是利用TLS流相关背景流量信息（包括DNS响应、HTTP头部等）辅助加密恶意流量检测。<br>文中对恶意/正常流量中TLS流及背景流量信息（DNS响应信息、HTTP头部信息）进行统计分析，寻找恶意流量和正常流量中具有明显区分度的数据特征以及相应特征值的规律性。<br>从概念上讲：DH 依赖的是：求解“离散对数问题”的复杂性。具体的算法如下：<br>　　通讯双方（张三、李四）需要先约定好算法参数（algorithm parameters）：一个素数 p 作为模数，一个素数 g 作为基数（g 也称为“生成元”）。这两个算法参数是可以对外公开滴。<br>　　对于张三而言，需要先想好一个秘密的自然数 a 作为私钥（不能公开），然后计算 A = ga mod p 作为自己的公钥（可以公开）。<br>　　对李四而言也类似，先想好一个秘密的自然数 b 作为私钥（不能公开），然后计算 B = gb mod p 作为自己的公钥（可以公开）。<br>　　张三和李四互相交换各自的公钥。<br>　　然后张三计算出 k = Ba mod p，李四计算出 k = Ab mod p<br>　　该算法至少确保了如下几点：</p>
 <ol>
 <li>张三和李四分别计算出来的 k 必定是一致的</li>
@@ -462,7 +462,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -554,7 +554,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
