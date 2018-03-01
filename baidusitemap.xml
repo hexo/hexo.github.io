@@ -4,6 +4,24 @@
 
     
   <url>
+    <loc>https://hexo.github.io/2018/02/28/deeplearning-basic-knowledge/</loc>
+    <lastmod>2018-03-01T08:28:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>deeplearning 基础知识整理</title>
+        <pubTime>2018-02-28T12:12:59.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="机器学习" url="https://hexo.github.io/categories/machine-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://hexo.github.io/2018/02/27/agent/</loc>
     <lastmod>2018-02-27T04:58:01.000Z</lastmod>
     <data>
@@ -379,6 +397,24 @@
 
     
   <url>
+    <loc>https://hexo.github.io/2017/02/21/buptvpn/</loc>
+    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>北邮VPN设置方法</title>
+        <pubTime>2017-02-21T08:33:57.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="随笔" url="https://hexo.github.io/categories/diary/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://hexo.github.io/2017/02/08/linux-ip/</loc>
     <lastmod>2017-04-29T02:06:33.000Z</lastmod>
     <data>
@@ -432,25 +468,6 @@
     </url>
 
     
-    
-  <url>
-    <loc>https://hexo.github.io/2016/10/24/decisiontree2/</loc>
-    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>决策树学习的常见问题</title>
-        <pubTime>2016-10-24T02:43:03.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="机器学习" url="https://hexo.github.io/categories/machine-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
   <url>
     <loc>https://hexo.github.io/2016/10/11/mongodb%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2017-04-29T02:06:33.000Z</lastmod>
@@ -463,6 +480,24 @@
            
              
               <breadCrumb title="数据库" url="https://hexo.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/12/04/docker-install/</loc>
+    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>docker简介和安装</title>
+        <pubTime>2016-12-04T13:33:55.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Linux" url="https://hexo.github.io/categories/Linux/"/>
           
         </display>
     </data>
@@ -488,17 +523,73 @@
 
     
   <url>
-    <loc>https://hexo.github.io/2016/12/04/docker-install/</loc>
+    <loc>https://hexo.github.io/2016/10/24/decisiontree/</loc>
     <lastmod>2017-04-29T02:06:33.000Z</lastmod>
     <data>
         <display>
-        <title>docker简介和安装</title>
-        <pubTime>2016-12-04T13:33:55.000Z</pubTime>
+        <title>浅谈决策树学习算法</title>
+        <pubTime>2016-10-24T01:25:40.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="机器学习" url="https://hexo.github.io/categories/machine-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/09/03/new-bupt-life/</loc>
+    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>北邮2016级研究生开学典礼</title>
+        <pubTime>2016-09-03T08:35:24.000Z</pubTime>
+        
+        <tag>北邮人</tag>
+         
+         
+           
+             
+              <breadCrumb title="生活" url="https://hexo.github.io/categories/life/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2017/01/17/gitlearn/</loc>
+    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git相关知识学习</title>
+        <pubTime>2017-01-17T08:19:52.000Z</pubTime>
         
          
            
              
               <breadCrumb title="Linux" url="https://hexo.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/11/10/next-bug/</loc>
+    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>next-主题Bug和解决方案</title>
+        <pubTime>2016-11-10T13:12:09.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="前端" url="https://hexo.github.io/categories/front-end/"/>
           
         </display>
     </data>
@@ -544,60 +635,6 @@
 
     
   <url>
-    <loc>https://hexo.github.io/2016/11/10/Dection-DDos/</loc>
-    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>Dection-DDos</title>
-        <pubTime>2016-11-10T13:14:46.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="机器学习" url="https://hexo.github.io/categories/machine-learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2017/02/21/buptvpn/</loc>
-    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>北邮VPN设置方法</title>
-        <pubTime>2017-02-21T08:33:57.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="随笔" url="https://hexo.github.io/categories/diary/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2016/11/10/next-bug/</loc>
-    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>next-主题Bug和解决方案</title>
-        <pubTime>2016-11-10T13:12:09.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="前端" url="https://hexo.github.io/categories/front-end/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://hexo.github.io/2017/02/09/poem0209/</loc>
     <lastmod>2017-04-29T02:06:33.000Z</lastmod>
     <data>
@@ -609,42 +646,6 @@
            
              
               <breadCrumb title="随笔" url="https://hexo.github.io/categories/diary/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2016/11/09/poem1/</loc>
-    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>你那么远，又那么近</title>
-        <pubTime>2016-11-09T00:44:20.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="生活" url="https://hexo.github.io/categories/life/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2016/10/24/decisiontree/</loc>
-    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>浅谈决策树学习算法</title>
-        <pubTime>2016-10-24T01:25:40.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="机器学习" url="https://hexo.github.io/categories/machine-learning/"/>
           
         </display>
     </data>
@@ -670,12 +671,48 @@
 
     
   <url>
-    <loc>https://hexo.github.io/2016/12/27/poem2/</loc>
+    <loc>https://hexo.github.io/2017/01/17/haha/</loc>
     <lastmod>2017-04-29T02:06:33.000Z</lastmod>
     <data>
         <display>
-        <title>湖上梅花歌</title>
-        <pubTime>2016-12-27T13:34:55.000Z</pubTime>
+        <title>Linux下多版本python共存</title>
+        <pubTime>2017-01-17T03:53:42.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="python" url="https://hexo.github.io/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/11/09/poem1/</loc>
+    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>你那么远，又那么近</title>
+        <pubTime>2016-11-09T00:44:20.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="生活" url="https://hexo.github.io/categories/life/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/12/29/poem3/</loc>
+    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>岁暮诗</title>
+        <pubTime>2016-12-29T01:39:42.000Z</pubTime>
         
          
            
@@ -726,17 +763,17 @@
 
     
   <url>
-    <loc>https://hexo.github.io/2017/02/10/pythonprocess/</loc>
+    <loc>https://hexo.github.io/2016/12/27/poem2/</loc>
     <lastmod>2017-04-29T02:06:33.000Z</lastmod>
     <data>
         <display>
-        <title>python multiprocessing模块</title>
-        <pubTime>2017-02-10T11:21:08.000Z</pubTime>
+        <title>湖上梅花歌</title>
+        <pubTime>2016-12-27T13:34:55.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="python" url="https://hexo.github.io/categories/python/"/>
+              <breadCrumb title="随笔" url="https://hexo.github.io/categories/diary/"/>
           
         </display>
     </data>
@@ -762,89 +799,17 @@
 
     
   <url>
-    <loc>https://hexo.github.io/2017/02/10/pythonthread/</loc>
+    <loc>https://hexo.github.io/2017/02/10/pythonprocess/</loc>
     <lastmod>2017-04-29T02:06:33.000Z</lastmod>
     <data>
         <display>
-        <title>python threading模块</title>
-        <pubTime>2017-02-10T03:23:21.000Z</pubTime>
+        <title>python multiprocessing模块</title>
+        <pubTime>2017-02-10T11:21:08.000Z</pubTime>
         
          
            
              
               <breadCrumb title="python" url="https://hexo.github.io/categories/python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2016/11/11/spider1/</loc>
-    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>使用Python爬取数据学习</title>
-        <pubTime>2016-11-11T13:20:47.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="python" url="https://hexo.github.io/categories/python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2017/01/17/haha/</loc>
-    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>Linux下多版本python共存</title>
-        <pubTime>2017-01-17T03:53:42.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="python" url="https://hexo.github.io/categories/python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2016/12/29/poem3/</loc>
-    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>岁暮诗</title>
-        <pubTime>2016-12-29T01:39:42.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="随笔" url="https://hexo.github.io/categories/diary/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hexo.github.io/2017/01/17/gitlearn/</loc>
-    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>Git相关知识学习</title>
-        <pubTime>2017-01-17T08:19:52.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Linux" url="https://hexo.github.io/categories/Linux/"/>
           
         </display>
     </data>
@@ -870,12 +835,84 @@
 
     
   <url>
+    <loc>https://hexo.github.io/2017/02/10/pythonthread/</loc>
+    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>python threading模块</title>
+        <pubTime>2017-02-10T03:23:21.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="python" url="https://hexo.github.io/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/10/24/decisiontree2/</loc>
+    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>决策树学习的常见问题</title>
+        <pubTime>2016-10-24T02:43:03.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="机器学习" url="https://hexo.github.io/categories/machine-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://hexo.github.io/2016/11/11/spider2/</loc>
     <lastmod>2017-04-29T02:06:33.000Z</lastmod>
     <data>
         <display>
         <title>爬虫代码分析</title>
         <pubTime>2016-11-11T13:22:10.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="python" url="https://hexo.github.io/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/11/10/Dection-DDos/</loc>
+    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>Dection-DDos</title>
+        <pubTime>2016-11-10T13:14:46.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="机器学习" url="https://hexo.github.io/categories/machine-learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/11/11/spider1/</loc>
+    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>使用Python爬取数据学习</title>
+        <pubTime>2016-11-11T13:20:47.000Z</pubTime>
         
          
            
@@ -942,24 +979,6 @@
 
     
   <url>
-    <loc>https://hexo.github.io/2016/10/17/webpack/</loc>
-    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>webpack学习笔记</title>
-        <pubTime>2016-10-17T03:00:54.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="前端" url="https://hexo.github.io/categories/front-end/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://hexo.github.io/2016/07/30/hello-world/</loc>
     <lastmod>2017-04-29T02:06:33.000Z</lastmod>
     <data>
@@ -973,6 +992,42 @@
            
              
               <breadCrumb title="随笔" url="https://hexo.github.io/categories/diary/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/10/17/javascript-object-oriented/</loc>
+    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>javascript面向对象编程</title>
+        <pubTime>2016-10-17T02:18:08.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="前端" url="https://hexo.github.io/categories/front-end/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hexo.github.io/2016/10/17/webpack/</loc>
+    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>webpack学习笔记</title>
+        <pubTime>2016-10-17T03:00:54.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="前端" url="https://hexo.github.io/categories/front-end/"/>
           
         </display>
     </data>
@@ -999,45 +1054,8 @@
     </url>
 
     
-  <url>
-    <loc>https://hexo.github.io/2016/10/17/javascript-object-oriented/</loc>
-    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>javascript面向对象编程</title>
-        <pubTime>2016-10-17T02:18:08.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="前端" url="https://hexo.github.io/categories/front-end/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
     
     
     
-    
-  <url>
-    <loc>https://hexo.github.io/2016/09/03/new-bupt-life/</loc>
-    <lastmod>2017-04-29T02:06:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>北邮2016级研究生开学典礼</title>
-        <pubTime>2016-09-03T08:35:24.000Z</pubTime>
-        
-        <tag>北邮人</tag>
-         
-         
-           
-             
-              <breadCrumb title="生活" url="https://hexo.github.io/categories/life/"/>
-          
-        </display>
-    </data>
-    </url>
-
 </urlset>
