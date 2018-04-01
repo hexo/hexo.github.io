@@ -86,14 +86,20 @@
 
 <meta name="description" content="为什么要学习序列模型呢? 序列模型, 普遍称为RNN(循环神经网络 - Recurrent Neural Network), 作为深度学习中非常重要的一环，有着比普通神经网络更广的宽度与更多的可能性，其应用领域包括但不限于“语音识别”， “自然 语言处理”， “DNA序列分析”，“机器翻译”， “视频动作分析”，等等等等… 有这样一种说法，也许并不严谨，但是有 助于我们理解RNN，大意是这样的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度学习之序列模型初步">
+<meta property="og:title" content="深度学习之序列模型">
 <meta property="og:url" content="https://hexo.github.io/2018/03/26/intro-sequence-model/index.html">
 <meta property="og:site_name" content="Airghc">
 <meta property="og:description" content="为什么要学习序列模型呢? 序列模型, 普遍称为RNN(循环神经网络 - Recurrent Neural Network), 作为深度学习中非常重要的一环，有着比普通神经网络更广的宽度与更多的可能性，其应用领域包括但不限于“语音识别”， “自然 语言处理”， “DNA序列分析”，“机器翻译”， “视频动作分析”，等等等等… 有这样一种说法，也许并不严谨，但是有 助于我们理解RNN，大意是这样的">
 <meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/example_rnn.png">
-<meta property="og:updated_time" content="2018-03-29T02:26:12.000Z">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/rnn_forward.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/rnn_foeward2.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/backward.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/backward2.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/gru.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/lstm.png">
+<meta property="og:updated_time" content="2018-04-01T12:15:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深度学习之序列模型初步">
+<meta name="twitter:title" content="深度学习之序列模型">
 <meta name="twitter:description" content="为什么要学习序列模型呢? 序列模型, 普遍称为RNN(循环神经网络 - Recurrent Neural Network), 作为深度学习中非常重要的一环，有着比普通神经网络更广的宽度与更多的可能性，其应用领域包括但不限于“语音识别”， “自然 语言处理”， “DNA序列分析”，“机器翻译”， “视频动作分析”，等等等等… 有这样一种说法，也许并不严谨，但是有 助于我们理解RNN，大意是这样的">
 <meta name="twitter:image" content="http://oelvsay9f.bkt.clouddn.com/example_rnn.png">
 
@@ -129,7 +135,7 @@
 
 
 
-  <title> 深度学习之序列模型初步 | Airghc </title>
+  <title> 深度学习之序列模型 | Airghc </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -286,7 +292,7 @@
             
             
               
-                深度学习之序列模型初步
+                深度学习之序列模型
               
             
           </h1>
@@ -372,15 +378,19 @@
         <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>为什么要学习序列模型呢? 序列模型, 普遍称为RNN(循环神经网络 - Recurrent Neural Network), 作为深度学习中非常重要的一环，有着比普通神经网络更广的宽度与更多的可能性，其应用领域包括但不限于“语音识别”， “自然 语言处理”， “DNA序列分析”，“机器翻译”， “视频动作分析”，等等等等… 有这样一种说法，也许并不严谨，但是有 助于我们理解RNN，大意是这样的:</p>
 <p>普通神经网络处理的是一维的数据，CNN处理的是二维的数据，RNN处理的是三维的数据。 </p>
 <p>最直观的理解是在CNN对图片的分析基础上，RNN可以对视频进行分析，这里也就引入了第三维“时间”的概念。 </p>
-<p>本篇博客的主要基础是Andrew NG关于序列模型的教程，看完后受益匪浅，决定想做一个关于序列模型模块的学习总结，但是发现前人已经造好轮子了，而且内容质量很高，因此本篇博文将基于两篇学习笔记，并加入博主自己的理解内容，希望能够讲的清楚，易懂</p>
-<p><a href="http://oelvsay9f.bkt.clouddn.com/Andrew-Ng-deeplearning.ai-part-5-Course%20notes.pdf" target="_blank" rel="external">中文版学习笔记</a><br><a href="http://oelvsay9f.bkt.clouddn.com/sequence-models.pdf" target="_blank" rel="external">英文版本学习笔记</a></p>
+<p>本篇博客的主要基础是Andrew NG关于序列模型的教程，看完后受益匪浅，决定想做一个关于序列模型模块的学习总结，但是发现前人已经造好轮子了，而且内容质量很高，因此本篇博文将基于两篇学习笔记，整理一下主要知识点</p>
+<p><a href="http://oelvsay9f.bkt.clouddn.com/Andrew-Ng-deeplearning.ai-part-5-Course%20notes.pdf" target="_blank" rel="external">中文版学习笔记</a><br><a href="http://oelvsay9f.bkt.clouddn.com/sequence-models.pdf" target="_blank" rel="external">英文版本学习笔记</a><br><a href="http://kyonhuang.top/Andrew-Ng-Deep-Learning-notes/#/Sequence_Models/%E5%BE%AA%E7%8E%AF%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B" target="_blank" rel="external">另外一个很好的序列模型学习笔记</a><br><a href="https://zhuanlan.zhihu.com/p/35074402?utm_source=wechat_session&amp;utm_medium=social" target="_blank" rel="external">关于word2vec的很好的学习笔记</a></p>
 <h3 id="RNN的应用场景"><a href="#RNN的应用场景" class="headerlink" title="RNN的应用场景"></a>RNN的应用场景</h3><p><img src="http://oelvsay9f.bkt.clouddn.com/example_rnn.png" alt="RNN应用"><br>RNN主要应用在以上的场景，那么RNN和传统的神经网络，或者说CNN相比有什么不同呢，传统的方法又有何缺陷呢？<br>因为普通神经网络主要存在两个问题:</p>
 <ol>
 <li>不同的语句中，输入输出的结果长度不一致 </li>
 <li>单词和单词之间的特性无法被捕捉到<br>而RNN网络可以捕捉到序列的时序特征，因此广泛应用于各类自然语言处理问题</li>
 </ol>
-<h3 id="RNN的前向传播"><a href="#RNN的前向传播" class="headerlink" title="RNN的前向传播"></a>RNN的前向传播</h3><p>RNN是如何将时序信息向后传递的呢</p>
-<h3 id="RNN的反向传播"><a href="#RNN的反向传播" class="headerlink" title="RNN的反向传播"></a>RNN的反向传播</h3>
+<h3 id="RNN的前向传播"><a href="#RNN的前向传播" class="headerlink" title="RNN的前向传播"></a>RNN的前向传播</h3><p>RNN是如何将时序信息向后传递的呢<br><img src="http://oelvsay9f.bkt.clouddn.com/rnn_forward.png" alt="forward"><br><img src="http://oelvsay9f.bkt.clouddn.com/rnn_foeward2.png" alt="forward2"></p>
+<h3 id="RNN的反向传播"><a href="#RNN的反向传播" class="headerlink" title="RNN的反向传播"></a>RNN的反向传播</h3><p><img src="http://oelvsay9f.bkt.clouddn.com/backward.png" alt="backward"><br><img src="http://oelvsay9f.bkt.clouddn.com/backward2.png" alt="backward"></p>
+<h3 id="GRU-循环神经网络"><a href="#GRU-循环神经网络" class="headerlink" title="GRU 循环神经网络"></a>GRU 循环神经网络</h3><p><img src="http://oelvsay9f.bkt.clouddn.com/gru.png" alt="gru"></p>
+<h3 id="LSTM-循环神经网络"><a href="#LSTM-循环神经网络" class="headerlink" title="LSTM 循环神经网络"></a>LSTM 循环神经网络</h3><p><img src="http://oelvsay9f.bkt.clouddn.com/lstm.png" alt="lstm"></p>
+<p>综上，关于序列模型，或者说深度学习在NLP领域的应用，已经分享的很多了，希望后面可以帮助有需要的人，感谢走在前面的勤奋的人儿作出的学习总结，作为搬运工，也是希望自己能多看几遍，理解的更深一点</p>
+
       
     </div>
 
@@ -445,7 +455,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2018/03/26/intro-sequence-model/"
-           data-title="深度学习之序列模型初步" data-url="https://hexo.github.io/2018/03/26/intro-sequence-model/">
+           data-title="深度学习之序列模型" data-url="https://hexo.github.io/2018/03/26/intro-sequence-model/">
       </div>
     
   </div>
@@ -492,7 +502,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -579,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RNN的应用场景"><span class="nav-number">1.</span> <span class="nav-text">RNN的应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RNN的前向传播"><span class="nav-number">2.</span> <span class="nav-text">RNN的前向传播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RNN的反向传播"><span class="nav-number">3.</span> <span class="nav-text">RNN的反向传播</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RNN的应用场景"><span class="nav-number">1.</span> <span class="nav-text">RNN的应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RNN的前向传播"><span class="nav-number">2.</span> <span class="nav-text">RNN的前向传播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RNN的反向传播"><span class="nav-number">3.</span> <span class="nav-text">RNN的反向传播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GRU-循环神经网络"><span class="nav-number">4.</span> <span class="nav-text">GRU 循环神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LSTM-循环神经网络"><span class="nav-number">5.</span> <span class="nav-text">LSTM 循环神经网络</span></a></li></ol></div>
             
 
           </div>

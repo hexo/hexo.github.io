@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,17 +84,16 @@
 
 
 
-<meta name="description" content="最近终于开始做一些研究性的工作，学习使用python进行数据分析。首先接触到的就是pandas，现在把关于pandas相关的一些理解记录下来。 Seriesseries类似一维数组，他由一组数据及数据对应的标签组成。说是类似数组，但其实和数组是有区别的，主要是由于Series的索引的存在。 12from pandas import Series, DataFrameimport pandas">
-<meta name="keywords" content="python">
+<meta name="description" content="最近安装服务器环境重装了系统，涉及到配置raid存储相关的知识，经过调研加实际的操作，最终成功完成，记录一下研究过程 RAID简介RAID即磁盘阵列，通过磁盘冗余的方式实现服务器上磁盘的并行处理，同时通过冗余磁盘保证数据存储的可靠性，主要有以下几种：一是外接式磁盘阵列柜、二是内接式磁盘阵列卡，三是利用软件来仿真。 外接式磁盘阵列柜最常被使用大型服务器上，具可热交换（Hot Swap）的特性，不">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python数据分析之pandas">
-<meta property="og:url" content="https://hexo.github.io/2017/04/27/python/index.html">
+<meta property="og:title" content="raid配置指南">
+<meta property="og:url" content="https://hexo.github.io/2018/04/01/raid/index.html">
 <meta property="og:site_name" content="Airghc">
-<meta property="og:description" content="最近终于开始做一些研究性的工作，学习使用python进行数据分析。首先接触到的就是pandas，现在把关于pandas相关的一些理解记录下来。 Seriesseries类似一维数组，他由一组数据及数据对应的标签组成。说是类似数组，但其实和数组是有区别的，主要是由于Series的索引的存在。 12from pandas import Series, DataFrameimport pandas">
-<meta property="og:updated_time" content="2017-04-29T02:06:33.000Z">
+<meta property="og:description" content="最近安装服务器环境重装了系统，涉及到配置raid存储相关的知识，经过调研加实际的操作，最终成功完成，记录一下研究过程 RAID简介RAID即磁盘阵列，通过磁盘冗余的方式实现服务器上磁盘的并行处理，同时通过冗余磁盘保证数据存储的可靠性，主要有以下几种：一是外接式磁盘阵列柜、二是内接式磁盘阵列卡，三是利用软件来仿真。 外接式磁盘阵列柜最常被使用大型服务器上，具可热交换（Hot Swap）的特性，不">
+<meta property="og:updated_time" content="2018-04-01T12:49:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python数据分析之pandas">
-<meta name="twitter:description" content="最近终于开始做一些研究性的工作，学习使用python进行数据分析。首先接触到的就是pandas，现在把关于pandas相关的一些理解记录下来。 Seriesseries类似一维数组，他由一组数据及数据对应的标签组成。说是类似数组，但其实和数组是有区别的，主要是由于Series的索引的存在。 12from pandas import Series, DataFrameimport pandas">
+<meta name="twitter:title" content="raid配置指南">
+<meta name="twitter:description" content="最近安装服务器环境重装了系统，涉及到配置raid存储相关的知识，经过调研加实际的操作，最终成功完成，记录一下研究过程 RAID简介RAID即磁盘阵列，通过磁盘冗余的方式实现服务器上磁盘的并行处理，同时通过冗余磁盘保证数据存储的可靠性，主要有以下几种：一是外接式磁盘阵列柜、二是内接式磁盘阵列卡，三是利用软件来仿真。 外接式磁盘阵列柜最常被使用大型服务器上，具可热交换（Hot Swap）的特性，不">
 
 
 
@@ -122,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://hexo.github.io/2017/04/27/python/"/>
+  <link rel="canonical" href="https://hexo.github.io/2018/04/01/raid/"/>
 
 
 
 
 
-  <title> python数据分析之pandas | Airghc </title>
+  <title> raid配置指南 | Airghc </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -261,7 +260,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2017/04/27/python/">
+  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2018/04/01/raid/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="关鸿超">
@@ -285,7 +284,7 @@
             
             
               
-                python数据分析之pandas
+                raid配置指南
               
             
           </h1>
@@ -300,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-27T19:22:11+08:00">
-                2017-04-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-01T20:16:08+08:00">
+                2018-04-01
               </time>
             
 
@@ -323,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -341,8 +340,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/27/python/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/27/python/" itemprop="commentCount"></span>
+                <a href="/2018/04/01/raid/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/01/raid/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -368,27 +367,33 @@
       
 
       
-        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>最近终于开始做一些研究性的工作，学习使用python进行数据分析。首先接触到的就是pandas，现在把关于pandas相关的一些理解记录下来。</p>
-<h3 id="Series"><a href="#Series" class="headerlink" title="Series"></a>Series</h3><p>series类似一维数组，他由一组数据及数据对应的标签组成。说是类似数组，但其实和数组是有区别的，主要是由于Series的索引的存在。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">from pandas import Series, DataFrame</div><div class="line">import pandas as pd</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">obj = Series([1,2,3,4])# 创建一个Series对象，如果不声明索引，则默认的索引是0到N-1(N是数据的长度)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">obj.index 代表Series对象的索引，我们可以手动声明索引</div><div class="line">obj.values 代表Series对象的值，此时才相当于数组，即为python中的list</div></pre></td></tr></table></figure>
-<p>我们可以手动声明series的索引<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">obj2= Series([1,2,3,4], index=[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;])</div><div class="line">obj2[&apos;c&apos;]#通过索引获取元素的值</div></pre></td></tr></table></figure></p>
-<p>判断是否缺失数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">obj2.isnull() #使用series对象的方法，返回series，值为True或False</div><div class="line">pd.isnull(obj2) # 使用pandas的方法</div><div class="line">pd.notnull(obj2)</div></pre></td></tr></table></figure></p>
-<p>series对象本身及其索引都有一个name属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sdata = &#123;&apos;ohino&apos;: 3500, &apos;texas&apos;: 7100, &apos;utah&apos;: 500&#125;</div><div class="line">obj = Series(sdata)</div><div class="line">obj.name = &apos;population&apos;</div><div class="line">obj.index.name = &apos;state&apos;</div></pre></td></tr></table></figure></p>
-<h3 id="Series总结"><a href="#Series总结" class="headerlink" title="Series总结"></a>Series总结</h3><p>Series可以看成是一个定长的有序字典，可以认为字典的key值即为对应的Series的值的索引。</p>
-<h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3><p>Dataframe是一种表格型的数据结构，可以看成Series组成的字典，最常用的构建方法是传入一个由登场列表或者numpy数组组成的字典。DataFrame会自动加上索引。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">data = &#123;‘state’: [&apos;ohio&apos;,&apos;ohio&apos;,&apos;ohio&apos;], &apos;year&apos;: [2001, 2002, 2003], &apos;pop&apos;: [1.5, 1.6, 1.7]&#125;</div><div class="line">frame = DataFrame(data, columns=[&apos;year&apos;, &apos;state&apos;,&apos;pop&apos;])</div></pre></td></tr></table></figure>
-<p>获取元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">frame[&apos;state&apos;]#获取Series，返回的Series与原来的DataFrame有相同的索引。而且其name属性已经被设置为该columns的值，即为state</div><div class="line">frame.state # 也可以使用属性的方式获取series</div></pre></td></tr></table></figure></p>
-<p>当需要获取一行元素时，使用位置或者名称的方式进行获取。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">frame.ix[2] #获取第三行数据，此时仍为series，只是columns的值变成了索引</div></pre></td></tr></table></figure></p>
-<p>另一种常见的数据形式是嵌套字典，外层的字典的键作为列，内层字典的键作为行索引，内层字典的键会被合并，排序，形成最终的索引，也可以指定索引<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">frame.values #以二维数组的方式返回DataFrame中的数据</div><div class="line">frame.index.name #设置索引的名字</div><div class="line">frame.columns.name #设置columns的名字</div></pre></td></tr></table></figure></p>
-<h3 id="DataFrame切片"><a href="#DataFrame切片" class="headerlink" title="DataFrame切片"></a>DataFrame切片</h3><figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">obj[val]# 选取DataFrame的单个列或者一组列</div><div class="line">obj.ix[val] # 选取DataFrame的单个行或者一组行</div><div class="line">obj.ix[:,val] #选取单个列或者列子集</div><div class="line">obj.ix[val1, val2] #同时选取行和列</div></pre></td></tr></table></figure>
-<h3 id="DataFrame和Series之间的运算"><a href="#DataFrame和Series之间的运算" class="headerlink" title="DataFrame和Series之间的运算"></a>DataFrame和Series之间的运算</h3><p>默认情况下，DataFrame和Series之间的算术运算会将Series的索引匹配到DataFrame的列，然后沿着行一直向下传播</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">frame = DataFrame(np.arange(12.).reshape((4,3)), columns=list(&apos;bde&apos;), index=[&apos;Utah&apos;, &apos;Ohio&apos;, &apos;Texas&apos;, &apos;Oregon&apos;])</div><div class="line">series = frame.ix[0]</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">frame - series = DataFrame(&#123;&apos;b&apos;:[0,3,6,9],&apos;d&apos;:[0,3,6,9],&apos;e&apos;:[0,3,6,9]&#125;, index=[&apos;Utah&apos;, &apos;Ohio&apos;, &apos;Texas&apos;, &apos;Oregon&apos;])</div></pre></td></tr></table></figure>
-<p>是因为逐行传播的原因，frame每一行的元素都会减去series的对应值。</p>
-<p>如果某个索引值在DataFrame的列或者Series的索引中找不到，则参与运算的两个对象就会被重新索引形成并集</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本篇内容总结了DataFrame和Series的关系和核心概念。更多的详细内容需要参考《利用python进行数据分析》<br>本篇文章只是作为学习笔记使用。</p>
+        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>最近安装服务器环境重装了系统，涉及到配置raid存储相关的知识，经过调研加实际的操作，最终成功完成，记录一下研究过程</p>
+<h3 id="RAID简介"><a href="#RAID简介" class="headerlink" title="RAID简介"></a>RAID简介</h3><p>RAID即磁盘阵列，通过磁盘冗余的方式实现服务器上磁盘的并行处理，同时通过冗余磁盘保证数据存储的可靠性，主要有以下几种：一是外接式磁盘阵列柜、二是内接式磁盘阵列卡，三是利用软件来仿真。</p>
+<p>外接式磁盘阵列柜最常被使用大型服务器上，具可热交换（Hot Swap）的特性，不过这类产品的价格都很贵。</p>
+<p>内接式磁盘阵列卡，因为价格便宜，但需要较高的安装技术，适合技术人员使用操作。硬件阵列能够提供在线扩容、动态修改阵列级别、自动数据恢复、驱动器漫游、超高速缓冲等功能。它能提供性能、数据保护、可靠性、可用性和可管理性的解决方案。阵列卡专用的处理单元来进行操作。</p>
+<p>利用软件仿真的方式，是指通过网络操作系统自身提供的磁盘管理功能将连接的普通SCSI卡上的多块硬盘配置成逻辑盘，组成阵列。软件阵列可以提供数据冗余功能，但是磁盘子系统的性能会有所降低，有的降低幅度还比较大，达30%左右。因此会拖累机器的速度，不适合大数据流量的服务器。</p>
+<p>博主的实际环境是曙光服务器，安装有8块2T的磁盘，同时安装有硬RAID卡，可以通过RAID卡配置的方式直接设置RAID格式，对于小一点的环境系统，可以通过软件仿真的方式进行设置，接下来会分别介绍，首先介绍一下通用的，即RAID的设置格式和不同格式的区别</p>
+<p>1、RAID 0</p>
+<p>RAID 0是最早出现的RAID模式，即Data Stripping数据分条技术。RAID 0是组建磁盘阵列中最简单的一种形式，只需要2块以上的硬盘即可，成本低，可以提高整个磁盘的性能和吞吐量。RAID 0没有提供冗余或错误修复能力，但实现成本是最低的。</p>
+<p>RAID 0最简单的实现方式就是把N块同样的硬盘用硬件的形式通过智能磁盘控制器或用操作系统中的磁盘驱动程序以软件的方式串联在一起创建一个大的卷集。在使用中电脑数据依次写入到各块硬盘中，它的最大优点就是可以整倍的提高硬盘的容量。如使用了三块80GB的硬盘组建成RAID ,虽然RAID0可以提供更多的空间和更好的性能，但是整个系统是非常不可靠的，如果出现故障，无法进行任何补救。所以，RAID 0一般只是在那些对数据安全性要求不高的情况下才被人们使用。 </p>
+<p>2、RAID 1</p>
+<p>RAID 1称为磁盘镜像，原理是把一个磁盘的数据镜像到另一个磁盘上，也就是说数据在写入一块磁盘的同时，会在另一块闲置的磁盘上生成镜像文件，在不影响性能情况下最大限度的保证系统的可靠性和可修复性上，只要系统中任何一对镜像盘中至少有一块磁盘可以使用，甚至可以在一半数量的硬盘出现问题时系统都可以正常运行,当一块硬盘失效时，系统会忽略该硬盘，转而使用剩余的镜像盘读写数据，具备很好的磁盘冗余能力。虽然这样对数据来讲绝对安全，但是成本也会明显增加，磁盘利用率为50%，</p>
+<p>RAID 1主要是通过二次读写实现磁盘镜像，所以磁盘控制器的负载也相当大，尤其是在需要频繁写入数据的环境中。为了避免出现性能瓶颈，使用多个磁盘控制器就显得很有必要。</p>
+<p>3、RAID0+1</p>
+<p>从RAID 0+1名称上我们便可以看出是RAID0与RAID1的结合体。在我们单独使用RAID 1也会出现类似单独使用RAID 0那样的问题，即在同一时间内只能向一块磁盘写入数据，不能充分利用所有的资源。为了解决这一问题，我们可以在磁盘镜像中建立带区集。因为这种配置方式综合了带区集和镜像的优势，所以被称为RAID 0+1。把RAID0和RAID1技术结合起来，数据除分布在多个盘上外，每个盘都有其物理镜像盘，提供全冗余能力，允许一个以下磁盘故障，而不影响数据可用性，并具有快速读/写能力。RAID0+1要在磁盘镜像中建立带区集至少4个硬盘。</p>
+<p>4、RAID2：带海明码校验</p>
+<p>　　从概念上讲，RAID 2 同RAID 3类似， 两者都是将数据条块化分布于不同的硬盘上， 条块单位为位或字节。然而RAID 2 使用一定的编码技术来提供错误检查及恢复。这种编码技术需要多个磁盘存放检查及恢复信息，使得RAID 2技术实施更复杂。它又比RAID3，4或5要简单。没有免费的午餐，这里也一样，要利用海明码，必须要付出数据冗余的代价。输出数据的速率与驱动器组中速度最慢的相等。</p>
+<p>5 、RAID3：带奇偶校验码的并行传送</p>
+<p>　　这种校验码与RAID2不同，只能查错不能纠错。它访问数据时一次处理一个带区，这样可以提高读取和写入速度。校验码在写入数据时产生并保存在另一个磁盘上。需要实现时用户必须要有三个以上的驱动器，写入速率与读出速率都很高，因为校验位比较少，因此计算时间相对而言比较少。用软件实现RAID控制将是十分困难的，控制器的实现也不是很容易。它主要用于图形（包括动画）等要求吞吐率比较高的场合。不同于RAID 2，RAID 3使用单块磁盘存放奇偶校验信息。如果一块磁盘失效，奇偶盘及其他数据盘可以重新产生数据。 如果奇偶盘失效，则不影响数据使用。RAID 3对于大量的连续数据可提供很好的传输率，但对于随机数据，奇偶盘会成为写操作的瓶颈。</p>
+<p>6、RAID4：带奇偶校验码的独立磁盘结构</p>
+<p>　　RAID4和RAID3很象，不同的是，它对数据的访问是按数据块进行的，也就是按磁盘进行的，每次是一个盘。在图上可以这么看，RAID3是一次一横条，而RAID4一次一竖条。它的特点和RAID3也挺象，不过在失败恢复时，它的难度可要比RAID3大得多了，控制器的设计难度也要大许多，而且访问数据的效率不怎么好。</p>
+<p>7、RAID5：分布式奇偶校验的独立磁盘结构</p>
+<p>　　从它的示意图上可以看到，它的奇偶校验码存在于所有磁盘上，其中的p0代表第0带区的奇偶校验值，其它的意思也相同。RAID5的读出效率很高，写入效率一般，块式的集体访问效率不错。因为奇偶校验码在不同的磁盘上，所以提高了可靠性。但是它对数据传输的并行性解决不好，而且控制器的设计也相当困难。RAID 3 与RAID 5相比，重要的区别在于RAID 3每进行一次数据传输，需涉及到所有的阵列盘。而对于RAID 5来说，大部分数据传输只对一块磁盘操作，可进行并行操作。在RAID 5中有“写损失”，即每一次写操作，将产生四个实际的读/写操作，其中两次读旧的数据及奇偶信息，两次写新的数据及奇偶信息。</p>
+<p>以上是主要常用的几种RAID格式，综合来说RAID5是性价比最高的，因此我们实际配置的也是RAID5，即假如有8块盘，那么会留出一块盘大小的存储空间作为冗余空间，实际存储空间为其他七块盘的大小，但是冗余空间又不会单独放在一块磁盘，这样能够提高访问速度同时，提高稳定性</p>
+<h3 id="硬RAID卡配置"><a href="#硬RAID卡配置" class="headerlink" title="硬RAID卡配置"></a>硬RAID卡配置</h3><p>硬raid卡与软件方式实现的raid不同，有单独的一块raid卡硬件来进行存储资源的调度，节省cpu计算资源同时也不受其他计算任务影响，更加稳定。开机，进入系统自检后会弹出raid卡配置界面，界面上显示当前存储盘大小，编号，是否进入配置能，不同服务器bios的操作命令不同，以曙光服务器为例按ctrl+r即可进入配置界面。按照操作流程一步步配置即可，下面贴出一篇硬件raid卡配置的博客，仅供参考，不同的服务器，不同raid格式，配置方法有所区别，不过大体相同<br><a href="https://wenku.baidu.com/view/5526c90cfe00bed5b9f3f90f76c66137ef064f42.html" target="_blank" rel="external">lenovo硬件raid卡配置</a><br><a href="https://jingyan.baidu.com/article/ca41422fd9013c1eaf99ed74.html" target="_blank" rel="external">dell硬件raid卡配置</a></p>
+<h3 id="软件RAID卡配置"><a href="#软件RAID卡配置" class="headerlink" title="软件RAID卡配置"></a>软件RAID卡配置</h3><p>通过软件方式实现raid卡配置，博主没有实际操作过，但是研究过相关的博客教程，主要通过madadm工具实现</p>
+<h4 id="mdadm"><a href="#mdadm" class="headerlink" title="mdadm"></a>mdadm</h4><p>参考教程<a href="https://blog.csdn.net/wenyusuran/article/details/42150259" target="_blank" rel="external">ubuntu 配置raid卡</a></p>
+<p>　　</p>
 
       
     </div>
@@ -410,19 +415,13 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/python/" rel="tag"># python</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/18/speech/" rel="next" title="如何克服紧张情绪">
-                <i class="fa fa-chevron-left"></i> 如何克服紧张情绪
+              <a href="/2018/03/29/gateway/" rel="next" title="ubuntu 配置IP，网关">
+                <i class="fa fa-chevron-left"></i> ubuntu 配置IP，网关
               </a>
             
           </div>
@@ -430,10 +429,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/08/conv/" rel="prev" title="Keras 卷积层和池化层">
-                Keras 卷积层和池化层 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -459,8 +454,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/04/27/python/"
-           data-title="python数据分析之pandas" data-url="https://hexo.github.io/2017/04/27/python/">
+      <div class="ds-thread" data-thread-key="2018/04/01/raid/"
+           data-title="raid配置指南" data-url="https://hexo.github.io/2018/04/01/raid/">
       </div>
     
   </div>
@@ -594,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Series"><span class="nav-number">1.</span> <span class="nav-text">Series</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Series总结"><span class="nav-number">2.</span> <span class="nav-text">Series总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DataFrame"><span class="nav-number">3.</span> <span class="nav-text">DataFrame</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DataFrame切片"><span class="nav-number">4.</span> <span class="nav-text">DataFrame切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DataFrame和Series之间的运算"><span class="nav-number">5.</span> <span class="nav-text">DataFrame和Series之间的运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RAID简介"><span class="nav-number">1.</span> <span class="nav-text">RAID简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#硬RAID卡配置"><span class="nav-number">2.</span> <span class="nav-text">硬RAID卡配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件RAID卡配置"><span class="nav-number">3.</span> <span class="nav-text">软件RAID卡配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mdadm"><span class="nav-number">3.1.</span> <span class="nav-text">mdadm</span></a></li></ol></li></ol></div>
             
 
           </div>
