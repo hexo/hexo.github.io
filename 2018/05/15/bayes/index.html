@@ -84,16 +84,32 @@
 
 
 
-<meta name="description" content="紧张情绪总是伴随着我们的成长，并随着成长逐渐增加，我们会发现以前会逃避的东西，现在逃不掉了。所以这个问题急需解决，博主自己也做不好，也在学习，看了一些文章，有一篇不错，摘抄了过来，准备随时学习用。 转自 　 总结：1.看轻结果 2.放下自我 3.允许犯错 4.允许失败 5.允许丢脸 6.允许紧张">
+<meta name="description" content="贝叶斯推理提供了推理的一种概率手段，即假定待考察的量遵循某种概率分布，而且我们可以根据这些概率以及已观察到的数据进行推理，从而做出最优的决策 贝叶斯学习的独特之处是，它为衡量多个假设的置信度提供了定量的方法 贝叶斯学习方法的特性 观察到的每个训练样例可以增量地降低或者升高某假设的估计概率，而非完全去掉该假设 先验知识可以与观察数据一起决定假设的最终概率，先验知识可以是 1）每个候选假设的先验概">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何克服紧张情绪">
-<meta property="og:url" content="https://hexo.github.io/2017/04/18/speech/index.html">
+<meta property="og:title" content="浅谈贝叶斯学习">
+<meta property="og:url" content="https://hexo.github.io/2018/05/15/bayes/index.html">
 <meta property="og:site_name" content="Airghc">
-<meta property="og:description" content="紧张情绪总是伴随着我们的成长，并随着成长逐渐增加，我们会发现以前会逃避的东西，现在逃不掉了。所以这个问题急需解决，博主自己也做不好，也在学习，看了一些文章，有一篇不错，摘抄了过来，准备随时学习用。 转自 　 总结：1.看轻结果 2.放下自我 3.允许犯错 4.允许失败 5.允许丢脸 6.允许紧张">
-<meta property="og:updated_time" content="2017-04-29T02:06:33.000Z">
+<meta property="og:description" content="贝叶斯推理提供了推理的一种概率手段，即假定待考察的量遵循某种概率分布，而且我们可以根据这些概率以及已观察到的数据进行推理，从而做出最优的决策 贝叶斯学习的独特之处是，它为衡量多个假设的置信度提供了定量的方法 贝叶斯学习方法的特性 观察到的每个训练样例可以增量地降低或者升高某假设的估计概率，而非完全去掉该假设 先验知识可以与观察数据一起决定假设的最终概率，先验知识可以是 1）每个候选假设的先验概">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.04.53.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.05.07.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.05.12.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.05.16.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.05.22.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.05.31.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.05.37.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.05.43.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.19.36.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.19.44.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.19.49.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.19.56.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.20.03.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.36.25.png">
+<meta property="og:image" content="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.36.30.png">
+<meta property="og:updated_time" content="2018-05-15T12:55:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何克服紧张情绪">
-<meta name="twitter:description" content="紧张情绪总是伴随着我们的成长，并随着成长逐渐增加，我们会发现以前会逃避的东西，现在逃不掉了。所以这个问题急需解决，博主自己也做不好，也在学习，看了一些文章，有一篇不错，摘抄了过来，准备随时学习用。 转自 　 总结：1.看轻结果 2.放下自我 3.允许犯错 4.允许失败 5.允许丢脸 6.允许紧张">
+<meta name="twitter:title" content="浅谈贝叶斯学习">
+<meta name="twitter:description" content="贝叶斯推理提供了推理的一种概率手段，即假定待考察的量遵循某种概率分布，而且我们可以根据这些概率以及已观察到的数据进行推理，从而做出最优的决策 贝叶斯学习的独特之处是，它为衡量多个假设的置信度提供了定量的方法 贝叶斯学习方法的特性 观察到的每个训练样例可以增量地降低或者升高某假设的估计概率，而非完全去掉该假设 先验知识可以与观察数据一起决定假设的最终概率，先验知识可以是 1）每个候选假设的先验概">
+<meta name="twitter:image" content="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.04.53.png">
 
 
 
@@ -121,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="https://hexo.github.io/2017/04/18/speech/"/>
+  <link rel="canonical" href="https://hexo.github.io/2018/05/15/bayes/"/>
 
 
 
 
 
-  <title> 如何克服紧张情绪 | Airghc </title>
+  <title> 浅谈贝叶斯学习 | Airghc </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +276,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2017/04/18/speech/">
+  <link itemprop="mainEntityOfPage" href="https://hexo.github.io/2018/05/15/bayes/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="关鸿超">
@@ -284,7 +300,7 @@
             
             
               
-                如何克服紧张情绪
+                浅谈贝叶斯学习
               
             
           </h1>
@@ -299,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-18T19:43:42+08:00">
-                2017-04-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-15T13:50:46+08:00">
+                2018-05-15
               </time>
             
 
@@ -322,8 +338,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/摘抄/" itemprop="url" rel="index">
-                    <span itemprop="name">摘抄</span>
+                  <a href="/categories/machine-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -340,8 +356,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/18/speech/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/18/speech/" itemprop="commentCount"></span>
+                <a href="/2018/05/15/bayes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/05/15/bayes/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -367,15 +383,17 @@
       
 
       
-        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>紧张情绪总是伴随着我们的成长，并随着成长逐渐增加，我们会发现以前会逃避的东西，现在逃不掉了。所以这个问题急需解决，博主自己也做不好，也在学习，看了一些文章，有一篇不错，摘抄了过来，准备随时学习用。</p>
-<p><a href="http://www.360doc.com/content/10/0731/17/601194_42756242.shtml" target="_blank" rel="external">转自</a>
-　</p>
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>1.看轻结果</p>
-<p>2.放下自我</p>
-<p>3.允许犯错</p>
-<p>4.允许失败</p>
-<p>5.允许丢脸</p>
-<p>6.允许紧张　</p>
+        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>贝叶斯推理提供了推理的一种概率手段，即假定待考察的量遵循某种概率分布，而且我们可以根据这些概率以及已观察到的数据进行推理，从而做出最优的决策</p>
+<p>贝叶斯学习的独特之处是，它为衡量多个假设的置信度提供了定量的方法</p>
+<h3 id="贝叶斯学习方法的特性"><a href="#贝叶斯学习方法的特性" class="headerlink" title="贝叶斯学习方法的特性"></a>贝叶斯学习方法的特性</h3><ul>
+<li>观察到的每个训练样例可以增量地降低或者升高某假设的估计概率，而非完全去掉该假设</li>
+<li>先验知识可以与观察数据一起决定假设的最终概率，先验知识可以是 1）每个候选假设的先验概率，2）每个可能假设在可观察数据上的概率分布</li>
+<li>允许做出不确定性的预测</li>
+</ul>
+<h3 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h3><p>假设我们面对一个分类问题，一个样本点的特征向量和类别标签为<br><img src="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.04.53.png" alt=""><br>我们希望在知道x的情况下得到y=Cj的概率，即：<br><img src="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.05.07.png" alt=""><br>如果我们要具体的知道这个样本属于哪个类别的概率大，则需要求解最大后验概率：<br><img src="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.05.12.png" alt=""><br>先验概率为：<br><img src="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.05.16.png" alt=""><br>条件概率为：<br><img src="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.05.22.png" alt=""><br>朴素贝叶斯方法作了条件独立性假设,条件独立性假设即为，用于分类的特征在特定的条件下都是条件独立的，因此条件概率可以转化成：<br><img src="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.05.31.png" alt=""><br>根据贝叶斯定理，后验概率为：<br><img src="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.05.37.png" alt=""><br>我们要求的最大后验概率如上所示，由于对于所属的每一类来说，分母项都是不变的，因此：<br><img src="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.05.43.png" alt=""></p>
+<h3 id="目标函数的含义"><a href="#目标函数的含义" class="headerlink" title="目标函数的含义"></a>目标函数的含义</h3><p>我们期望的是分类的准确度尽可能的高,即期望风险最小化，所以损失函数选择0-1函数<br><img src="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.19.36.png" alt=""><br>期望风险函数为<br><img src="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.19.44.png" alt=""><br>优化函数为<br><img src="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.19.49.png" alt=""><br>所以后验概率最大化准则为<br><img src="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.19.56.png" alt=""><br>因此可以对样本类别进行判断<br><img src="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.20.03.png" alt=""><br>后验概率正比于先验概率*似然函数</p>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><h4 id="最大似然估计"><a href="#最大似然估计" class="headerlink" title="最大似然估计"></a>最大似然估计</h4><p><img src="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.36.25.png" alt=""><br>其中ajl表示的是特征的第j个维度的第l个可能取值。</p>
+<h4 id="贝叶斯估计"><a href="#贝叶斯估计" class="headerlink" title="贝叶斯估计"></a>贝叶斯估计</h4><p><img src="http://oelvsay9f.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-15%20%E4%B8%8B%E5%8D%883.36.30.png" alt=""></p>
 
       
     </div>
@@ -402,8 +420,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/17/feel/" rel="next" title="我们真正需要的是什么">
-                <i class="fa fa-chevron-left"></i> 我们真正需要的是什么
+              <a href="/2018/04/01/feeling/" rel="next" title="反思与感悟">
+                <i class="fa fa-chevron-left"></i> 反思与感悟
               </a>
             
           </div>
@@ -411,10 +429,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/27/python/" rel="prev" title="python数据分析之pandas">
-                python数据分析之pandas <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -440,8 +454,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/04/18/speech/"
-           data-title="如何克服紧张情绪" data-url="https://hexo.github.io/2017/04/18/speech/">
+      <div class="ds-thread" data-thread-key="2018/05/15/bayes/"
+           data-title="浅谈贝叶斯学习" data-url="https://hexo.github.io/2018/05/15/bayes/">
       </div>
     
   </div>
@@ -575,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#总结："><span class="nav-number">1.</span> <span class="nav-text">总结：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#贝叶斯学习方法的特性"><span class="nav-number">1.</span> <span class="nav-text">贝叶斯学习方法的特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法流程"><span class="nav-number">2.</span> <span class="nav-text">算法流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标函数的含义"><span class="nav-number">3.</span> <span class="nav-text">目标函数的含义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化"><span class="nav-number">4.</span> <span class="nav-text">优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最大似然估计"><span class="nav-number">4.1.</span> <span class="nav-text">最大似然估计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#贝叶斯估计"><span class="nav-number">4.2.</span> <span class="nav-text">贝叶斯估计</span></a></li></ol></li></ol></div>
             
 
           </div>
