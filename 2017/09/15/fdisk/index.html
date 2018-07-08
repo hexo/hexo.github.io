@@ -367,7 +367,7 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>如题，磁盘文件的分区，挂载操作属于运维方面的内容了，但是最近项目需要，所以记录一下解决方案</p>
+        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>如题，磁盘文件的分区，挂载操作属于运维方面的内容了，但是最近项目需要，所以记录一下解决方案</p>
 <h3 id="常规解决方案"><a href="#常规解决方案" class="headerlink" title="常规解决方案"></a>常规解决方案</h3><p>之所以叫常规解决方案，是在处理较小文件系统时使用，一般是磁盘容量小于或等于2T。我们通常会使用fdisk方法，主要有以下几个步骤</p>
 <h4 id="第一步-分区"><a href="#第一步-分区" class="headerlink" title="第一步 分区"></a>第一步 分区</h4><p>sudo fdisk -lu #显示当前的硬盘和所属分区的情况，如果装系统时没有挂载某块硬盘，那么这里会显示出硬盘信息，但不会有分区信息</p>
 <p>sudo fdisk /dev/sda #对某一块硬盘进行分区，后面的是硬盘的名字</p>
@@ -422,8 +422,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/26/bitcoin/" rel="prev" title="北京的秋">
-                北京的秋 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/08/docker-intro/" rel="prev" title="docker 相关知识总结">
+                docker 相关知识总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -498,7 +498,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

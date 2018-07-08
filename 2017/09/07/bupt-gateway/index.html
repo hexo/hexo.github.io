@@ -367,7 +367,7 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><script src="/assets/js/DPlayer.min.js"> </script><p>很多时候我们需要在linux命令行中登录北邮网关，那么怎么实现呢，博主调研了好几种方式，做一下记录，也方便大家的使用</p>
+        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>很多时候我们需要在linux命令行中登录北邮网关，那么怎么实现呢，博主调研了好几种方式，做一下记录，也方便大家的使用</p>
 <h3 id="curl方式"><a href="#curl方式" class="headerlink" title="curl方式"></a>curl方式</h3><p>这是最简单的一种，一条shell命令即可完成，推荐采用这个方式。。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">登陆curl --silent -d &quot;DDDDD=账号&amp;upass=密码&amp;AMKKey=&quot; &quot;http://10.3.8.211&quot;</div><div class="line">退出curl &quot;http://10.3.8.211/F.htm&quot;</div></pre></td></tr></table></figure></p>
 <h3 id="python3版本"><a href="#python3版本" class="headerlink" title="python3版本"></a>python3版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">#coding=utf-8</div><div class="line">#北邮校园网自动登录</div><div class="line">import urllib.request</div><div class="line">import re</div><div class="line">import urllib.parse</div><div class="line">class Loginer():</div><div class="line">	def __init__(self, username , password):</div><div class="line">		self.loginUrl = &apos;http://10.3.8.211/&apos;</div><div class="line">		self.username = username</div><div class="line">		self.password = password</div><div class="line"></div><div class="line">	def login(self):</div><div class="line">		postdata =&#123;</div><div class="line">			&apos;DDDDD&apos;:self.username,</div><div class="line">			&apos;upass&apos;:self.password,</div><div class="line">			&apos;savePWD&apos;:0,</div><div class="line">			&apos;0MKKey&apos;:&apos;&apos;</div><div class="line">			&#125;</div><div class="line">		postdata=urllib.parse.urlencode(postdata).encode(&apos;utf-8&apos;)</div><div class="line">		myRequest = urllib.request.urlopen(self.loginUrl,data = postdata)</div><div class="line">		result = myRequest.read()</div><div class="line">		unicodePage = result.decode(&apos;gb2312&apos;)</div><div class="line">		msg = re.findall(&apos;&lt;title&gt;(.*?)&lt;/title&gt;&apos;, unicodePage)[0]</div><div class="line">		print(msg)</div><div class="line"></div><div class="line">def main():</div><div class="line">	l = Loginer(yournumber , &apos;yourpassword&apos;)</div><div class="line">	l.login()</div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">	main()</div></pre></td></tr></table></figure>
       
@@ -395,8 +395,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/31/poem-817/" rel="next" title="梦想是什么模样">
-                <i class="fa fa-chevron-left"></i> 梦想是什么模样
+              <a href="/2017/08/12/nohup/" rel="next" title="nohup 开启守护进程">
+                <i class="fa fa-chevron-left"></i> nohup 开启守护进程
               </a>
             
           </div>
@@ -481,7 +481,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
